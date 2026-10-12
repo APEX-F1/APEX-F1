@@ -48,7 +48,6 @@ Os indicadores definitivos dependerão da disponibilidade, da qualidade e da cob
 | JavaScript | Interatividade e funcionalidades do frontend |
 | Node.js | Lógica do servidor e integração entre componentes |
 | MySQL | Armazenamento e consulta dos dados |
-| Power BI | Análise e visualização de indicadores |
 | Git e GitHub | Versionamento e documentação |
 
 A estrutura será detalhada e atualizada durante o desenvolvimento.
