@@ -51,22 +51,6 @@ Os indicadores definitivos dependerão da disponibilidade, da qualidade e da cob
 | Power BI | Análise e visualização de indicadores |
 | Git e GitHub | Versionamento e documentação |
 
-## 📁 Estrutura do repositório
-
-```text
-apex-f1/
-├── docs/
-├── frontend/
-├── backend/
-├── database/
-├── analytics/
-├── data/
-├── tests/
-├── .gitignore
-├── LICENSE
-└── README.md
-```
-
 A estrutura será detalhada e atualizada durante o desenvolvimento.
 
 ## 🗺️ Roadmap
