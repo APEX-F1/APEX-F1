@@ -1,0 +1,128 @@
+:root{
+  --fundo: #0b0b10;
+  --campo-fundo: #1d1d28;
+  --campo-borda: #2e2e3d;
+  --texto: #f4f4f6;
+  --texto-suave: #a0a0b2;
+  --placeholder: #6b6b7d;
+  --laranja: rgba(255, 128, 0, 0.85);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex; /*para os dois painéis ficarem lado a lado*/
+  min-height: 100vh; /*para ocupar a altura da tela*/
+  background-color: var(--fundo);
+  font-family: 'Inter', sans-serif; 
+  color: var(--texto);
+}
+
+.painel-marca {
+  width: 50%;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: linear-gradient(128.66deg, #ff8000 0%, #240100 71.4%);
+}
+
+.painel-formulario {
+  flex: 1; /*faz o painel direito ocupar todo o espaço que sobra ao lado dos 50% do esquerdo.*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*"align" e "justify" centralizam o formulário na vertical e na horizontal.*/
+  padding: 64px;
+}
+
+.formulario {
+  width: 400px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.logo {
+    display: flex; /*coloca "APEX" e "F1" lado a lado.*/
+    align-items: center; /*alinha os dois no centro da vertical*/
+    gap: 8px; /*espaço de 8px entre eles.*/
+}
+
+.logo-texto{
+    font-family: 'Barlow Condensed', sans-serif;  /*fonte do título; "sans..." é a fonte reserva.*/
+    font-weight: 800; /*negrito mais forte.*/
+    font-size: 44px; 
+    letter-spacing: 0.88px; /*abre um pouco o espaço entre as letras.*/
+}
+
+.logo-badge {
+    background-color: var(--texto); 
+    color: #e10600;  /*vermelho do "F1".*/
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    padding: 0 10px; /*zero em cima e embaixo, 10px nas laterais.*/
+    border-radius: 6px; /*deixa os cantos arredondados.*/
+}
+
+/* HEADLINE */
+.headline {
+    display: flex;
+    flex-direction: column; /*empilha o título e o parágrafo.*/
+    gap: 20px; /*espaço entre os dois.*/
+}
+
+.headline h2{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 88px;
+    line-height: 84px; /*menor que o tamanho da fonte: deixa as linhas mais próximas (escrever no meio da linha).*/
+}
+
+.headline p {
+    font-size: 18px;
+    line-height: 28px; /*espaço entre linhas do parágrafo*/
+    color: #ffd9d6;
+}
+
+/* CITAÇÃO */
+.citacao {
+    display: flex;
+    flex-direction: column; /*bandeira, frase e autor, um sobre o outro.*/
+    gap: 14px; 
+}
+
+.citacao blockquote {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; /*semibold, mais leve.*/
+    font-size: 30px;
+    line-height: 34px;
+}
+
+.citacao cite {
+    font-style: normal; /*desligou o itálico que o <cite> deixa.*/
+    font-weight: 500; 
+    font-size: 14px;
+    color: #ffc9c5;
+}
+
+/* BANDEIRA */
+.checker {
+    width: 252px;
+    height: 36px;
+    background-size: 36px 36px;
+    background-image: conic-gradient(
+        rgba(0, 0, 0, 0.35)0% 25%,
+        rgba(255, 255, 255, 0.9)25% 50%,
+        rgba(0, 0, 0, 0.35)50% 75%,
+        rgba(255, 255, 255, 0.9)75% 100%,
+    );
+}
+
+/* CABEÇALHO */
