@@ -118,11 +118,95 @@ body {
     height: 36px;
     background-size: 36px 36px;
     background-image: conic-gradient(
-        rgba(0, 0, 0, 0.35)0% 25%,
-        rgba(255, 255, 255, 0.9)25% 50%,
-        rgba(0, 0, 0, 0.35)50% 75%,
-        rgba(255, 255, 255, 0.9)75% 100%,
+        rgba(0, 0, 0, 0.35 ) 0% 25%,
+        rgba(255, 255, 255, 0.9) 25% 50%,
+        rgba(0, 0, 0, 0.35) 50% 75%,
+        rgba(255, 255, 255, 0.9) 75% 100%
     );
 }
 
 /* CABEÇALHO */
+.cabecalho {
+    display: flex;
+    flex-direction: column; /*empilha o título e o parágrafo.*/
+    gap: 8px; /*espaço entre os dois.*/
+}
+
+.cabecalho h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 60px; /*Altura da linha é igual ao tamanho da fonte.*/
+}
+
+.cabecalho p {
+    font-size: 15px;
+    color: var(--texto-suave);
+}
+/* CAMPO */
+.campo {
+    flex-direction: column;
+    display: flex;
+    gap: 8px;
+}
+
+.campo label{
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--texto-suave);
+}
+
+.campo input{
+    width: 100%; /*para a caixa ocupar a largura do formulário.*/
+    padding: 15px 16px; 
+    background-color: var(--campo-fundo);
+    border: 1px solid var(--campo-borda);
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--texto);
+    font-family: 'Inter', sans-serif; /*Tem que declarar a fonte, porque os inputs não herda do body*/
+    outline: none;
+}
+
+.campo input::placeholder{
+    color: var(--placeholder);
+}
+
+.campo input:focus{
+    border-color: #ff8000;
+}
+
+/* BOTÃO */
+.botao{
+    padding: 16px 28px;
+    background-color: var(--laranja);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--texto);
+    cursor: pointer;
+    border: none;
+}
+
+.botao:hover{
+    background-color: #ff8000;
+}
+
+.troca {
+    text-align: center;
+    font-size: 14px;
+    color: var(--texto-suave);
+}
+
+.troca a {
+    font-weight: 600;
+    color: var(--laranja);
+    text-decoration: none;
+}
+
+.aviso {
+    text-align: center;
+    font-size: 12px;
+    color: var(--placeholder);
+}
