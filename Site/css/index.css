@@ -1,0 +1,95 @@
+:root{
+    --fundo: #0b0b10;
+    --campo-borda: #2e2e3d;
+    --texto: #f4f4f6;
+    --texto-suave: #a0a0b2;
+}
+
+body{
+    background-color: var(--fundo);
+    font-family: 'Inter', sans-serif;
+    color: var(--texto);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 96px;
+    border-bottom: 1px solid var(--campo-borda);
+}
+
+.logo {
+    display: flex; /*coloca "APEX" e "F1" lado a lado.*/
+    align-items: center; /*alinha os dois no centro da vertical*/
+    gap: 8px; /*espaço de 8px entre eles.*/
+}
+
+.logo-texto{
+    font-family: 'Barlow Condensed', sans-serif;  /*fonte do título; "sans..." é a fonte reserva.*/
+    font-weight: 800; /*negrito mais forte.*/
+    font-size: 44px; 
+    letter-spacing: 0.88px; /*abre um pouco o espaço entre as letras.*/
+}
+
+.logo-badge {
+    background-color: #e10600; 
+    color: var(--texto);  /*vermelho do "F1".*/
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    padding: 0 10px; /*zero em cima e embaixo, 10px nas laterais.*/
+    border-radius: 6px; /*deixa os cantos arredondados.*/
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.link a {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--texto-suave);
+    text-decoration: none;
+}
+
+.link a.ativo { /*só quando for link, e for <a> e da classe ativo*/
+    color: var(--texto);
+}
+
+.botao-sair {
+    background-color: transparent;
+    border: 1.5px solid var(--campo-borda);
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--texto);
+    cursor: pointer;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    padding: 88px;
+}
+
+.hero-texto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /*evita que o chip estique até a largura toda da coluna. Sem ele, ele vira uma barra comprida.*/
+    gap: 28px;
+}
+
