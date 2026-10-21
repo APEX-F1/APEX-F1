@@ -1,0 +1,12 @@
+.esqueci {
+    text-align: right; 
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--laranja);
+    text-decoration: none;
+}
+
+.citacao blockquote {
+    font-size: 28px;
+    line-height: 36px;
+}
