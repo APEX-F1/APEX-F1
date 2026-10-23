@@ -1,17 +1,17 @@
-:root{
-    --fundo: #0b0b10;
-    --campo-borda: #2e2e3d;
-    --texto: #f4f4f6;
-    --texto-suave: #a0a0b2;
-    --campo-fundo: #1d1d28;
-    --laranja: #ff8000;
-    --card-fundo: #14141c;
+:root {
+  --fundo: #0b0b10;
+  --campo-borda: #2e2e3d;
+  --texto: #f4f4f6;
+  --texto-suave: #a0a0b2;
+  --campo-fundo: #1d1d28;
+  --laranja: #ff8000;
+  --card-fundo: #14141c;
 }
 
-body{
-    background-color: var(--fundo);
-    font-family: 'Inter', sans-serif;
-    color: var(--texto);
+body {
+  background-color: var(--fundo);
+  font-family: "Inter", sans-serif;
+  color: var(--texto);
 }
 
 * {
@@ -21,320 +21,621 @@ body{
 }
 
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 22px 96px;
-    border-bottom: 1px solid var(--campo-borda);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 96px;
+  border-bottom: 1px solid var(--campo-borda);
 }
 
 .logo {
-    display: flex; /*coloca "APEX" e "F1" lado a lado.*/
-    align-items: center; /*alinha os dois no centro da vertical*/
-    gap: 8px; /*espaço de 8px entre eles.*/
+  display: flex; /*coloca "APEX" e "F1" lado a lado.*/
+  align-items: center; /*alinha os dois no centro da vertical*/
+  gap: 8px; /*espaço de 8px entre eles.*/
 }
 
-.logo-texto{
-    font-family: 'Barlow Condensed', sans-serif;  /*fonte do título; "sans..." é a fonte reserva.*/
-    font-weight: 800; /*negrito mais forte.*/
-    font-size: 44px; 
-    letter-spacing: 0.88px; /*abre um pouco o espaço entre as letras.*/
+.logo-texto {
+  font-family:
+    "Barlow Condensed", sans-serif; /*fonte do título; "sans..." é a fonte reserva.*/
+  font-weight: 800; /*negrito mais forte.*/
+  font-size: 44px;
+  letter-spacing: 0.88px; /*abre um pouco o espaço entre as letras.*/
 }
 
 .logo-badge {
-    background-color: #e10600; 
-    color: var(--texto);  /*vermelho do "F1".*/
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 36px;
-    padding: 0 10px; /*zero em cima e embaixo, 10px nas laterais.*/
-    border-radius: 6px; /*deixa os cantos arredondados.*/
+  background-color: #e10600;
+  color: var(--texto); /*vermelho do "F1".*/
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  padding: 0 10px; /*zero em cima e embaixo, 10px nas laterais.*/
+  border-radius: 6px; /*deixa os cantos arredondados.*/
 }
 
 .link {
-    display: flex;
-    align-items: center;
-    gap: 36px;
+  display: flex;
+  align-items: center;
+  gap: 36px;
 }
 
 .link a {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--texto-suave);
-    text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--texto-suave);
+  text-decoration: none;
 }
 
-.link a.ativo { /*só quando for link, e for <a> e da classe ativo*/
-    color: var(--texto);
+.link a.ativo {
+  /*só quando for link, e for <a> e da classe ativo*/
+  color: var(--texto);
 }
 
 .botao-sair {
-    background-color: transparent;
-    border: 1.5px solid var(--campo-borda);
-    border-radius: 8px;
-    padding: 10px 22px;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--texto);
-    cursor: pointer;
+  background-color: transparent;
+  border: 1.5px solid var(--campo-borda);
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--texto);
+  cursor: pointer;
 }
 
 .hero {
-    display: flex;
-    align-items: center;
-    gap: 64px;
-    padding: 88px 96px;
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  padding: 88px 96px;
 }
 
 .hero-texto {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /*evita que o chip estique até a largura toda da coluna. Sem ele, ele vira uma barra comprida.*/
-    gap: 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /*evita que o chip estique até a largura toda da coluna. Sem ele, ele vira uma barra comprida.*/
+  gap: 28px;
 }
 
 .hero-card {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .hero-texto {
-    align-items: flex-start;
-    align-self: flex-start;
+  align-items: flex-start;
+  align-self: flex-start;
 }
 
 .checker {
-    background-size: 40px 40px;
-    background-image: conic-gradient(
-        rgba(0, 0, 0, 0.35 ) 0% 25%,
-        rgba(255, 255, 255, 0.9) 25% 50%,
-        rgba(0, 0, 0, 0.35) 50% 75%,
-        rgba(255, 255, 255, 0.9) 75% 100%
-    );
-}
-
-.chip {
-    background-color: var(--campo-fundo);
-    border: 1px solid var(--campo-borda);
-    border-radius: 100px;
-    padding: 6px 12px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--laranja);
-    letter-spacing: 0.72px;
-}
-
-.hero-texto h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 104px;
-    line-height: 98px;
-}
-
-.hero-texto p {
-    font-size: 19px;
-    line-height: 30px;
-    color: var(--texto-suave);
-}
-
-.hero-botoes {
-    display: flex;
-    gap: 14px;
-}
-
-.botao-principal {
-    padding: 16px 28px;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--texto);
-    text-decoration: none; /*tira o sublinhado do link*/
-    background-image: linear-gradient(
-        98.43deg,
-        rgba(255, 128, 0, 0.85) 0.68%,
-        rgba(153, 77, 0, 0.85) 97.9%
-    );
-}
-
-.botao-secundario {
-    padding: 16px 28px;
-    border: 1.5px solid var(--campo-borda);
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--texto);
-    text-decoration: none;
-}
-
-.hero-card {
-    width: 480px;
-    height: 540px;
-    flex-shrink: 0;
-    padding: 32px;
-    border-radius: 28px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    background-image: linear-gradient(131.63deg, var(--laranja) 0%, #1a0100 71,4%);
-}
-
-.chip-claro {
-    color: var(--texto);
-}
-
-.f1-gigante {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 330px;
-    line-height: 300px;
-    letter-spacing: -6.6px;
-    color: var(--texto);
-    opacity: 0.22;
-}
-
-.card-rodape {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.card-rodape p {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 600;
-    font-size: 34px;
-}
-
-.checker {
-    width: 320px; /*16 quadrados x 20px*/
-    height: 40px; /*2 linhas x 20px*/
-    background-size: 40px 40px; /*bloco de 2x2 quadrados de 20px*/
-    background-image: conic-gradient(
-        rgba(0, 0, 0, 0.35) 0% 25%,
+  background-size: 40px 40px;
+  background-image: conic-gradient(
+    rgba(0, 0, 0, 0.35) 0% 25%,
     rgba(255, 255, 255, 0.9) 25% 50%,
     rgba(0, 0, 0, 0.35) 50% 75%,
     rgba(255, 255, 255, 0.9) 75% 100%
-    );
+  );
+}
+
+.chip {
+  background-color: var(--campo-fundo);
+  border: 1px solid var(--campo-borda);
+  border-radius: 100px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--laranja);
+  letter-spacing: 0.72px;
+}
+
+.hero-texto h1 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 104px;
+  line-height: 98px;
+}
+
+.hero-texto p {
+  font-size: 19px;
+  line-height: 30px;
+  color: var(--texto-suave);
+}
+
+.hero-botoes {
+  display: flex;
+  gap: 14px;
+}
+
+.botao-principal {
+  padding: 16px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--texto);
+  text-decoration: none; /*tira o sublinhado do link*/
+  background-image: linear-gradient(
+    98.43deg,
+    rgba(255, 128, 0, 0.85) 0.68%,
+    rgba(153, 77, 0, 0.85) 97.9%
+  );
+}
+
+.botao-secundario {
+  padding: 16px 28px;
+  border: 1.5px solid var(--campo-borda);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--texto);
+  text-decoration: none;
+}
+
+.hero-card {
+  width: 480px;
+  height: 540px;
+  flex-shrink: 0;
+  padding: 32px;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-image: linear-gradient(
+    131.63deg,
+    var(--laranja) 0%,
+    #1a0100 71,
+    4%
+  );
+}
+
+.chip-claro {
+  color: var(--texto);
+}
+
+.f1-gigante {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 330px;
+  line-height: 300px;
+  letter-spacing: -6.6px;
+  color: var(--texto);
+  opacity: 0.22;
+}
+
+.card-rodape {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-rodape p {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 34px;
+}
+
+.checker {
+  width: 320px; /*16 quadrados x 20px*/
+  height: 40px; /*2 linhas x 20px*/
+  background-size: 40px 40px; /*bloco de 2x2 quadrados de 20px*/
+  background-image: conic-gradient(
+    rgba(0, 0, 0, 0.35) 0% 25%,
+    rgba(255, 255, 255, 0.9) 25% 50%,
+    rgba(0, 0, 0, 0.35) 50% 75%,
+    rgba(255, 255, 255, 0.9) 75% 100%
+  );
 }
 
 .sobre {
-    display: flex;
-    gap: 20px;
-    padding: 24px 96px;
+  display: flex;
+  gap: 20px;
+  padding: 24px 96px;
 }
 
 .card-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 28px;
-    background-color: var(--card-fundo);
-    border: 1px solid var(--campo-borda);
-    border-radius: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px;
+  background-color: var(--card-fundo);
+  border: 1px solid var(--campo-borda);
+  border-radius: 16px;
 }
 
 .card-rotulo {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--laranja);
-    letter-spacing: 1.68px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--laranja);
+  letter-spacing: 1.68px;
 }
 
-.card-info h3{
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 34px;
-    line-height: 36px;
+.card-info h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 36px;
 }
 
 .card-info p {
-    font-size: 15px;
-    line-height: 23px;
-    color: var(--texto-suave);
+  font-size: 15px;
+  line-height: 23px;
+  color: var(--texto-suave);
 }
 
+/* LENDAS */
 .lendas {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-    padding: 80px 96px;
+  display: flex;
+  flex-direction: column; /*cabeçalho em cima, destaque embaixo*/
+  gap: 48px;    /*espaço entre os blocos da seção*/
+  padding: 80px 96px;
 }
 
 .secao-cabecalho {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .secao-rotulo {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--laranja);
-    letter-spacing: 1.82px;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--laranja);
+  letter-spacing: 1.82px;
 }
 
 .secao-cabecalho h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 68px;
-    line-height: 68px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 68px;
+  line-height: 68px;    /*igual ao tamanho: linha sem folga*/
 }
 
 .secao-cabecalho p {
-    font-size: 17px;
-    line-height: 26px;
-    color: var(--texto-suave)
+  font-size: 17px;
+  line-height: 26px;
+  color: var(--texto-suave);
 }
 
+/*Card grande ao Senna*/
 .destaque {
-    display: flex;
-    background-color: var(--card-fundo);
-    border: 1px solid var(--campo-borda);
-    border-radius: 24px;
-    overflow: hidden; /*Sem ele, a foto da esquerda é um retângulo reto e "vaza" por cima dos cantos arredondados do card.
-    Com ele, tudo que passa da borda é cortado.*/
-    color: var(--texto-suave);
+  display: flex; /*foto de um lado, texto do outro*/
+  background-color: var(--card-fundo);
+  border: 1px solid var(--campo-borda);
+  border-radius: 24px;
+  overflow: hidden; /*corta a foto nos cantos arredondados*/
 }
 
 .destaque-foto {
-    width: 520px;
-    flex-shrink: 0; /*não deixa a foto encolher*/
-    padding: 36px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /*nome em cima, listras embaixo*/
-    background-image: url(/site/css/fotoSennaHome.png);
-    background-size: cover;
-    background-position: center;
+  width: 520px;
+  flex-shrink: 0; /*não deixa a foto encolher*/
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /*nome em cima, listras embaixo*/
+  background-image: url(/site/css/fotoSennaHome.png);
+  background-size: cover;
+  background-position: center;
 }
 
 .nome-grande {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 130px;
-    line-height: 120px;
-    color: #ffffff;
+  display: flex;
+  flex-direction: column; /*AYRTON em cima, SENNA embaixo*/
+  align-items: flex-start; /*cada palavra ocupa só a própria largura*/
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 130px;
+  line-height: 120px;
+  color: #ffffff;    /*Pega só o "SENNA"*/
+}
+
+/* Faz o degradê*/
+.nome-ayrton {
+  background-image: linear-gradient(
+    76.74deg, 
+    #e10600 2.45%, 
+    #7b0300 98.51%);
+  background-clip: text; /*recorta o fundo no formato das letras*/
+  color: transparent;
+}
+
+/* Listrar do Brasil, verde, azul e amarelo
+.faixas {
+  display: flex;
+}
+
+.faixas span {
+  flex: 1;
+  height: 10px;
+}
+
+.faixas span:nth-child(1) { background-color: #ffdf00; }  amarelo
+.faixas span:nth-child(2) { background-color: #009c3b; }  verde
+.faixas span:nth-child(3) { background-color: #002776; }  azul */
+
+/*
+   Antes, confira se o :root do index.css tem estas variáveis:
+     --campo-fundo: #1d1d28;
+     --card-fundo: #14141c;
+     --placeholder: #6b6b7d;
+*/
+
+/* ===== SEÇÃO LENDAS ===== */
+.lendas {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 80px 96px;
+}
+
+/* ----- Cabeçalho----- */
+.secao-cabecalho {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.secao-rotulo {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--laranja);
+  letter-spacing: 1.82px;
+}
+
+.secao-cabecalho h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 68px;
+  line-height: 68px; 
+}
+
+.secao-cabecalho p {
+  font-size: 17px;
+  line-height: 26px;
+  color: var(--texto-suave);
+}
+
+/* ----- Card grande do Senna ----- */
+.destaque {
+  display: flex;
+  /* align-items: stretch; */
+  background-color: var(--card-fundo);
+  border: 1px solid var(--campo-borda);
+  border-radius: 24px;
+  overflow: hidden;              /* corta a foto nos cantos arredondados */
+}
+
+/* Lado da foto */
+/* .destaque-foto {
+  width: 520px;
+  flex-shrink: 0;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url('../images/senna.jpg');
+  background-size: cover;
+  background-position: center;
+} */
+ .destaque-foto {
+    width: 40%;
+    min-width: 0;
+    flex-shrink: 0;
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: space-between;
+    padding: 36px;
+    overflow: hidden;
+    background-image: url('../images/senna.jpg');
+    background-size: cover;
+    background-position: center;
+ }
+
+ .destaque-foto img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+ }
+
+/* .nome-grande {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 130px;
+  line-height: 120px;
+  color: #ffffff;
+} */
+.nome-grande,
+.faixas {
+    position: relative;
+    z-index: 1;
 }
 
 .nome-ayrton {
-    background-image: linear-gradient(76.74deg, #e10600 2.45% #7b0300 98.51%);
-    background-clip: text; /*recorta o fundo no formato das letras*/
-    color: transparent;
+  background-image: linear-gradient(76.74deg, #e10600 2.45%, #7b0300 98.51%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .faixas {
-    display: flex;
+  display: flex;
 }
 
-.feixas span {
-    flex: 1;
-    height: 10px;
+.faixas span {
+  flex: 1;
+  height: 10px;
+}
+
+.faixas span:nth-child(1) { background-color: #ffdf00; }
+.faixas span:nth-child(2) { background-color: #009c3b; }
+.faixas span:nth-child(3) { background-color: #002776; }
+
+/* Lado das informações */
+.destaque-info {
+  flex: 1;
+  min-width: 0;                  /* deixa o texto quebrar linha em vez de empurrar o card */
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.chip-destaque {
+  align-self: flex-start;        /* o chip não estica até a largura toda */
+  background-color: #ffd60a;
+  color: #0b0b10;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.96px;
+  padding: 6px 12px;
+  border-radius: 100px;
+}
+
+.destaque-info h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 88px;
+  line-height: 84px;
+}
+
+.senna-datas {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--texto-suave);
+}
+
+.senna-resumo {
+  font-size: 17px;
+  line-height: 27px;
+  color: var(--texto-suave);
+}
+
+/* Parágrafo pessoal com barra laranja */
+.senna-pessoal {
+  display: flex;
+  gap: 16px;
+}
+
+.barra-laranja {
+  width: 3px;
+  flex-shrink: 0;
+  background-color: var(--laranja);     /* estica sozinha até a altura do texto */
+}
+
+.senna-pessoal p {
+  flex: 1;
+  font-size: 17px;
+  line-height: 27px;
+  color: var(--texto-suave);
+}
+
+/* Números */
+.numeros {
+  display: flex;
+  gap: 16px;
+}
+
+.stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 20px;
+  background-color: var(--campo-fundo);
+  border-radius: 14px;
+}
+
+.stat-numero {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 60px;
+  color: #ffd60a;
+}
+
+.stat-rotulo {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--texto-suave);
+}
+
+/* Citação com barra amarela */
+.senna-citacao {
+  display: flex;
+  gap: 16px;
+}
+
+.barra-amarela {
+  width: 4px;
+  flex-shrink: 0;
+  background-color: #ffd60a;
+}
+
+.senna-citacao blockquote {
+  flex: 1;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+}
+
+/* O botão usa a classe .botao-secundario que você já criou no hero */
+.destaque-info .botao-secundario {
+  align-self: flex-start;
+}
+
+/* ----- Outras lendas ----- */
+.outras-lendas {
+  display: flex;
+  gap: 20px;
+}
+
+.lenda {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  background-color: var(--card-fundo);
+  border: 1px solid var(--campo-borda);
+  border-radius: 16px;
+}
+
+.lenda-numero {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 70px;
+  color: var(--laranja);
+}
+
+.lenda-rotulo {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  color: var(--placeholder);
+}
+
+.lenda h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 32px;
+}
+
+.lenda p {
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--texto-suave);
 }
