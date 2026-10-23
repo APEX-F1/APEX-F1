@@ -3,6 +3,9 @@
     --campo-borda: #2e2e3d;
     --texto: #f4f4f6;
     --texto-suave: #a0a0b2;
+    --campo-fundo: #1d1d28;
+    --laranja: #ff8000;
+    --card-fundo: #14141c;
 }
 
 body{
@@ -82,7 +85,7 @@ body{
     display: flex;
     align-items: center;
     gap: 64px;
-    padding: 88px;
+    padding: 88px 96px;
 }
 
 .hero-texto {
@@ -93,3 +96,245 @@ body{
     gap: 28px;
 }
 
+.hero-card {
+    flex-direction: column;
+}
+
+.hero-texto {
+    align-items: flex-start;
+    align-self: flex-start;
+}
+
+.checker {
+    background-size: 40px 40px;
+    background-image: conic-gradient(
+        rgba(0, 0, 0, 0.35 ) 0% 25%,
+        rgba(255, 255, 255, 0.9) 25% 50%,
+        rgba(0, 0, 0, 0.35) 50% 75%,
+        rgba(255, 255, 255, 0.9) 75% 100%
+    );
+}
+
+.chip {
+    background-color: var(--campo-fundo);
+    border: 1px solid var(--campo-borda);
+    border-radius: 100px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--laranja);
+    letter-spacing: 0.72px;
+}
+
+.hero-texto h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 104px;
+    line-height: 98px;
+}
+
+.hero-texto p {
+    font-size: 19px;
+    line-height: 30px;
+    color: var(--texto-suave);
+}
+
+.hero-botoes {
+    display: flex;
+    gap: 14px;
+}
+
+.botao-principal {
+    padding: 16px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--texto);
+    text-decoration: none; /*tira o sublinhado do link*/
+    background-image: linear-gradient(
+        98.43deg,
+        rgba(255, 128, 0, 0.85) 0.68%,
+        rgba(153, 77, 0, 0.85) 97.9%
+    );
+}
+
+.botao-secundario {
+    padding: 16px 28px;
+    border: 1.5px solid var(--campo-borda);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--texto);
+    text-decoration: none;
+}
+
+.hero-card {
+    width: 480px;
+    height: 540px;
+    flex-shrink: 0;
+    padding: 32px;
+    border-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-image: linear-gradient(131.63deg, var(--laranja) 0%, #1a0100 71,4%);
+}
+
+.chip-claro {
+    color: var(--texto);
+}
+
+.f1-gigante {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 330px;
+    line-height: 300px;
+    letter-spacing: -6.6px;
+    color: var(--texto);
+    opacity: 0.22;
+}
+
+.card-rodape {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card-rodape p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 34px;
+}
+
+.checker {
+    width: 320px; /*16 quadrados x 20px*/
+    height: 40px; /*2 linhas x 20px*/
+    background-size: 40px 40px; /*bloco de 2x2 quadrados de 20px*/
+    background-image: conic-gradient(
+        rgba(0, 0, 0, 0.35) 0% 25%,
+    rgba(255, 255, 255, 0.9) 25% 50%,
+    rgba(0, 0, 0, 0.35) 50% 75%,
+    rgba(255, 255, 255, 0.9) 75% 100%
+    );
+}
+
+.sobre {
+    display: flex;
+    gap: 20px;
+    padding: 24px 96px;
+}
+
+.card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 28px;
+    background-color: var(--card-fundo);
+    border: 1px solid var(--campo-borda);
+    border-radius: 16px;
+}
+
+.card-rotulo {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--laranja);
+    letter-spacing: 1.68px;
+}
+
+.card-info h3{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 36px;
+}
+
+.card-info p {
+    font-size: 15px;
+    line-height: 23px;
+    color: var(--texto-suave);
+}
+
+.lendas {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 80px 96px;
+}
+
+.secao-cabecalho {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.secao-rotulo {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--laranja);
+    letter-spacing: 1.82px;
+}
+
+.secao-cabecalho h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 68px;
+    line-height: 68px;
+}
+
+.secao-cabecalho p {
+    font-size: 17px;
+    line-height: 26px;
+    color: var(--texto-suave)
+}
+
+.destaque {
+    display: flex;
+    background-color: var(--card-fundo);
+    border: 1px solid var(--campo-borda);
+    border-radius: 24px;
+    overflow: hidden; /*Sem ele, a foto da esquerda é um retângulo reto e "vaza" por cima dos cantos arredondados do card.
+    Com ele, tudo que passa da borda é cortado.*/
+    color: var(--texto-suave);
+}
+
+.destaque-foto {
+    width: 520px;
+    flex-shrink: 0; /*não deixa a foto encolher*/
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /*nome em cima, listras embaixo*/
+    background-image: url(/site/css/fotoSennaHome.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.nome-grande {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 130px;
+    line-height: 120px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.nome-ayrton {
+    background-image: linear-gradient(76.74deg, #e10600 2.45% #7b0300 98.51%);
+    background-clip: text; /*recorta o fundo no formato das letras*/
+    color: transparent;
+}
+
+.faixas {
+    display: flex;
+}
+
+.feixas span {
+    flex: 1;
+    height: 10px;
+}
