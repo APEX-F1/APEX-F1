@@ -6,6 +6,7 @@
   --campo-fundo: #1d1d28;
   --laranja: #ff8000;
   --card-fundo: #14141c;
+  --placeholder: #6b6b7d;
 }
 
 body {
@@ -183,8 +184,7 @@ body {
   background-image: linear-gradient(
     131.63deg,
     var(--laranja) 0%,
-    #1a0100 71,
-    4%
+    #1a0100 71.4%
   );
 }
 
