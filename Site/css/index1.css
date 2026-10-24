@@ -672,3 +672,53 @@ body {
   /* color: var(--texto-suave); */
   align-self: flex-start;
 }
+
+.grid-pilotos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.piloto {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-fundo);
+    border: 1px solid var(--campo-borda);
+    border-radius: 16px;
+    overflow: hidden; /*truque para cortar os cantos de cima da foto no formato
+    arredondado do card.*/
+}
+
+.piloto-foto {
+    width: 100%;
+    aspect-ratio: 3/2; /*a altura é calculada sozinha, com base na largura.*/
+    object-fit: cover; 
+    object-position: 50% var(--foco, 25%); 
+    /*object-fit: cover -> faz com a <img> o que o background-size: cover faz com os fundos:
+preenche a caixa de 200px de altura cortando as sobras, sem distorcer.
+    object-position: 50% var(--foco, 25%) -> controla qual parte da foto aparece. O primeiro valor 
+é o horizontal (50% é centralizado), e o segundo é o vertical: 0% mostra o topo da foto, 100% mostra a base.
+    O 25% depois da vírgula é um valor padrão, usado quando a foto não define o próprio.*/
+}
+
+.piloto-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 20px;
+}
+
+.piloto-info h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 32px;
+}
+
+.piloto-equipe {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    font-variant: var(--texto-suave);
+}
