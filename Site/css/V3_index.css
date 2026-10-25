@@ -1,0 +1,268 @@
+/* =====================================================
+   APEX F1 | index.css
+   Estilos EXCLUSIVOS da página inicial (Index).
+   O que é comum a todas as páginas fica no base.css,
+   que precisa ser carregado ANTES deste arquivo.
+
+   ÍNDICE
+   1. Sobre o projeto
+   2. Seção Lendas (destaque do Senna + outras lendas)
+   3. Seção Fórmula 1 (blocos, equipes e pilotos)
+   ===================================================== */
+
+
+/* =====================================================
+   1. SOBRE O PROJETO (3 cards lado a lado)
+   Os cards usam .card-info, que está no base.css
+   ===================================================== */
+.sobre {
+  display: flex;                     /* os 3 cards lado a lado */
+  gap: 20px;                         /* espaço entre os cards */
+  padding: 24px 96px;
+}
+
+
+/* =====================================================
+   2. SEÇÃO LENDAS
+   ===================================================== */
+
+/* ----- Card grande do Senna ----- */
+.destaque {
+  display: flex;                     /* foto de um lado, texto do outro */
+  background-color: var(--card-fundo);
+  border: 1px solid var(--campo-borda);
+  border-radius: 24px;
+  overflow: hidden;                  /* corta o que passar dos cantos arredondados */
+}
+
+/* Lado da foto: no HTML tem só uma <img> dentro do .destaque-foto */
+.destaque-foto {
+  flex: 0 0 41.67%;                  /* não cresce, não encolhe, ocupa 41,67% (520px de 1248px no Figma) */
+  min-width: 0;                      /* permite o bloco encolher se precisar */
+  position: relative;                /* serve de referência para a imagem posicionada dentro */
+  overflow: hidden;                  /* corta a imagem que passar do bloco */
+}
+
+.destaque-foto img {
+  position: absolute;                /* tira a imagem do fluxo normal */
+  inset: 0;                          /* encosta nas 4 bordas (top, right, bottom e left = 0) */
+  width: 100%;
+  height: 100%;                      /* a imagem ocupa o bloco inteiro, na altura do card */
+  object-fit: cover;                 /* preenche cortando as sobras, sem distorcer */
+  object-position: center;           /* o corte é feito pelo centro */
+}
+
+/* Lado das informações */
+.destaque-info {
+  flex: 1;                           /* ocupa o espaço que sobra */
+  min-width: 0;                      /* deixa o texto quebrar linha em vez de empurrar o card */
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;           /* centraliza o conteúdo na vertical */
+  gap: 24px;
+}
+
+.chip-destaque {
+  align-self: flex-start;            /* não estica até a largura toda */
+  background-color: var(--amarelo);
+  color: var(--fundo);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.96px;
+  padding: 6px 12px;
+  border-radius: 100px;
+}
+
+.destaque-info h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 88px;
+  line-height: 84px;
+}
+
+.senna-datas {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--texto-suave);
+}
+
+.senna-resumo {
+  font-size: 17px;
+  line-height: 27px;
+  color: var(--texto-suave);
+}
+
+/* Parágrafo pessoal com barra laranja */
+.senna-pessoal {
+  display: flex;                     /* barra de um lado, texto do outro */
+  gap: 16px;
+}
+
+.barra-laranja {
+  width: 3px;
+  flex-shrink: 0;                    /* a barra não encolhe */
+  background-color: var(--laranja);  /* estica sozinha até a altura do texto */
+}
+
+.senna-pessoal p {
+  flex: 1;
+  font-size: 17px;
+  line-height: 27px;
+  color: var(--texto-suave);
+}
+
+/* Citação com barra amarela */
+.senna-citacao {
+  display: flex;
+  gap: 16px;
+}
+
+.barra-amarela {
+  width: 4px;
+  flex-shrink: 0;
+  background-color: var(--amarelo);
+}
+
+.senna-citacao blockquote {
+  flex: 1;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+}
+
+/* Botão do card do Senna: não estica na largura toda */
+.destaque-info .botao-secundario {
+  align-self: flex-start;
+}
+
+/* ----- Outras lendas (4 cards; o estilo do card .lenda está no base.css) ----- */
+.outras-lendas {
+  display: flex;
+  gap: 20px;
+}
+
+
+/* =====================================================
+   3. SEÇÃO FÓRMULA 1
+   O container (.secao-f1), o cabeçalho, a linha do tempo
+   e o .marco estão no base.css
+   ===================================================== */
+
+/* Cada bloco da seção: título + conteúdo */
+.bloco {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bloco-titulo {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+}
+
+/* ----- Equipes do grid ----- */
+.grid-equipes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);   /* 4 colunas iguais */
+  gap: 16px;
+}
+
+.equipe {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background-color: var(--card-fundo);
+  border: 1px solid var(--campo-borda);
+  border-radius: 12px;
+  color: inherit;                    /* as duas últimas linhas servem para o card da McLaren, */
+  text-decoration: none;             /* que é um <a>: sem azul e sem sublinhado */
+}
+
+.equipe-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.equipe-cor {                        /* barrinha colorida de cada equipe */
+  width: 6px;                        /* precisa de largura e altura, pois o span está vazio */
+  height: 28px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  background-color: var(--cor);      /* --cor vem do style="--cor: ..." de cada card no HTML */
+}
+
+.equipe-cabecalho h4 {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+
+.equipe-texto p {
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--texto-suave);
+}
+
+/* 12º card: vaga em aberto. Usado junto com .equipe (class="equipe equipe-especulacao") */
+.equipe-especulacao {
+  border-style: dashed;              /* borda tracejada; cor e largura vêm do .equipe */
+}
+
+.destaque-br {                       /* trechos em verde (Brasil) */
+  color: #009440;
+}
+
+/* Chip da McLaren e dos pilotos. A cor do texto vem do .chip (laranja).
+   Se no Figma for cinza, adicione: color: var(--texto-suave); */
+.chip-time {
+  align-self: flex-start;            /* o chip não estica na largura do card */
+}
+
+/* ----- Pilotos ----- */
+.grid-pilotos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.piloto {
+  display: flex;
+  flex-direction: column;            /* foto em cima, informações embaixo */
+  background-color: var(--card-fundo);
+  border: 1px solid var(--campo-borda);
+  border-radius: 16px;
+  overflow: hidden;                  /* corta os cantos de cima da foto no formato do card */
+}
+
+.piloto-foto {
+  width: 100%;
+  aspect-ratio: 3 / 2;               /* a altura é calculada sozinha a partir da largura */
+  object-fit: cover;                 /* preenche a caixa cortando as sobras, sem distorcer */
+  object-position: 50% var(--foco, 25%);  /* qual parte da foto aparece: 0% = topo, 100% = base.
+                                             O 25% é o padrão; mude com style="--foco: 40%" na <img> */
+}
+
+.piloto-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;           /* o chip não estica */
+  gap: 6px;
+  padding: 20px;
+}
+
+.piloto-info h4 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 32px;
+}
+
+.piloto-equipe {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--texto-suave);         /* corrigido: antes estava "font-variant", que não é cor */
+}

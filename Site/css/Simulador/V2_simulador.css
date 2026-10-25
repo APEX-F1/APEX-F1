@@ -1,0 +1,49 @@
+#semaforo {
+  font-size: 32px;              /* luzes grandes */
+  text-align: center;           /* centraliza as luzes */
+  margin: 10px 0;               /* espaço acima e abaixo */
+}
+
+#pista {
+  background: #333;             /* cor de asfalto */
+  border: 3px solid #fff;       /* borda branca em volta da pista */
+}
+
+.faixa {
+  position: relative;           /* o carro (absolute) se posiciona em relação a esta faixa */
+  height: 60px;                 /* altura de cada faixa */
+  border-bottom: 2px dashed #888; /* linha tracejada separando as faixas */
+}
+
+.nome {
+  position: absolute;           /* fixa o nome no canto da faixa */
+  top: 4px;                     /* distância do topo */
+  left: 8px;                    /* distância da esquerda */
+  font-weight: bold;            /* nome em negrito */
+  font-family: sans-serif;      /* fonte simples */
+}
+
+.carro {
+  position: absolute;           /* permite mover com "left" */
+  top: 14px;                    /* centraliza o carro na vertical */
+  left: 0;                      /* começa na largada */
+  font-size: 32px;              /* tamanho do emoji */
+  transform: scaleX(-1);        /* espelha o emoji, que vem olhando para a esquerda */
+  transition: left 0.1s linear; /* suaviza o movimento entre um tique e outro */
+}
+
+.faixa::after {
+  content: "";                  /* cria um elemento "virtual" no fim da faixa */
+  position: absolute;           /* posicionado dentro da faixa */
+  right: 4%;                    /* posição da linha de chegada */
+  top: 0;                       /* ocupa do topo... */
+  bottom: 0;                    /* ...até a base da faixa */
+  width: 8px;                   /* espessura da linha */
+  background: repeating-linear-gradient(#fff 0 8px, #000 8px 16px); /* listras pretas e brancas */
+}
+
+#resultado {
+  font-family: sans-serif;      /* mesma fonte do resto */
+  font-size: 20px;              /* texto legível */
+  margin-top: 15px;             /* espaço entre a pista e o pódio */
+}

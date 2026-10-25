@@ -1,0 +1,11 @@
+.faixa {
+  position: relative;
+  height: 60px;
+  background: #222;
+  border-bottom: 2px dashed #fff;
+}
+.carro {
+  position: absolute;
+  left: 0;
+  font-size: 32px;
+}

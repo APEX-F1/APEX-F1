@@ -28,6 +28,10 @@
   --amarelo: #ffd60a;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Reset: zera as margens e paddings que o navegador coloca sozinho */
 * {
   margin: 0;
@@ -721,4 +725,17 @@ preenche a caixa de 200px de altura cortando as sobras, sem distorcer.
     font-size: 14px;
     font-weight: 500;
     font-variant: var(--texto-suave);
+}
+
+.rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 44px 96px;
+    border-top: 1px solid var(--campo-borda); /*a linha fica em cima, e não embaixo, como na nav bar*/
+}
+
+.rodape p {
+    font-size: 13px;
+    color: var(--placeholder);
 }

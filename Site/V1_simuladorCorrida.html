@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Site/css/simulador.css">
+    <title>Simulador de Corrida</title>
+</head>
+<body>
+    <div id="pista">
+  <div class="faixa"><span class="carro" id="carro0">🏎️</span></div>
+  <div class="faixa"><span class="carro" id="carro1">🏎️</span></div>
+  <div class="faixa"><span class="carro" id="carro2">🏎️</span></div>
+</div>
+<button onclick="largar()">Largar</button>
+<div id="resultado"></div>
+</body>
+</html>
+<script>
+    var pilotos = [
+  { nome: "Piloto A", posicao: 0 },
+  { nome: "Piloto B", posicao: 0 },
+  { nome: "Piloto C", posicao: 0 }
+];
+var linhaChegada = 90; // em % da largura da pista
+
+var relogio;
+function largar() {
+  relogio = setInterval(avancar, 100);
+}
+
+function avancar() {
+  for (var i = 0; i < pilotos.length; i++) {
+    pilotos[i].posicao += Math.random() * 3; // sorteia 0 a 3
+    document.getElementById("carro" + i).style.left = pilotos[i].posicao + "%";
+
+    if (pilotos[i].posicao >= linhaChegada) {
+      clearInterval(relogio);
+      resultado.innerHTML = pilotos[i].nome + " venceu!";
+      return;
+    }
+  }
+}
+
+
+</script>
