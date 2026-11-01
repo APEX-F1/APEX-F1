@@ -1,0 +1,741 @@
+/* =====================================================
+   APEX F1 | index.css
+   Baseado no Figma "APEX F1 – Protótipo do Site" (frame Index, 1440px)
+
+   ÍNDICE
+   1. Variáveis e base
+   2. Navbar
+   3. Hero
+   4. Sobre o projeto
+   5. Seções (regras compartilhadas)
+   6. Seção Lendas
+   7. Seção Fórmula 1 (cabeçalho + Como começou)
+   ===================================================== */
+
+/* =====================================================
+   1. VARIÁVEIS E BASE
+   ===================================================== */
+:root {
+  --fundo: #0b0b10; /* fundo da página */
+  --card-fundo: #14141c; /* fundo dos cards */
+  --campo-fundo: #1d1d28; /* chips e blocos internos */
+  --campo-borda: #2e2e3d; /* bordas sutis */
+  --texto: #f4f4f6; /* texto principal */
+  --texto-suave: #a0a0b2; /* texto secundário */
+  --placeholder: #6b6b7d; /* rótulos apagados */
+  --laranja: #ff8000;
+  --vermelho: #e10600;
+  --amarelo: #ffd60a;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reset: zera as margens e paddings que o navegador coloca sozinho */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* padding e borda ficam dentro da largura */
+}
+
+body {
+  background-color: var(--fundo);
+  font-family: "Inter", sans-serif;
+  color: var(--texto);
+}
+
+/* =====================================================
+   2. NAVBAR
+   ===================================================== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo | links | botão */
+  padding: 22px 96px;
+  border-bottom: 1px solid var(--campo-borda);
+}
+
+/* Logo (APEX + caixinha vermelha do F1) */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-texto {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 44px;
+  letter-spacing: 0.88px;
+}
+
+.logo-badge {
+  background-color: var(--vermelho);
+  color: var(--texto);
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  padding: 0 10px;
+  border-radius: 6px;
+}
+
+/* Links (no HTML o <nav> usa class="link") */
+.link {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.link a {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--texto-suave);
+  text-decoration: none;
+}
+
+.link a.ativo {
+  /* página atual: mais clara */
+  color: var(--texto);
+}
+
+/* Botão Sair */
+.botao-sair {
+  background-color: transparent;
+  border: 1.5px solid var(--campo-borda);
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--texto);
+  cursor: pointer;
+}
+
+/* =====================================================
+   3. HERO
+   ===================================================== */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  padding: 88px 96px;
+}
+
+/* Coluna de texto (esquerda) */
+.hero-texto {
+  flex: 1; /* ocupa o espaço que sobra ao lado do card */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* evita o chip esticar até a largura toda */
+  gap: 28px;
+}
+
+.hero-texto h1 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 104px;
+  line-height: 98px; /* menor que a fonte: linhas coladas */
+}
+
+.hero-texto p {
+  font-size: 19px;
+  line-height: 30px;
+  color: var(--texto-suave);
+}
+
+/* Chip (pílula pequena) */
+.chip {
+  background-color: var(--campo-fundo);
+  border: 1px solid var(--campo-borda);
+  border-radius: 100px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--laranja);
+  letter-spacing: 0.72px;
+}
+
+.chip-claro {
+  /* chip do card: só troca a cor do texto */
+  color: var(--texto);
+}
+
+/* Botões */
+.hero-botoes {
+  display: flex;
+  gap: 14px;
+}
+
+.botao-principal {
+  padding: 16px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--texto);
+  text-decoration: none;
+  background-image: linear-gradient(
+    98.43deg,
+    rgba(255, 128, 0, 0.85) 0.68%,
+    rgba(153, 77, 0, 0.85) 97.9%
+  );
+}
+
+.botao-secundario {
+  /* também usado no card do Senna */
+  padding: 16px 28px;
+  border: 1.5px solid var(--campo-borda);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--texto);
+  text-decoration: none;
+}
+
+/* Card laranja (direita) */
+.hero-card {
+  width: 480px;
+  height: 540px;
+  flex-shrink: 0; /* o card não encolhe ao lado do texto */
+  padding: 32px;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between; /* chip em cima, F1 no meio, rodapé embaixo */
+  background-image: linear-gradient(
+    131.63deg,
+    var(--laranja) 0%,
+    #1a0100 71.4%
+  );
+}
+
+.f1-gigante {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 330px;
+  line-height: 300px;
+  letter-spacing: -6.6px;
+  color: var(--texto);
+  opacity: 0.22; /* efeito "fantasma", só no F1 */
+}
+
+.card-rodape {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-rodape p {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 34px;
+}
+
+/* Bandeira quadriculada: 16 x 2 quadrados de 20px, só com CSS */
+.checker {
+  width: 320px; /* 16 x 20px */
+  height: 40px; /* 2 x 20px */
+  background-size: 40px 40px; /* bloco de 2x2 quadrados que se repete */
+  background-image: conic-gradient(
+    rgba(0, 0, 0, 0.35) 0% 25%,
+    rgba(255, 255, 255, 0.9) 25% 50%,
+    rgba(0, 0, 0, 0.35) 50% 75%,
+    rgba(255, 255, 255, 0.9) 75% 100%
+  );
+}
+
+/* =====================================================
+   4. SOBRE O PROJETO (3 cards lado a lado)
+   ===================================================== */
+.sobre {
+  display: flex;
+  gap: 20px;
+  padding: 24px 96px;
+}
+
+.card-info {
+  flex: 1; /* os 3 dividem a largura igualmente */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px;
+  background-color: var(--card-fundo);
+  border: 1px solid var(--campo-borda);
+  border-radius: 16px;
+}
+
+.card-rotulo {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--laranja);
+  letter-spacing: 1.68px;
+}
+
+.card-info h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 36px;
+}
+
+.card-info p {
+  font-size: 15px;
+  line-height: 23px;
+  color: var(--texto-suave);
+}
+
+/* =====================================================
+   5. SEÇÕES (regras compartilhadas: Lendas e Fórmula 1)
+   ===================================================== */
+.lendas, /*a vírgula diz: as mesmas regras valem para os dois.*/
+.secao-f1 {
+  display: flex;
+  flex-direction: column; /* cabeçalho em cima, conteúdo embaixo */
+  gap: 48px;
+  padding: 80px 96px;
+}
+
+.secao-cabecalho {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.secao-rotulo {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--laranja);
+  letter-spacing: 1.82px;
+}
+
+.secao-cabecalho h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 68px;
+  line-height: 68px;
+}
+
+.secao-cabecalho p {
+  font-size: 17px;
+  line-height: 26px;
+  color: var(--texto-suave);
+}
+
+/* =====================================================
+   6. SEÇÃO LENDAS
+   ===================================================== */
+
+/* ----- Card grande do Senna ----- */
+.destaque {
+  display: flex; /* foto de um lado, texto do outro */
+  background-color: var(--card-fundo);
+  border: 1px solid var(--campo-borda);
+  border-radius: 24px;
+  overflow: hidden; /* corta a foto nos cantos arredondados */
+}
+
+/* Lado da foto */
+.destaque-foto {
+  flex: 0 0 41.67%; /* 520px de 1248px no Figma */
+  min-width: 0;
+  position: relative;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* nome em cima, listras embaixo */
+  overflow: hidden;
+  background-image: url("../images/senna.jpg"); /* confira o nome do arquivo */
+  background-size: cover; /* preenche sem distorcer */
+  background-position: center;
+}
+
+/* Só vale se existir uma <img> dentro do .destaque-foto; senão pode apagar */
+.destaque-foto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.nome-grande,
+.faixas {
+  position: relative;
+  z-index: 1; /* ficam por cima da foto */
+}
+
+.nome-grande {
+  display: flex;
+  flex-direction: column; /* AYRTON em cima, SENNA embaixo */
+  align-items: flex-start; /* cada palavra ocupa só a própria largura */
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 130px;
+  line-height: 120px;
+  color: #ffffff; /* vale para "SENNA" */
+}
+
+.nome-ayrton {
+  /* texto com degradê */
+  background-image: linear-gradient(76.74deg, #e10600 2.45%, #7b0300 98.51%);
+  -webkit-background-clip: text;
+  background-clip: text; /* recorta o fundo no formato das letras */
+  color: transparent;
+}
+
+/* Listras do Brasil */
+.faixas {
+  display: flex;
+}
+
+.faixas span {
+  flex: 1;
+  height: 10px;
+}
+
+.faixas span:nth-child(1) {
+  background-color: #ffdf00;
+} /* amarelo */
+.faixas span:nth-child(2) {
+  background-color: #009c3b;
+} /* verde */
+.faixas span:nth-child(3) {
+  background-color: #002776;
+} /* azul */
+
+/* Lado das informações */
+.destaque-info {
+  flex: 1;
+  min-width: 0; /* deixa o texto quebrar em vez de empurrar o card */
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.chip-destaque {
+  align-self: flex-start; /* não estica até a largura toda */
+  background-color: var(--amarelo);
+  color: var(--fundo);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.96px;
+  padding: 6px 12px;
+  border-radius: 100px;
+}
+
+.destaque-info h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 88px;
+  line-height: 84px;
+}
+
+.senna-datas {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--texto-suave);
+}
+
+.senna-resumo {
+  font-size: 17px;
+  line-height: 27px;
+  color: var(--texto-suave);
+}
+
+/* Parágrafo pessoal com barra laranja */
+.senna-pessoal {
+  display: flex;
+  gap: 16px;
+}
+
+.barra-laranja {
+  width: 3px;
+  flex-shrink: 0;
+  background-color: var(--laranja); /* estica sozinha até a altura do texto */
+}
+
+.senna-pessoal p {
+  flex: 1;
+  font-size: 17px;
+  line-height: 27px;
+  color: var(--texto-suave);
+}
+
+/* Números (3, 41, 65) */
+.numeros {
+  display: flex;
+  gap: 16px;
+}
+
+.stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 20px;
+  background-color: var(--campo-fundo);
+  border-radius: 14px;
+}
+
+.stat-numero {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 60px;
+  color: var(--amarelo);
+}
+
+.stat-rotulo {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--texto-suave);
+}
+
+/* Citação com barra amarela */
+.senna-citacao {
+  display: flex;
+  gap: 16px;
+}
+
+.barra-amarela {
+  width: 4px;
+  flex-shrink: 0;
+  background-color: var(--amarelo);
+}
+
+.senna-citacao blockquote {
+  flex: 1;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+}
+
+/* Reaproveita o .botao-secundario do hero, sem esticar */
+.destaque-info .botao-secundario {
+  align-self: flex-start;
+}
+
+/* ----- Outras lendas (4 cards) ----- */
+.outras-lendas {
+  display: flex;
+  gap: 20px;
+}
+
+.lenda {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  background-color: var(--card-fundo);
+  border: 1px solid var(--campo-borda);
+  border-radius: 16px;
+}
+
+.lenda-numero {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 70px;
+  color: var(--laranja);
+}
+
+.lenda-rotulo {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  color: var(--placeholder);
+}
+
+.lenda h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 32px;
+}
+
+.lenda p {
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--texto-suave);
+}
+
+/* =====================================================
+   7. SEÇÃO FÓRMULA 1 (cabeçalho + Como começou)
+   O container e o cabeçalho usam as regras da seção 5.
+   ===================================================== */
+
+/* Cada bloco da seção: título + conteúdo */
+.bloco {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bloco-titulo {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+}
+
+/* ----- Linha do tempo (4 marcos) ----- */
+.linha-tempo {
+  display: grid; /*divide o espaço em linhas e colunas.*/
+  grid-template-columns: repeat(
+    4,
+    1fr
+  ); /* 4 colunas iguais; "1fr" - uma fração do espaço livre. Parece o flex: 1. */
+  gap: 20px;
+}
+
+.marco {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  background-color: var(--card-fundo);
+  border: 1px solid var(--campo-borda);
+  border-radius: 16px;
+}
+
+.marco-ano {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 60px;
+  color: var(--laranja);
+}
+
+.marco h4 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.marco p {
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--texto-suave);
+}
+
+.grid-equipes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.equipe {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background-color: var(--card-fundo);
+  border: 1px solid var(--campo-borda);
+  border-radius: 12px;
+  color: inherit; /*As duas últimas são destinadas ao card da McLaren.*/
+  text-decoration: none;
+}
+
+.equipe-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.equipe-cor {
+  width: 6px;
+  height: 28px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  background-color: var(--cor);
+}
+
+.equipe-cabecalho h4 {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+
+.equipe-texto p {
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--texto-suave);
+}
+
+.destaque-br {
+  color: #009440;
+}
+
+/* PARA MCLAREN */
+.chip-time {
+  /* color: var(--texto-suave); */
+  align-self: flex-start;
+}
+
+.grid-pilotos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.piloto {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-fundo);
+    border: 1px solid var(--campo-borda);
+    border-radius: 16px;
+    overflow: hidden; /*truque para cortar os cantos de cima da foto no formato
+    arredondado do card.*/
+}
+
+.piloto-foto {
+    width: 100%;
+    aspect-ratio: 3/2; /*a altura é calculada sozinha, com base na largura.*/
+    object-fit: cover; 
+    object-position: 50% var(--foco, 25%); 
+    /*object-fit: cover -> faz com a <img> o que o background-size: cover faz com os fundos:
+preenche a caixa de 200px de altura cortando as sobras, sem distorcer.
+    object-position: 50% var(--foco, 25%) -> controla qual parte da foto aparece. O primeiro valor 
+é o horizontal (50% é centralizado), e o segundo é o vertical: 0% mostra o topo da foto, 100% mostra a base.
+    O 25% depois da vírgula é um valor padrão, usado quando a foto não define o próprio.*/
+}
+
+.piloto-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 20px;
+}
+
+.piloto-info h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 32px;
+}
+
+.piloto-equipe {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    font-variant: var(--texto-suave);
+}
+
+.rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 44px 96px;
+    border-top: 1px solid var(--campo-borda); /*a linha fica em cima, e não embaixo, como na nav bar*/
+}
+
+.rodape p {
+    font-size: 13px;
+    color: var(--placeholder);
+}
