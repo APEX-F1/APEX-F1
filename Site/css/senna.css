@@ -1,0 +1,21 @@
+:root {
+  /* variáveis: guardam as cores num lugar só; usa-se com var(--nome) */
+  --fundo: #0b0b10;          /* fundo da página */
+  --card-fundo: #14141c;     /* fundo dos cards */
+  --campo-fundo: #1d1d28;    /* chips e blocos internos */
+  --campo-borda: #2e2e3d;    /* bordas sutis */
+  --texto: #f4f4f6;          /* texto principal */
+  --texto-suave: #a0a0b2;    /* texto secundário */
+  --placeholder: #6b6b7d;    /* rótulos apagados */
+  --laranja: #ff8000;
+  --vermelho: #e10600;
+  --amarelo: #ffd60a;
+}
+
+.navbar {
+  display: flex;                     /* coloca os filhos lado a lado */
+  align-items: center;               /* centraliza na vertical */
+  justify-content: space-between;    /* logo | links | botão: espaço entre eles */
+  padding: 22px 96px;                /* 22px em cima/embaixo, 96px nas laterais */
+  border-bottom: 1px solid var(--campo-borda);  /* linha fina embaixo (largura, estilo, cor) */
+}
