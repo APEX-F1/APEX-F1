@@ -99,7 +99,7 @@ h1, h2, h3, .logo-texto, .logo-badge, .hero-card-sigla, .hero-card-frase,
 .cta { display: flex; justify-content: center; padding-bottom: 100px; }
 
 /*"@media" só aplique estes estilos se a condição for verdadeira*/
-@media (max-width: 1100px) {
+/* @media (max-width: 1100px) {
   .grade, .numeros { grid-template-columns: repeat(2, 1fr); }
   .hero { grid-template-columns: 1fr; }
   .links { display: none; }
@@ -112,4 +112,4 @@ h1, h2, h3, .logo-texto, .logo-badge, .hero-card-sigla, .hero-card-frase,
   .secao-cabecalho h2 { font-size: 34px; }
   .grade, .numeros, .cards-legado { grid-template-columns: 1fr; }
   .rodape { flex-direction: column; text-align: center; }
-}
+} */
