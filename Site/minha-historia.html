@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <link rel="icon" href="./css/imagens/apex-f1.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>APEX F1 · Minha história</title>
+    <title>APEX F1 · Paddock</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,8 +13,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/mcLaren.css" />
-    <link rel="stylesheet" href="css/minha-historia.css" />
+    <link rel="stylesheet" href="css/componentes.css" />
+    <link rel="stylesheet" href="css/paddock.css" />
   </head>
   <body>
     <header class="navbar">
@@ -22,195 +22,72 @@
         <span class="logo-texto">APEX</span>
         <span class="logo-badge">F1</span>
       </a>
-      <nav class="links">
+      <nav class="navbar-links">
         <a href="index.html">Início</a>
-        <a href="index.html#lf1">F1</a>
+        <a href="minha-historia.html">Minha história</a>
+        <a href="index.html#f1">F1</a>
         <a href="index.html#lendas">Lendas</a>
-        <a href="paddock.html">Paddock</a>
+        <a href="paddock.html" class="ativo">Paddock</a>
         <a href="dedicacoes.html">Dedicações</a>
         <a href="dashboard.html">Dashboard</a>
       </nav>
-      <a href="login.html" class="btn-sair">Sair</a>
+      <a href="login.html" class="botao-sair">Sair</a>
     </header>
+
     <main>
-      <section class="hero">
-        <div class="hero-texto">
-          <span class="chip chip-laranja">MINHA HISTÓRIA</span>
-          <h1>Como foi a F1 entrou na minha vida</h1>
-          <p class="hero-descricao">
-            Entre o pastel da feira e as corridas de domingo, a Fórmula 1 voltou
-            a fazer parte dos meus dias. E com ela, chegou o Senna.
-          </p>
-          <div class="botoes">
-            <a href="index.html" class="botao-principal">Voltar ao site</a>
-            <a href="senna.html" class="botao-secundario">Conhecer o Senna</a>
-          </div>
-        </div>
-        <div class="hero-card hero-card-historia">
-          <span class="chip">DOMINGO · DIA DE CORRIDA</span>
+      <section class="secao paddock">
+        <header class="secao-cabecalho">
+          <span class="secao-rotulo">MINIGAMES</span>
+          <h1>Paddock</h1>
+          <p>Escolha um desafio, dispute e acompanhe o seu desempenho no dashboard.</p>
+        </header>
 
-          <span class="hero-card-sigla">F1</span>
-
-          <div class="hero-card-rodape">
-            <div class="xadrez">
-              <div class="xadrez-linha">
-                <span class="claro"></span><span class="escuro"></span
-                ><span class="claro"></span><span class="escuro"></span>
-                <span class="claro"></span><span class="escuro"></span
-                ><span class="claro"></span><span class="escuro"></span>
-                <span class="claro"></span><span class="escuro"></span
-                ><span class="claro"></span><span class="escuro"></span>
-                <span class="claro"></span><span class="escuro"></span
-                ><span class="claro"></span><span class="escuro"></span>
+        <div class="minigames">
+          <article class="minigame">
+            <div class="banner banner-quiz">QUIZ</div>
+            <div class="info">
+              <span class="chip chip-suave">DISPONÍVEL</span>
+              <h2>Quiz F1 &amp; Senna</h2>
+              <p>Perguntas sobre a Fórmula 1, o Senna e a minha história. No fim, o seu resultado vai direto para o dashboard.</p>
+              <div class="temas">
+                <span class="chip chip-suave">F1</span>
+                <span class="chip chip-suave">SENNA</span>
+                <span class="chip chip-suave">MINHA HISTÓRIA</span>
               </div>
-              <div class="xadrez-linha">
-                <span class="escuro"></span><span class="claro"></span
-                ><span class="escuro"></span><span class="claro"></span>
-                <span class="escuro"></span><span class="claro"></span
-                ><span class="escuro"></span><span class="claro"></span>
-                <span class="escuro"></span><span class="claro"></span
-                ><span class="escuro"></span><span class="claro"></span>
-                <span class="escuro"></span><span class="claro"></span
-                ><span class="escuro"></span><span class="claro"></span>
-              </div>
+              <a href="quiz.html" class="botao-principal">Jogar o quiz</a>
             </div>
-            <p class="hero-card-frase">Pastel, corrida e meu pai.</p>
-          </div>
-        </div>
-      </section>
-      <section class="secao" id="linha-da-vida">
-        <div class="secao-cabecalho">
-          <span class="secao-etiqueta">LINHA DA VIDA</span>
-          <h2>De um domingo a um ídolo</h2>
-          <p>
-            Os momentos em que a Fórmula 1 e a história do Senna foram se
-            entrelaçando com a minha.
-          </p>
-        </div>
-
-        <div class="grade">
-          <article class="card-marco">
-            <span class="marco-ano">Infância</span>
-            <h3>Domingos de corrida</h3>
-            <p>
-              Aquele cheiro de pastel de feira e a TV ligada na sala. Eu não sei
-              exatamente em que domingo a Fórmula 1 entrou na minha vida, mas
-              lembro com clareza da sensação de estar ali com meu pai.
-            </p>
           </article>
 
-          <article class="card-marco">
-            <span class="marco-ano">Depois</span>
-            <h3>A paixão esfria</h3>
-            <p>
-              Com o tempo e a rotina, aquele ritual foi se perdendo. Mas, mesmo
-              nos anos em que não acompanhei as corridas, o carinho por aquela
-              lembrança nunca deixou de existir.
-            </p>
-          </article>
-
-          <article class="card-marco">
-            <span class="marco-ano">Hoje</span>
-            <h3>A paixão volta</h3>
-            <p>
-              Hoje o entusiasmo voltou com tudo. Treino, classificação e corrida
-              de sexta a domingo já têm lugar reservado na minha agenda — não me
-              marque nada nesses horários.
-            </p>
-          </article>
-
-          <article class="card-marco">
-            <span class="marco-ano">29/11/2024</span>
-            <h3>A série do Senna</h3>
-            <p>
-              Com a minissérie da Netflix, a história dele ganhou outra dimensão
-              para mim. O Senna deixou de ser só um grande nome do esporte que
-              eu admirava e se tornou uma verdadeira inspiração.
-            </p>
+          <article class="minigame">
+            <div class="banner banner-sim">SIM</div>
+            <div class="info">
+              <span class="chip chip-suave">EM BREVE</span>
+              <h2>Simulador de corrida</h2>
+              <p>Dispute uma corrida simulada e veja como você se sai. O resultado também vai para o dashboard.</p>
+              <div class="temas">
+                <span class="chip chip-suave">CORRIDA</span>
+                <span class="chip chip-suave">EM BREVE</span>
+              </div>
+              <span class="botao-secundario botao-desativado">Em breve</span>
+            </div>
           </article>
         </div>
       </section>
-      <section class="secao" id="como-onde-porque">
-        <div class="secao-cabecalho">
-            <span class="secao-etiqueta">A F1 NA MINHA VIDA</span>
-            <h2>Como, onde e por quê</h2>
-            <p>O que a Fórmula 1 significapara mim.</p>
-        </div>
-        <div class="cards-legado">
-            <article class="card-legado">
-                <span class="legado-etiqueta">COMO</span>
-                <h3>Ao lado do meu pai</h3>
-                <p>Foi assistindo às corridas com ele, nos domingos, que a Fórmula 1 entrou na minha vida.</p>
-            </article>
-            <article class="card-legado">
-                <span class="legado-etiqueta">ONDE</span>
-                <h3>Entre a feira e a corrida</h3>
-                <p>O pastel comprado na feira e a corrida de domingo. Voltar a fazer isso, como
-                    o "Mini Manoel" fazia, deixa meus dias mais alegres e coloridos.
-                </p>
-            </article>
-            <article class="card-legado">
-                <span class="legado-etiqueta">POR QUÊ</span>
-                <h3>Meu momento de relaxar</h3>
-                <p>A F1 relaxa a minha cabeça e foi o que mais me ajudou em uma fase muito
-                    difícil da minha vida.
-                </p>
-            </article>
-        </div>
-      </section>
-      <section class="secao" id="senna">
-        <div class="secao-cabecalho">E O SENNA?
-        <h2>Do piloto ao ídolo</h2>
-        <p>Ele chegou pela própria Fórmula 1 e ficou.</p>
-        </div>
-        <div class="card-legado">
-            <article class="card-legado">
-            <span class="legado-etiqueta">PRIMEIRO, O NOME</span>
-            <h3>Impossível não conhecer</h3>
-            <p>Como acompanho a F1, a F2 e a F3, não foi difícil conhecer o nome do Senna. Meus
-                pais ainda contavam histórias da época de ouro da categoria.
-            </p>
-            </article>
-            <article class="card-legado">
-                <span class="legado-etiqueta">DEPOIS, A SÉRIE</span>
-                <h3>De piloto a ídolo</h3>
-                <p>Assistir à minissérie da Netflix, em 29 de novembro de 2024, foi o suficiente
-                para ele se tornar o meu ídolo.
-                </p>
-            </article>
-            <article class="card-legado">
-                <span class="legado-etiqueta">HOJE, NO DIA A DIA</span>
-                <h3>Sempre por perto</h3>
-                <p>A capinha do meu celular é do capacete do Senna, meu papel de parede também e agora, meu projeto.
-                Conhecer a história dele é uma inspiração que levo para a minha própria.
-                </p>
-            </article>
-        </div>
-      </section>
-      <section class="secao" id="frase">
-        <div class="secao-cabecalho">
-            <span class="secao-etiqueta">NAS MINHAS PALAVRAS</span>
-            <h2>O que ficou em mim</h2>
-            <p>Uma frase que resume essa história</p>
-        </div>
-        <div class="citacoes">
-            <blockquote class="citacao">
-                "Me tornei alguém melhor porque me permiti ver a história do meu ídolo e me inspirar nela."
-            </blockquote>
-        </div>
-      </section>
+
       <section class="cta">
-        <a href="index.html" class="botao-principal">Voltar ao site</a>
-        <a href="senna.html" class="botao-secundario">Conhecer a história do Senna</a>
+        <a href="dashboard.html" class="botao-secundario">Ver meu dashboard</a>
+        <a href="index.html" class="botao-secundario">Voltar ao site</a>
       </section>
     </main>
 
     <footer class="rodape">
-        <a href="index.html" class="logo">
-            <span class="logo-texto">APEX</span>
-            <span class="logo-badge">F1</span>
-        </a>
-        <p>Projeto individual · SPTech · Feito com paixão pela Fórmula 1</p>
+      <div class="logo">
+        <span class="logo-texto">APEX</span>
+        <span class="logo-badge">F1</span>
+      </div>
+      <p>Projeto individual · SPTech · Feito com paixão pela Fórmula 1</p>
     </footer>
+
+    <script src="js/paddock.js"></script>
   </body>
 </html>

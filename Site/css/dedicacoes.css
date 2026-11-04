@@ -1,254 +1,139 @@
-:root {
-    --fundo: #0b0b10;
-    --borda: #2e2e3d;
-    --texto: #f4f4f6;
-    --texto-suave: #a0a0b2;
-    --laranja: #ff8000;
-    --vermelho: #e10600;
-    --chip: #1d1d28;
-}
-.logo {
-    text-decoration: none;
-    color: inherit;
-}
+/* dedicacoes.css: só o que é exclusivo da página Dedicações */
 
-body {
-    margin: 0;
-    background-color: #0b0b10;
-    color: #f4f4f6;
-    font-family: 'Inter', sans-serif;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-    padding: 64px 96px 80px;
+.dedicacoes {                        /* <main class="dedicacoes"> */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 64px var(--margem-pagina) 80px;
 }
 
 /* ---------- CARTÃO ---------- */
-
 .cartao {
-    display: flex;
-    width: 1120px;
-    border: 1px solid #2e2e3d;
-    border-radius: 24px;
-    overflow: hidden;
+  display: flex;
+  width: 1120px;
+  border: 1px solid var(--campo-borda);
+  border-radius: 24px;
+  overflow: hidden;
 }
 
-/* ---------- PAINEL ESQUERDO ---------- */
-
+/* ---------- PAINEL ESQUERDO: PESSOAS ---------- */
 .painel-pessoas {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    padding: 48px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 48px;
 }
 
-.cabecalho {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+/* Aqui o cabeçalho é menor que o das outras páginas */
+.painel-pessoas .secao-cabecalho h1 {
+  font-size: 44px;
+  line-height: 46px;
 }
 
-.cabecalho p,
-.cabecalho h1 {
-    margin: 0;
-}
-
-.etiqueta {
-    color: #ff8000;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1.82px;
-}
-
-.cabecalho h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 44px;
-    line-height: 46px;
-}
-
-.subtitulo {
-    color: #a0a0b2;
-    font-size: 15px;
-    line-height: 23px;
+.painel-pessoas .secao-cabecalho p {
+  font-size: 15px;
+  line-height: 23px;
 }
 
 .pessoas {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .pessoa {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
 }
 
+/* Círculo com as iniciais (depois pode virar <img> dentro da mesma div) */
 .foto {
-    width: 64px;
-    height: 64px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: linear-gradient(to bottom, #ff8000, #733300);
-    color: #fff;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 26px;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, var(--laranja), #733300);
+  color: var(--texto);
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 26px;
 }
 
 .texto {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .nome-relacao {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .nome {
-    color: #ff8000;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 22px;
-}
-
-.pessoa .chip {
-    padding: 6px 12px;
-    border: 1px solid #2e2e3d;
-    border-radius: 100px;
-    background-color: #1d1d28;
-    color: #a0a0b2;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.72px;
+  color: var(--laranja);
+  font-family: "Permanent Marker", cursive;
+  font-size: 22px;
 }
 
 .texto p {
-    margin: 0;
-    color: #a0a0b2;
-    font-size: 13px;
-    line-height: 20px;
+  color: var(--texto-suave);
+  font-size: 13px;
+  line-height: 20px;
 }
 
-/* ---------- PAINEL DIREITO ---------- */
-
+/* ---------- PAINEL DIREITO: MARCA ---------- */
 .painel-marca {
-    width: 440px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 40px;
-    background: linear-gradient(121deg, #ff8000 0%, #240100 71%);
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.logo-texto {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 44px;
-    letter-spacing: 0.88px;
-}
-
-.logo-badge {
-    padding: 0 10px;
-    border-radius: 6px;
-    background-color: #f4f4f6;
-    color: #e10600;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 36px;
+  width: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  background: linear-gradient(121deg, var(--laranja) 0%, #240100 71%);
 }
 
 .headline {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.headline h2,
-.headline p {
-    margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .headline h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 52px;
-    line-height: 52px;
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 52px;
+  line-height: 52px;
 }
 
 .headline p {
-    color: #ffd9d6;
-    font-size: 15px;
-    line-height: 23px;
+  color: var(--marca-texto);
+  font-size: 15px;
+  line-height: 23px;
 }
 
 .citacao {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.tabuleiro .linha {
-    display: flex;
-}
-
-.tabuleiro span {
-    width: 18px;
-    height: 18px;
-}
-
-.claro {
-    background-color: #fff;
-    opacity: 0.9;
-}
-
-.escuro {
-    background-color: #000;
-    opacity: 0.35;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .citacao blockquote {
-    margin: 0;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 26px;
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 26px;
 }
 
 .autor {
-    margin: 0;
-    color: #ffc9c5;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-/* ---------- BOTÃO ---------- */
-
-.btn-voltar {
-    padding: 16px 28px;
-    border: 1.5px solid #2e2e3d;
-    border-radius: 8px;
-    color: #f4f4f6;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
+  color: var(--marca-autor);
+  font-size: 14px;
+  font-weight: 500;
 }

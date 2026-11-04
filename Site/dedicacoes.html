@@ -1,152 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="icon" href="./css/imagens/apex-f1.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>>APEX F1 · Dedicações</title>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <link rel="icon" href="./css/imagens/apex-f1.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APEX F1 · Dedicações</title>
 
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/dedicacoes.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&family=Permanent+Marker&display=swap"
       rel="stylesheet"
     />
-</head>
-<body>
-     <header class="navbar">
-      <div class="logo">
-        <a href="index.html">
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/componentes.css" />
+    <link rel="stylesheet" href="css/dedicacoes.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="index.html" class="logo">
         <span class="logo-texto">APEX</span>
         <span class="logo-badge">F1</span>
-        </a>
-      </div>
-      <nav class="link">
-        <a href="index.html"> Início </a>
-        <a href="minha-historia.html"> Minha História </a>
-        <a href="index.html#f1"> F1 </a>
+      </a>
+      <nav class="navbar-links">
+        <a href="index.html">Início</a>
+        <a href="minha-historia.html">Minha história</a>
+        <a href="index.html#f1">F1</a>
         <a href="index.html#lendas">Lendas</a>
-        <a href="paddock.html"> Paddock </a>
-        <a href="dashboard.html"> Dashboard </a>
+        <a href="paddock.html">Paddock</a>
+        <a href="dedicacoes.html" class="ativo">Dedicações</a>
+        <a href="dashboard.html">Dashboard</a>
       </nav>
-      <button class="botao-sair">Sair</button>
+      <a href="login.html" class="botao-sair">Sair</a>
     </header>
-    <main>
-        <section class="cartao">
 
-            <div class="painel-pessoas">
-                <header class="cabecalho">
-                    <p class="etiqueta">DEDICAÇÕES</p>
-                    <h1>Quem me trouxe até aqui</h1>
-                    <p class="subtitulo">Ninguém chega à bandeirada sozinho. Estas
-                    são as pessoas que fizeram parte da minha equipe.</p>
-                </header>
-                <div class="pessoas">
-                    <article class="pessoa">
-                        <div class="foto">NA</div>
-                        <div class="texto">
-                            <div class="nome-relacao">
-                                <span class="nome">Neuza Alves</span>
-                                <span class="chip">MINHA MÃE</span>
-                            </div>
-                            <p>Obrigado por todo o cuidado, pelo exemplo e por nunca ter deixado de acreditar
-                            em mim. Cada passo que dei até aqui leva um pouco de você.</p>
-                        </div>
-                    </article>
-                    <article class="pessoa">
-                        <div class="foto">MA</div>
-                        <div class="texto">
-                            <div class="nome-relacao">
-                                <span class="nome">Manoel Alves</span>
-                                <span class="chip">MEU PAI</span>
-                            </div>
-                            <p>Obrigado por ser um dos meus primeiros exemplos e por estar ao meu lado
-                            desde o começo. Parte de quem sou veio de você.</p>
-                        </div>
-                    </article>
-                    <article class="pessoa">
-                        <div class="foto">BA</div>
-                        <div class="texto">
-                            <div class="nome-relacao">
-                                <span class="nome">Breno Alves</span>
-                                <span class="chip">MEU IRMÃO</span>
-                            </div>
-                            <p>Obrigado por estar sempre por "perto", nos dias bons e nos difíceis. Ter você como
-                            irmão deixa o caminho mais leve.</p>
-                        </div>
-                    </article>
-                    <article class="pessoa">
-                        <div class="foto">MZ</div>
-                        <div class="texto">
-                            <div class="nome-relacao">
-                                <span class="nome">Michelle Zanini</span>
-                                <span class="chip">AMIGA QUE PARECE IRMÃ</span>
-                            </div>
-                            <p>Obrigado por ser a amiga que parece irmã e por ficar comigo
-                            quando mais precisei. Sua amizade faz toda a diferença.</p>
-                        </div>
-                    </article>
-                    <article class="pessoa">
-                        <div class="foto">LE</div>
-                        <div class="texto">
-                            <div class="nome-relacao">
-                                <span class="nome">Lucas Espíndola</span>
-                                <span class="chip">AMIGO/IRMÃO</span>
-                            </div>
-                            <p>Obrigado pela parceria, pelas conversas e pela força de sempre. Amigo
-                            que é irmão a gente leva para a vida inteira.</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
+    <main class="dedicacoes">
+      <section class="cartao">
+        <div class="painel-pessoas">
+          <header class="secao-cabecalho">
+            <span class="secao-rotulo">DEDICAÇÕES</span>
+            <h1>Quem me trouxe até aqui</h1>
+            <p>Ninguém chega à bandeirada sozinho. Estas são as pessoas que fizeram parte da minha equipe.</p>
+          </header>
 
-            <aside class="painel-marca">
-                <div class="logo">
-                    <span class="logo-texto">APEX</span>
-                    <span class="logo-badge">F1</span>
+          <div class="pessoas">
+            <article class="pessoa">
+              <div class="foto">NA</div>
+              <div class="texto">
+                <div class="nome-relacao">
+                  <span class="nome">Neuza Alves</span>
+                  <span class="chip chip-suave">MINHA MÃE</span>
                 </div>
-                <div class="headline">
-                    <h2>Ninguém chega à bandeirada sozinho.</h2>
-                    <p>Cada pessoa aqui tem um pedaço desta história, dentro e fora da pista.</p>
+                <p>Obrigado por todo o cuidado, pelo exemplo e por nunca ter deixado de acreditar em mim. Cada passo que dei até aqui leva um pouco de você.</p>
+              </div>
+            </article>
+            <article class="pessoa">
+              <div class="foto">MA</div>
+              <div class="texto">
+                <div class="nome-relacao">
+                  <span class="nome">Manoel Alves</span>
+                  <span class="chip chip-suave">MEU PAI</span>
                 </div>
-                <div class="citacao">
-        <div class="tabuleiro">
-            <div class="linha">
-                <span class="claro"></span><span class="escuro"></span>
-                <span class="claro"></span><span class="escuro"></span>
-                <span class="claro"></span><span class="escuro"></span>
-                <span class="claro"></span><span class="escuro"></span>
-                <span class="claro"></span><span class="escuro"></span>
-                <span class="claro"></span><span class="escuro"></span>
-                <span class="claro"></span><span class="escuro"></span>
-            </div>
-            <div class="linha">
-                <span class="escuro"></span><span class="claro"></span>
-                <span class="escuro"></span><span class="claro"></span>
-                <span class="escuro"></span><span class="claro"></span>
-                <span class="escuro"></span><span class="claro"></span>
-                <span class="escuro"></span><span class="claro"></span>
-                <span class="escuro"></span><span class="claro"></span>
-                <span class="escuro"></span><span class="claro"></span>
-            </div>
-            </div>
-            <blockquote>"Tenha sempre como meta muita força, muita determinação e sempre faça tudo com muito amor e 
-            com muita fé em Deus, que um dia você chega lá.”</blockquote>
+                <p>Obrigado por ser um dos meus primeiros exemplos e por estar ao meu lado desde o começo. Parte de quem sou veio de você.</p>
+              </div>
+            </article>
+            <article class="pessoa">
+              <div class="foto">BA</div>
+              <div class="texto">
+                <div class="nome-relacao">
+                  <span class="nome">Breno Alves</span>
+                  <span class="chip chip-suave">MEU IRMÃO</span>
+                </div>
+                <p>Obrigado por estar sempre por “perto”, nos dias bons e nos difíceis. Ter você como irmão deixa o caminho mais leve.</p>
+              </div>
+            </article>
+            <article class="pessoa">
+              <div class="foto">MZ</div>
+              <div class="texto">
+                <div class="nome-relacao">
+                  <span class="nome">Michelle Zanini</span>
+                  <span class="chip chip-suave">AMIGA QUE PARECE IRMÃ</span>
+                </div>
+                <p>Obrigado por ser a amiga que parece irmã e por ficar comigo quando mais precisei. Sua amizade faz toda a diferença.</p>
+              </div>
+            </article>
+            <article class="pessoa">
+              <div class="foto">LE</div>
+              <div class="texto">
+                <div class="nome-relacao">
+                  <span class="nome">Lucas Espíndola</span>
+                  <span class="chip chip-suave">AMIGO/IRMÃO</span>
+                </div>
+                <p>Obrigado pela parceria, pelas conversas e pela força de sempre. Amigo que é irmão a gente leva para a vida inteira.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="painel-marca">
+          <div class="logo logo-claro">
+            <span class="logo-texto">APEX</span>
+            <span class="logo-badge">F1</span>
+          </div>
+
+          <div class="headline">
+            <h2>Ninguém chega à bandeirada sozinho.</h2>
+            <p>Cada pessoa aqui tem um pedaço desta história, dentro e fora da pista.</p>
+          </div>
+
+          <div class="citacao">
+            <div class="checker checker-pequeno"></div>
+            <blockquote>“Tenha sempre como meta muita força, muita determinação e sempre faça tudo com muito amor e com muita fé em Deus, que um dia você chega lá.”</blockquote>
             <p class="autor">Ayrton Senna</p>
-            </aside>
+          </div>
+        </aside>
+      </section>
 
-        </section>
-
-        <a href="index.html" class="btn-voltar">Voltar ao site</a>
+      <a href="index.html" class="botao-secundario">Voltar ao site</a>
     </main>
+
     <footer class="rodape">
-  <div class="logo">
-    <span class="logo-texto">APEX</span>
-    <span class="logo-badge">F1</span>
-  </div>
-  <p>Projeto individual · SPTech · Feito com paixão pela Fórmula 1</p>
-</footer>
-</body>
+      <div class="logo">
+        <span class="logo-texto">APEX</span>
+        <span class="logo-badge">F1</span>
+      </div>
+      <p>Projeto individual · SPTech · Feito com paixão pela Fórmula 1</p>
+    </footer>
+  </body>
 </html>

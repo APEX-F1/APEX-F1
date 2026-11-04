@@ -1,45 +1,89 @@
-:root{
-  --fundo: #0b0b10;
-  --campo-fundo: #1d1d28;
-  --campo-borda: #2e2e3d;
-  --texto: #f4f4f6;
-  --texto-suave: #a0a0b2;
-  --placeholder: #6b6b7d;
-  --laranja: rgba(255, 128, 0, 0.85);
-}
+/* =====================================================
+   APEX F1 | autenticacao.css
+   Layout de duas colunas do Login e do Cadastro:
+   painel laranja da marca + painel do formulário.
+   Carregue depois do base.css.
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+   ÍNDICE
+   1. Estrutura
+   2. Painel da marca
+   3. Formulário
+   ===================================================== */
 
+
+/* =====================================================
+   1. ESTRUTURA
+   ===================================================== */
 body {
-  display: flex; /*para os dois painéis ficarem lado a lado*/
-  min-height: 100vh; /*para ocupar a altura da tela*/
-  background-color: var(--fundo);
-  font-family: 'Inter', sans-serif; 
-  color: var(--texto);
+  display: flex;                     /* os dois painéis lado a lado */
+  min-height: 100vh;                 /* ocupa a altura da tela */
 }
 
 .painel-marca {
   width: 50%;
-  padding: 64px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background-image: linear-gradient(128.66deg, #ff8000 0%, #240100 71.4%);
+  justify-content: space-between;    /* logo | headline | citação */
+  padding: 64px;
+  background-image: linear-gradient(128.66deg, var(--laranja) 0%, #240100 71.4%);
 }
 
 .painel-formulario {
-  flex: 1; /*faz o painel direito ocupar todo o espaço que sobra ao lado dos 50% do esquerdo.*/
+  flex: 1;                           /* ocupa o espaço que sobra ao lado dos 50% do painel da marca */
   display: flex;
   align-items: center;
-  justify-content: center;
-  /*"align" e "justify" centralizam o formulário na vertical e na horizontal.*/
+  justify-content: center;           /* centraliza o formulário */
   padding: 64px;
 }
 
+
+/* =====================================================
+   2. PAINEL DA MARCA
+   (logo e bandeira vêm do base.css: "logo logo-claro" e "checker checker-pequeno")
+   ===================================================== */
+.headline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.headline h2 {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 88px;
+  line-height: 84px;                 /* menor que a fonte: linhas mais próximas */
+}
+
+.headline p {
+  color: var(--marca-texto);
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.citacao {
+  display: flex;
+  flex-direction: column;            /* bandeira, frase e autor */
+  gap: 14px;
+}
+
+.citacao blockquote {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 34px;
+}
+
+.citacao cite {
+  color: var(--marca-autor);
+  font-style: normal;                /* desliga o itálico padrão do <cite> */
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+/* =====================================================
+   3. FORMULÁRIO
+   ===================================================== */
 .formulario {
   width: 400px;
   max-width: 100%;
@@ -48,165 +92,80 @@ body {
   gap: 22px;
 }
 
-.logo {
-    display: flex; /*coloca "APEX" e "F1" lado a lado.*/
-    align-items: center; /*alinha os dois no centro da vertical*/
-    gap: 8px; /*espaço de 8px entre eles.*/
-}
-
-.logo-texto{
-    font-family: 'Barlow Condensed', sans-serif;  /*fonte do título; "sans..." é a fonte reserva.*/
-    font-weight: 800; /*negrito mais forte.*/
-    font-size: 44px; 
-    letter-spacing: 0.88px; /*abre um pouco o espaço entre as letras.*/
-}
-
-.logo-badge {
-    background-color: var(--texto); 
-    color: #e10600;  /*vermelho do "F1".*/
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 36px;
-    padding: 0 10px; /*zero em cima e embaixo, 10px nas laterais.*/
-    border-radius: 6px; /*deixa os cantos arredondados.*/
-}
-
-/* HEADLINE */
-.headline {
-    display: flex;
-    flex-direction: column; /*empilha o título e o parágrafo.*/
-    gap: 20px; /*espaço entre os dois.*/
-}
-
-.headline h2{
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 88px;
-    line-height: 84px; /*menor que o tamanho da fonte: deixa as linhas mais próximas (escrever no meio da linha).*/
-}
-
-.headline p {
-    font-size: 18px;
-    line-height: 28px; /*espaço entre linhas do parágrafo*/
-    color: #ffd9d6;
-}
-
-/* CITAÇÃO */
-.citacao {
-    display: flex;
-    flex-direction: column; /*bandeira, frase e autor, um sobre o outro.*/
-    gap: 14px; 
-}
-
-.citacao blockquote {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 600; /*semibold, mais leve.*/
-    font-size: 30px;
-    line-height: 34px;
-}
-
-.citacao cite {
-    font-style: normal; /*desligou o itálico que o <cite> deixa.*/
-    font-weight: 500; 
-    font-size: 14px;
-    color: #ffc9c5;
-}
-
-/* BANDEIRA */
-.checker {
-    width: 252px;
-    height: 36px;
-    background-size: 36px 36px;
-    background-image: conic-gradient(
-        rgba(0, 0, 0, 0.35 ) 0% 25%,
-        rgba(255, 255, 255, 0.9) 25% 50%,
-        rgba(0, 0, 0, 0.35) 50% 75%,
-        rgba(255, 255, 255, 0.9) 75% 100%
-    );
-}
-
-/* CABEÇALHO */
 .cabecalho {
-    display: flex;
-    flex-direction: column; /*empilha o título e o parágrafo.*/
-    gap: 8px; /*espaço entre os dois.*/
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .cabecalho h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 60px;
-    line-height: 60px; /*Altura da linha é igual ao tamanho da fonte.*/
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 60px;
 }
 
 .cabecalho p {
-    font-size: 15px;
-    color: var(--texto-suave);
+  color: var(--texto-suave);
+  font-size: 15px;
 }
-/* CAMPO */
+
 .campo {
-    flex-direction: column;
-    display: flex;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.campo label{
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--texto-suave);
+.campo label {
+  color: var(--texto-suave);
+  font-size: 13px;
+  font-weight: 500;
 }
 
-.campo input{
-    width: 100%; /*para a caixa ocupar a largura do formulário.*/
-    padding: 15px 16px; 
-    background-color: var(--campo-fundo);
-    border: 1px solid var(--campo-borda);
-    border-radius: 8px;
-    font-size: 15px;
-    color: var(--texto);
-    font-family: 'Inter', sans-serif; /*Tem que declarar a fonte, porque os inputs não herda do body*/
-    outline: none;
+.campo input {
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid var(--campo-borda);
+  border-radius: 8px;
+  background-color: var(--campo-fundo);
+  font-size: 15px;
+  outline: none;
 }
 
-.campo input::placeholder{
-    color: var(--placeholder);
+.campo input::placeholder {
+  color: var(--placeholder);
 }
 
-.campo input:focus{
-    border-color: #ff8000;
+.campo input:focus {
+  border-color: var(--laranja);
 }
 
-/* BOTÃO */
-.botao{
-    padding: 16px 28px;
-    background-color: var(--laranja);
-    border-radius: 8px;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--texto);
-    cursor: pointer;
-    border: none;
+.formulario .botao {
+  padding: 16px 28px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--laranja-suave);
+  font-size: 15px;
+  font-weight: 600;
 }
 
-.botao:hover{
-    background-color: #ff8000;
+.formulario .botao:hover {
+  background-color: var(--laranja);
 }
 
 .troca {
-    text-align: center;
-    font-size: 14px;
-    color: var(--texto-suave);
+  color: var(--texto-suave);
+  font-size: 14px;
+  text-align: center;
 }
 
 .troca a {
-    font-weight: 600;
-    color: var(--laranja);
-    text-decoration: none;
+  color: var(--laranja-suave);
+  font-weight: 600;
 }
 
 .aviso {
-    text-align: center;
-    font-size: 12px;
-    color: var(--placeholder);
+  color: var(--placeholder);
+  font-size: 12px;
+  text-align: center;
 }

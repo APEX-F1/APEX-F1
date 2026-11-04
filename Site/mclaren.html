@@ -1,18 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <link rel="icon" href="./css/imagens/apex-f1.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>APEX F1 · McLaren</title>
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/mcLaren.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/componentes.css" />
+    <link rel="stylesheet" href="css/mclaren.css" />
   </head>
   <body>
     <header class="navbar">
@@ -20,8 +22,8 @@
         <span class="logo-texto">APEX</span>
         <span class="logo-badge">F1</span>
       </a>
-      <nav class="links">
-        <a href="index.html">Ínicio</a>
+      <nav class="navbar-links">
+        <a href="index.html">Início</a>
         <a href="minha-historia.html">Minha história</a>
         <a href="index.html#f1">F1</a>
         <a href="index.html#lendas">Lendas</a>
@@ -29,54 +31,35 @@
         <a href="dedicacoes.html">Dedicações</a>
         <a href="dashboard.html">Dashboard</a>
       </nav>
-      <a href="login.html" class="btn-sair">Sair</a>
+      <a href="login.html" class="botao-sair">Sair</a>
     </header>
+
     <main>
       <section class="hero">
         <div class="hero-texto">
-          <span class="chip chip-laranja">MEU TIME NA F1</span>
+          <span class="chip">MEU TIME NA F1</span>
           <h1>McLaren Racing</h1>
-          <p class="hero-descricao">
-            Fundada em 1964 por Bruce McLaren, em Woking, na Inglaterra, a
+          <p>
+            Fundada em 1963 por Bruce McLaren, em Woking, na Inglaterra, a
             McLaren é uma das equipes mais tradicionais e vitoriosas da história
             da Fórmula 1, e o meu time do coração.
           </p>
-          <div class="botoes">
+          <div class="hero-botoes">
             <a href="index.html" class="botao-principal">Voltar ao site</a>
             <a href="paddock.html" class="botao-secundario">Ver os minigames</a>
           </div>
         </div>
         <div class="hero-card">
-          <span class="chip">EQUIPE · DESDE 1963</span>
-          <span class="hero-card-sigla">MCL</span>
-          <div class="hero-card-rodape">
-            <div class="xadrez">
-              <div class="xadrez-linha">
-                <span class="claro"></span><span class="escuro"></span
-                ><span class="claro"></span><span class="escuro"></span>
-                <span class="claro"></span><span class="escuro"></span
-                ><span class="claro"></span><span class="escuro"></span>
-                <span class="claro"></span><span class="escuro"></span
-                ><span class="claro"></span><span class="escuro"></span>
-                <span class="claro"></span><span class="escuro"></span
-                ><span class="claro"></span><span class="escuro"></span>
-              </div>
-              <div class="xadrez-linha">
-                <span class="escuro"></span><span class="claro"></span
-                ><span class="escuro"></span><span class="claro"></span>
-                <span class="escuro"></span><span class="claro"></span
-                ><span class="escuro"></span><span class="claro"></span>
-                <span class="escuro"></span><span class="claro"></span
-                ><span class="escuro"></span><span class="claro"></span>
-                <span class="escuro"></span><span class="claro"></span
-                ><span class="escuro"></span><span class="claro"></span>
-              </div>
-            </div>
-            <p class="hero-card-frase">Meu time na Fórmula 1.</p>
+          <span class="chip chip-claro">EQUIPE · DESDE 1963</span>
+          <span class="f1-gigante">MCL</span>
+          <div class="card-rodape">
+            <div class="checker"></div>
+            <p>Meu time na Fórmula 1.</p>
           </div>
         </div>
       </section>
-      <section class="numeros">
+
+      <section class="numeros numeros-faixa">
         <div class="stat">
           <span class="stat-numero">1963</span>
           <span class="stat-rotulo">Ano de fundação</span>
@@ -94,176 +77,152 @@
           <span class="stat-rotulo">Anos com Senna (1988-93)</span>
         </div>
       </section>
+
       <section class="secao" id="feitos">
-        <div class="secao-CABECALHO">
-          <span class="secao-etiqueta">MAIORES FEITOS</span>
+        <header class="secao-cabecalho">
+          <span class="secao-rotulo">MAIORES FEITOS</span>
           <h2>Uma equipe feita de vitórias</h2>
-          <p>
-            Recordes e consquistas que colocam a McLaren entre as maiores da F1.
-          </p>
-        </div>
-        <div class="grade">
-          <article class="card-feito">
-            <span class="feito-numero">10</span>
-            <span class="feito-etiqueta">TÍTULOS DE CONSTRUTORES</span>
+          <p>Recordes e conquistas que colocam a McLaren entre as maiores da F1.</p>
+        </header>
+        <div class="grade grade-4">
+          <article class="lenda">
+            <span class="lenda-numero">10</span>
+            <span class="lenda-rotulo">TÍTULOS DE CONSTRUTORES</span>
             <h3>Segunda maior vencedora</h3>
             <p>Só fica atrás da Ferrari na história da F1.</p>
           </article>
-          <article class="card-feito">
-            <span class="feito-numero">13</span>
-            <span class="feito-etiqueta">TÍTULOS DE PILOTOS</span>
+          <article class="lenda">
+            <span class="lenda-numero">13</span>
+            <span class="lenda-rotulo">TÍTULOS DE PILOTOS</span>
             <h3>De Fittipaldi a Norris</h3>
-            <p>
-              Passaram por lá Hunt, Lauda, Prost, Senna, Häkkinen e Hamilton.
-            </p>
+            <p>Passaram por lá Hunt, Lauda, Prost, Senna, Häkkinen e Hamilton.</p>
           </article>
-          <article class="card-feito">
-            <span class="feito-numero">1988</span>
-            <span class="feito-etiqueta">MCLAREN MP4/4</span>
+          <article class="lenda">
+            <span class="lenda-numero">1988</span>
+            <span class="lenda-rotulo">MCLAREN MP4/4</span>
             <h3>O carro dominante</h3>
             <p>Venceu 15 das 16 corridas da temporada, com Senna e Prost.</p>
           </article>
-          <article class="card-feito">
-            <span class="feito-numero">4</span>
-            <span class="feito-etiqueta">CONSTRUTORES SEGUIDOS</span>
+          <article class="lenda">
+            <span class="lenda-numero">4</span>
+            <span class="lenda-rotulo">CONSTRUTORES SEGUIDOS</span>
             <h3>Era McLaren-Honda</h3>
             <p>Quatro títulos de construtores consecutivos, de 1988 a 1991.</p>
           </article>
-          <article class="card-feito">
-            <span class="feito-numero">6</span>
-            <span class="feito-etiqueta">ANOS COM SENNA</span>
+          <article class="lenda">
+            <span class="lenda-numero">6</span>
+            <span class="lenda-rotulo">ANOS COM SENNA</span>
             <h3>Parceria lendária</h3>
-            <p>
-              De 1988 a 1993: 35 vitórias e três títulos mundiais cin Ayrton
-              Senna ao volante.
-            </p>
+            <p>De 1988 a 1993: 35 vitórias e três títulos mundiais com Ayrton Senna ao volante.</p>
           </article>
-          <article class="card-feito">
-            <span class="feito-numero">1995</span>
-            <span class="feito-etiqueta">24 HORAS DE LE MANS</span>
+          <article class="lenda">
+            <span class="lenda-numero">1995</span>
+            <span class="lenda-rotulo">24 HORAS DE LE MANS</span>
             <h3>Além da F1</h3>
-            <p>Venceu as 24 horas de Le Mans com o McLaren F1 GTR.</p>
+            <p>Venceu as 24 Horas de Le Mans com o McLaren F1 GTR.</p>
           </article>
-          <article class="card-feito">
-            <span class="feito-numero">2024</span>
-            <span class="feito-etiqueta">DE VOLTA AO TOPO</span>
+          <article class="lenda">
+            <span class="lenda-numero">2024</span>
+            <span class="lenda-rotulo">DE VOLTA AO TOPO</span>
             <h3>Fim do jejum</h3>
             <p>Primeiro título de construtores desde 1998.</p>
           </article>
-          <article class="card-feito">
-            <span class="feito-numero">2025</span>
-            <span class="feito-etiqueta">TÍTULO DUPLO</span>
-            <h3>Norris Campeão👑</h3>
-            <p>
-              Norris foi campeão de pilotos e a equipe levou o bicampeonato de
-              construtores.
-            </p>
+          <article class="lenda">
+            <span class="lenda-numero">2025</span>
+            <span class="lenda-rotulo">TÍTULO DUPLO</span>
+            <h3>Norris campeão 👑</h3>
+            <p>Norris foi campeão de pilotos e a equipe levou o bicampeonato de construtores.</p>
           </article>
         </div>
       </section>
+
       <section class="secao" id="historia">
-        <div class="secao-cabecalho">
-          <span class="secao-etiqueta">A HISTÓRIA</span>
+        <header class="secao-cabecalho">
+          <span class="secao-rotulo">A HISTÓRIA</span>
           <h2>De Woking para o mundo</h2>
           <p>Os momentos que construíram a identidade da McLaren.</p>
-        </div>
-        <div class="grade">
-          <article class="card-marco">
+        </header>
+        <div class="grade grade-4">
+          <article class="marco">
             <span class="marco-ano">1963</span>
             <h3>Nasce a equipe</h3>
-            <p>
-              Bruce McLaren vendo o GP da Bélgica, a primeira vitória da equipe
-              na F1.
-            </p>
+            <p>Bruce McLaren funda a equipe em Woking, na Inglaterra, e começa a construir a história da McLaren.</p>
           </article>
-          <article class="card-marco">
+          <article class="marco">
+            <span class="marco-ano">1968</span>
+            <h3>Primeira vitória</h3>
+            <p>Bruce McLaren vence o GP da Bélgica, a primeira vitória da equipe na F1.</p>
+          </article>
+          <article class="marco">
             <span class="marco-ano">1974</span>
             <h3>Primeiros títulos</h3>
-            <p>
-              Com Emerson Fittipaldi, a McLaren conquista os títulos de pilotos
-              e de construtores.
-            </p>
+            <p>Com Emerson Fittipaldi, a McLaren conquista os títulos de pilotos e de construtores.</p>
           </article>
-          <article class="card-marco">
+          <article class="marco">
             <span class="marco-ano">1984-86</span>
             <h3>Lauda e Prost</h3>
-            <p>
-              Niki Lauda (1984) e Alain Prost (1985 e 1986) são campeões; a
-              equipe leva os construtores em 1984 e 1985.
-            </p>
+            <p>Niki Lauda (1984) e Alain Prost (1985 e 1986) são campeões; a equipe leva os construtores em 1984 e 1985.</p>
           </article>
-          <article class="card-marco">
+          <article class="marco">
             <span class="marco-ano">1988-91</span>
             <h3>A era Senna</h3>
-            <p>
-              Com motores Honda, a equipe vence quatro títulos de construtores
-              seguidos, com Senna e Prost como protagonistas.
-            </p>
+            <p>Com motores Honda, a equipe vence quatro títulos de construtores seguidos, com Senna e Prost como protagonistas.</p>
           </article>
-          <article class="card-marco">
+          <article class="marco">
             <span class="marco-ano">1998-99</span>
             <h3>Häkkinen bicampeão</h3>
-            <p>
-              Mika Häkkinen vence os dois campeonatos de pilotos, e a equipe
-              leva o de construtores em 1998.
-            </p>
+            <p>Mika Häkkinen vence os dois campeonatos de pilotos, e a equipe leva o de construtores em 1998.</p>
           </article>
-          <article class="card-marco">
+          <article class="marco">
             <span class="marco-ano">2008</span>
-            <h3>Hamilton Campeão</h3>
-            <p>
-              Lewis Hamilton consquista o título mundial de pilotos pela
-              McLaren.
-            </p>
+            <h3>Hamilton campeão</h3>
+            <p>Lewis Hamilton conquista o título mundial de pilotos pela McLaren.</p>
           </article>
-          <article class="card-marco">
+          <article class="marco">
             <span class="marco-ano">2024-25</span>
             <h3>A volta ao topo</h3>
-            <p>
-              Títulos de construtores em 2024 e 2025 e o título de pilotos de
-              Lando Norris em 2025.
-            </p>
+            <p>Títulos de construtores em 2024 e 2025 e o título de pilotos de Lando Norris em 2025.</p>
           </article>
         </div>
       </section>
+
       <section class="secao" id="legado">
-        <div class="secao-cabecalho">
-          <article class="card-legado">
-            <span class="legado-etiqueta">NO GRID</span>
-            <h3>Tradição e Inovação</h3>
-            <p>
-              Uma das equipes mais tradicionais no grid, conhecida por carros
-              inovadores e por formar campeões ao longo de seis décadas.
-            </p>
+        <!-- Este cabeçalho é novo: ajuste o texto como quiser -->
+        <header class="secao-cabecalho">
+          <span class="secao-rotulo">LEGADO</span>
+          <h2>Mais do que uma equipe</h2>
+          <p>O que a McLaren representa dentro e fora das pistas.</p>
+        </header>
+        <div class="grade grade-3">
+          <article class="card-info">
+            <span class="card-rotulo">NO GRID</span>
+            <h3>Tradição e inovação</h3>
+            <p>Uma das equipes mais tradicionais no grid, conhecida por carros inovadores e por formar campeões ao longo de seis décadas.</p>
           </article>
-          <article class="card-legado">
-            <span class="legado-etiqueta">NAS PISTAS</span>
+          <article class="card-info">
+            <span class="card-rotulo">NAS PISTAS</span>
             <h3>Muito além da F1</h3>
-            <p>
-              A McLaren também deixou a sua marca em outras categorias, como nas
-              24 horas de Le Mans, em 1995.
-            </p>
+            <p>A McLaren também deixou a sua marca em outras categorias, como nas 24 Horas de Le Mans, em 1995.</p>
           </article>
-          <article class="card-legado">
-            <span class="legado-etiqueta">HOJE</span>
+          <article class="card-info">
+            <span class="card-rotulo">HOJE</span>
             <h3>Uma nova era</h3>
-            <p>
-              Com Lando Norris e Oscar Piastri, a McLaren voltou a disputar e a
-              vencer títulos.
-            </p>
+            <p>Com Lando Norris e Oscar Piastri, a McLaren voltou a disputar e a vencer títulos.</p>
           </article>
         </div>
       </section>
+
       <section class="cta">
         <a href="index.html" class="botao-secundario">Voltar ao site</a>
       </section>
     </main>
+
     <footer class="rodape">
-      <a href="index.html" class="logo">
+      <div class="logo">
         <span class="logo-texto">APEX</span>
         <span class="logo-badge">F1</span>
-      </a>
-      <p>Projeto individua · SPTech · Feito com paixão pela Fórmula 1</p>
+      </div>
+      <p>Projeto individual · SPTech · Feito com paixão pela Fórmula 1</p>
     </footer>
   </body>
 </html>

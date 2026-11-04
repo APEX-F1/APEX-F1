@@ -1,523 +1,92 @@
-:root {
-  --fundo: #0b0b10;
-  --campo-borda: #2e2e3d;
-  --texto: #f4f4f6;
-  --texto-suave: #a0a0b2;
-  --campo-fundo: #1d1d28;
-  --laranja: #ff8000;
-  --card-fundo: #14141c;
-  --placeholder: #6b6b7d;
-}
+/* =====================================================
+   APEX F1 | index.css
+   Só o que é exclusivo da página inicial.
+   Hero, seções, cards, grades e números vêm do componentes.css.
 
-body {
-  background-color: var(--fundo);
-  font-family: "Inter", sans-serif;
-  color: var(--texto);
-}
+   ÍNDICE
+   1. Sobre o projeto
+   2. Lendas: card do Senna
+   3. Fórmula 1: blocos, equipes e pilotos
+   ===================================================== */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 22px 96px;
-  border-bottom: 1px solid var(--campo-borda);
-}
-
-.logo {
-  display: flex; /*coloca "APEX" e "F1" lado a lado.*/
-  align-items: center; /*alinha os dois no centro da vertical*/
-  gap: 8px; /*espaço de 8px entre eles.*/
-}
-
-.logo-texto {
-  font-family:
-    "Barlow Condensed", sans-serif; /*fonte do título; "sans..." é a fonte reserva.*/
-  font-weight: 800; /*negrito mais forte.*/
-  font-size: 44px;
-  letter-spacing: 0.88px; /*abre um pouco o espaço entre as letras.*/
-}
-
-.logo-badge {
-  background-color: #e10600;
-  color: var(--texto); /*vermelho do "F1".*/
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 800;
-  font-size: 36px;
-  padding: 0 10px; /*zero em cima e embaixo, 10px nas laterais.*/
-  border-radius: 6px; /*deixa os cantos arredondados.*/
-}
-
-.link {
-  display: flex;
-  align-items: center;
-  gap: 36px;
-}
-
-.link a {
-  font-family: "Inter", sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--texto-suave);
-  text-decoration: none;
-}
-
-.link a.ativo {
-  /*só quando for link, e for <a> e da classe ativo*/
-  color: var(--texto);
-}
-
-.botao-sair {
-  background-color: transparent;
-  border: 1.5px solid var(--campo-borda);
-  border-radius: 8px;
-  padding: 10px 22px;
-  font-family: "Inter", sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--texto);
-  cursor: pointer;
-}
-
-.hero {
-  display: flex;
-  align-items: center;
-  gap: 64px;
-  padding: 88px 96px;
-}
-
-.hero-texto {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /*evita que o chip estique até a largura toda da coluna. Sem ele, ele vira uma barra comprida.*/
-  gap: 28px;
-}
-
-.hero-card {
-  flex-direction: column;
-}
-
-.hero-texto {
-  align-items: flex-start;
-  align-self: flex-start;
-}
-
-.checker {
-  background-size: 40px 40px;
-  background-image: conic-gradient(
-    rgba(0, 0, 0, 0.35) 0% 25%,
-    rgba(255, 255, 255, 0.9) 25% 50%,
-    rgba(0, 0, 0, 0.35) 50% 75%,
-    rgba(255, 255, 255, 0.9) 75% 100%
-  );
-}
-
-.chip {
-  background-color: var(--campo-fundo);
-  border: 1px solid var(--campo-borda);
-  border-radius: 100px;
-  padding: 6px 12px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--laranja);
-  letter-spacing: 0.72px;
-}
-
-.hero-texto h1 {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 800;
-  font-size: 104px;
-  line-height: 98px;
-}
-
-.hero-texto p {
-  font-size: 19px;
-  line-height: 30px;
-  color: var(--texto-suave);
-}
-
-.hero-botoes {
-  display: flex;
-  gap: 14px;
-}
-
-.botao-principal {
-  padding: 16px 28px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--texto);
-  text-decoration: none; /*tira o sublinhado do link*/
-  background-image: linear-gradient(
-    98.43deg,
-    rgba(255, 128, 0, 0.85) 0.68%,
-    rgba(153, 77, 0, 0.85) 97.9%
-  );
-}
-
-.botao-secundario {
-  padding: 16px 28px;
-  border: 1.5px solid var(--campo-borda);
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--texto);
-  text-decoration: none;
-}
-
-.hero-card {
-  width: 480px;
-  height: 540px;
-  flex-shrink: 0;
-  padding: 32px;
-  border-radius: 28px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-image: linear-gradient(
-    131.63deg,
-    var(--laranja) 0%,
-    #1a0100 71.4%
-  );
-}
-
-.chip-claro {
-  color: var(--texto);
-}
-
-.f1-gigante {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 800;
-  font-size: 330px;
-  line-height: 300px;
-  letter-spacing: -6.6px;
-  color: var(--texto);
-  opacity: 0.22;
-}
-
-.card-rodape {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.card-rodape p {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 600;
-  font-size: 34px;
-}
-
-.checker {
-  width: 320px; /*16 quadrados x 20px*/
-  height: 40px; /*2 linhas x 20px*/
-  background-size: 40px 40px; /*bloco de 2x2 quadrados de 20px*/
-  background-image: conic-gradient(
-    rgba(0, 0, 0, 0.35) 0% 25%,
-    rgba(255, 255, 255, 0.9) 25% 50%,
-    rgba(0, 0, 0, 0.35) 50% 75%,
-    rgba(255, 255, 255, 0.9) 75% 100%
-  );
-}
-
+/* =====================================================
+   1. SOBRE O PROJETO (3 .card-info lado a lado)
+   ===================================================== */
 .sobre {
   display: flex;
   gap: 20px;
-  padding: 24px 96px;
+  padding: 24px var(--margem-pagina);
 }
 
-.card-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 28px;
-  background-color: var(--card-fundo);
-  border: 1px solid var(--campo-borda);
-  border-radius: 16px;
-}
 
-.card-rotulo {
-  font-family: "Inter", sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--laranja);
-  letter-spacing: 1.68px;
-}
-
-.card-info h3 {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 700;
-  font-size: 34px;
-  line-height: 36px;
-}
-
-.card-info p {
-  font-size: 15px;
-  line-height: 23px;
-  color: var(--texto-suave);
-}
-
-/* LENDAS */
-.lendas {
-  display: flex;
-  flex-direction: column; /*cabeçalho em cima, destaque embaixo*/
-  gap: 48px;    /*espaço entre os blocos da seção*/
-  padding: 80px 96px;
-}
-
-.secao-cabecalho {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.secao-rotulo {
-  font-family: "Inter", sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--laranja);
-  letter-spacing: 1.82px;
-}
-
-.secao-cabecalho h2 {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 800;
-  font-size: 68px;
-  line-height: 68px;    /*igual ao tamanho: linha sem folga*/
-}
-
-.secao-cabecalho p {
-  font-size: 17px;
-  line-height: 26px;
-  color: var(--texto-suave);
-}
-
-/*Card grande ao Senna*/
+/* =====================================================
+   2. LENDAS: CARD DO SENNA
+   ===================================================== */
 .destaque {
-  display: flex; /*foto de um lado, texto do outro*/
-  background-color: var(--card-fundo);
+  display: flex;                     /* foto de um lado, texto do outro */
   border: 1px solid var(--campo-borda);
   border-radius: 24px;
-  overflow: hidden; /*corta a foto nos cantos arredondados*/
+  background-color: var(--card-fundo);
+  overflow: hidden;                  /* corta o que passar dos cantos arredondados */
 }
 
+/* No HTML tem só uma <img> dentro do .destaque-foto */
 .destaque-foto {
-  width: 520px;
-  flex-shrink: 0; /*não deixa a foto encolher*/
-  padding: 36px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /*nome em cima, listras embaixo*/
-  background-image: url(/site/css/fotoSennaHome.png);
-  background-size: cover;
-  background-position: center;
+  flex: 0 0 41.67%;                  /* não cresce nem encolhe: 520px de 1248px no Figma */
+  min-width: 0;
+  position: relative;                /* referência para a imagem posicionada dentro */
+  overflow: hidden;
 }
 
-.nome-grande {
-  display: flex;
-  flex-direction: column; /*AYRTON em cima, SENNA embaixo*/
-  align-items: flex-start; /*cada palavra ocupa só a própria largura*/
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800;
-  font-size: 130px;
-  line-height: 120px;
-  color: #ffffff;    /*Pega só o "SENNA"*/
+.destaque-foto img {
+  position: absolute;
+  inset: 0;                          /* encosta nas 4 bordas */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                 /* preenche cortando as sobras, sem distorcer */
+  object-position: center;
 }
 
-/* Faz o degradê*/
-.nome-ayrton {
-  background-image: linear-gradient(
-    76.74deg, 
-    #e10600 2.45%, 
-    #7b0300 98.51%);
-  background-clip: text; /*recorta o fundo no formato das letras*/
-  color: transparent;
-}
-
-/* Listrar do Brasil, verde, azul e amarelo
-.faixas {
-  display: flex;
-}
-
-.faixas span {
-  flex: 1;
-  height: 10px;
-}
-
-.faixas span:nth-child(1) { background-color: #ffdf00; }  amarelo
-.faixas span:nth-child(2) { background-color: #009c3b; }  verde
-.faixas span:nth-child(3) { background-color: #002776; }  azul */
-
-/*
-   Antes, confira se o :root do index.css tem estas variáveis:
-     --campo-fundo: #1d1d28;
-     --card-fundo: #14141c;
-     --placeholder: #6b6b7d;
-*/
-
-/* ===== SEÇÃO LENDAS ===== */
-.lendas {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-  padding: 80px 96px;
-}
-
-/* ----- Cabeçalho----- */
-.secao-cabecalho {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.secao-rotulo {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--laranja);
-  letter-spacing: 1.82px;
-}
-
-.secao-cabecalho h2 {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800;
-  font-size: 68px;
-  line-height: 68px; 
-}
-
-.secao-cabecalho p {
-  font-size: 17px;
-  line-height: 26px;
-  color: var(--texto-suave);
-}
-
-/* ----- Card grande do Senna ----- */
-.destaque {
-  display: flex;
-  /* align-items: stretch; */
-  background-color: var(--card-fundo);
-  border: 1px solid var(--campo-borda);
-  border-radius: 24px;
-  overflow: hidden;              /* corta a foto nos cantos arredondados */
-}
-
-/* Lado da foto */
-/* .destaque-foto {
-  width: 520px;
-  flex-shrink: 0;
-  padding: 36px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-image: url('../images/senna.jpg');
-  background-size: cover;
-  background-position: center;
-} */
- .destaque-foto {
-    width: 40%;
-    min-width: 0;
-    flex-shrink: 0;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 36px;
-    overflow: hidden;
-    background-image: url('../images/senna.jpg');
-    background-size: cover;
-    background-position: center;
- }
-
- .destaque-foto img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
- }
-
-/* .nome-grande {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800;
-  font-size: 130px;
-  line-height: 120px;
-  color: #ffffff;
-} */
-.nome-grande,
-.faixas {
-    position: relative;
-    z-index: 1;
-}
-
-.nome-ayrton {
-  background-image: linear-gradient(76.74deg, #e10600 2.45%, #7b0300 98.51%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.faixas {
-  display: flex;
-}
-
-.faixas span {
-  flex: 1;
-  height: 10px;
-}
-
-.faixas span:nth-child(1) { background-color: #ffdf00; }
-.faixas span:nth-child(2) { background-color: #009c3b; }
-.faixas span:nth-child(3) { background-color: #002776; }
-
-/* Lado das informações */
 .destaque-info {
   flex: 1;
-  min-width: 0;                  /* deixa o texto quebrar linha em vez de empurrar o card */
-  padding: 48px;
+  min-width: 0;                      /* deixa o texto quebrar linha em vez de empurrar o card */
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 24px;
+  padding: 48px;
 }
 
 .chip-destaque {
-  align-self: flex-start;        /* o chip não estica até a largura toda */
-  background-color: #ffd60a;
-  color: #0b0b10;
+  align-self: flex-start;            /* o chip não estica até a largura toda */
+  padding: 6px 12px;
+  border-radius: 100px;
+  background-color: var(--amarelo);
+  color: var(--fundo);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.96px;
-  padding: 6px 12px;
-  border-radius: 100px;
 }
 
 .destaque-info h3 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: var(--fonte-titulo);
   font-weight: 800;
   font-size: 88px;
   line-height: 84px;
 }
 
 .senna-datas {
+  color: var(--texto-suave);
   font-size: 15px;
   font-weight: 500;
-  color: var(--texto-suave);
 }
 
-.senna-resumo {
+.senna-resumo,
+.senna-pessoal p {
+  color: var(--texto-suave);
   font-size: 17px;
   line-height: 27px;
-  color: var(--texto-suave);
 }
 
 /* Parágrafo pessoal com barra laranja */
@@ -529,44 +98,11 @@ body {
 .barra-laranja {
   width: 3px;
   flex-shrink: 0;
-  background-color: var(--laranja);     /* estica sozinha até a altura do texto */
+  background-color: var(--laranja);  /* estica sozinha até a altura do texto */
 }
 
 .senna-pessoal p {
   flex: 1;
-  font-size: 17px;
-  line-height: 27px;
-  color: var(--texto-suave);
-}
-
-/* Números */
-.numeros {
-  display: flex;
-  gap: 16px;
-}
-
-.stat {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 20px;
-  background-color: var(--campo-fundo);
-  border-radius: 14px;
-}
-
-.stat-numero {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800;
-  font-size: 60px;
-  line-height: 60px;
-  color: #ffd60a;
-}
-
-.stat-rotulo {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--texto-suave);
 }
 
 /* Citação com barra amarela */
@@ -578,64 +114,125 @@ body {
 .barra-amarela {
   width: 4px;
   flex-shrink: 0;
-  background-color: #ffd60a;
+  background-color: var(--amarelo);
 }
 
 .senna-citacao blockquote {
   flex: 1;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: var(--fonte-titulo);
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
 }
 
-/* O botão usa a classe .botao-secundario que você já criou no hero */
 .destaque-info .botao-secundario {
-  align-self: flex-start;
+  align-self: flex-start;            /* não estica na largura toda */
 }
 
-/* ----- Outras lendas ----- */
-.outras-lendas {
+
+/* =====================================================
+   3. FÓRMULA 1
+   ===================================================== */
+.bloco {                             /* cada bloco: título + conteúdo */
   display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
-.lenda {
-  flex: 1;
-  min-width: 0;
+.bloco-titulo {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 36px;
+}
+
+/* ----- Equipes do grid ----- */
+.grid-equipes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.equipe {                            /* é <article> ou <a> (card da McLaren) */
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 24px;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid var(--campo-borda);
+  border-radius: 12px;
   background-color: var(--card-fundo);
+}
+
+.equipe-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.equipe-cor {                        /* barrinha colorida de cada equipe */
+  width: 6px;                        /* precisa de largura e altura: o span está vazio */
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 3px;
+  background-color: var(--cor);      /* --cor vem do style="--cor: ..." de cada card no HTML */
+}
+
+.equipe-cabecalho h4 {
+  font-weight: 600;
+}
+
+.equipe-texto p {
+  color: var(--texto-suave);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.equipe-especulacao {                /* 12º card, vaga em aberto: junto com .equipe */
+  border-style: dashed;
+}
+
+.destaque-br {                       /* trechos em verde (Brasil) */
+  color: var(--verde);
+}
+
+.chip-time {
+  align-self: flex-start;            /* o chip não estica na largura do card */
+}
+
+/* ----- Pilotos (a grade vem do .grade grade-4) ----- */
+.piloto {
+  display: flex;
+  flex-direction: column;            /* foto em cima, informações embaixo */
   border: 1px solid var(--campo-borda);
   border-radius: 16px;
+  background-color: var(--card-fundo);
+  overflow: hidden;                  /* corta os cantos de cima da foto no formato do card */
 }
 
-.lenda-numero {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800;
-  font-size: 72px;
-  line-height: 70px;
-  color: var(--laranja);
+.piloto-foto {
+  width: 100%;
+  aspect-ratio: 3 / 2;               /* a altura é calculada a partir da largura */
+  object-fit: cover;
+  object-position: 50% var(--foco, 25%);  /* qual parte da foto aparece: 0% = topo, 100% = base;
+                                             mude com style="--foco: 40%" na <img> */
 }
 
-.lenda-rotulo {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.1px;
-  color: var(--placeholder);
+.piloto-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;           /* o chip não estica */
+  gap: 6px;
+  padding: 20px;
 }
 
-.lenda h3 {
-  font-family: 'Barlow Condensed', sans-serif;
+.piloto-info h4 {
+  font-family: var(--fonte-titulo);
   font-weight: 700;
   font-size: 30px;
   line-height: 32px;
 }
 
-.lenda p {
-  font-size: 14px;
-  line-height: 21px;
+.piloto-equipe {
   color: var(--texto-suave);
+  font-size: 14px;
+  font-weight: 500;
 }

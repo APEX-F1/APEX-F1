@@ -1,87 +1,93 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paddock | APEX F1</title>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <link rel="icon" href="./css/imagens/apex-f1.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APEX F1 · Paddock</title>
 
-    <!-- link do Google Fonts: Barlow Condensed e Inter -->
-    <!-- link do seu CSS: css/paddock.css -->
-</head>
-<body>
-
- <header class="navbar">
-      <div class="logo">
-        <span class="logo-texto">APEX</span><span class="logo-badge">F1</span>
-      </div>
-      <nav class="link">
-        <a href="index.html"> Início </a>
-        <a href="minha-historia.html"> Minha História </a>
-        <a href="index.html#f1"> F1 </a>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/componentes.css" />
+    <link rel="stylesheet" href="css/paddock.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-texto">APEX</span>
+        <span class="logo-badge">F1</span>
+      </a>
+      <nav class="navbar-links">
+        <a href="index.html">Início</a>
+        <a href="minha-historia.html">Minha história</a>
+        <a href="index.html#f1">F1</a>
         <a href="index.html#lendas">Lendas</a>
-        <a href="#dedicacoes"> Dedicações </a>
-        <a href="dedicacoes.html"> Dashboard </a>
+        <a href="paddock.html" class="ativo">Paddock</a>
+        <a href="dedicacoes.html">Dedicações</a>
+        <a href="dashboard.html">Dashboard</a>
       </nav>
-      <button class="botao-sair">Sair</button>
+      <a href="login.html" class="botao-sair">Sair</a>
     </header>
 
     <main>
-        <section class="paddock">
+      <section class="secao paddock">
+        <header class="secao-cabecalho">
+          <span class="secao-rotulo">MINIGAMES</span>
+          <h1>Paddock</h1>
+          <p>Escolha um desafio, dispute e acompanhe o seu desempenho no dashboard.</p>
+        </header>
 
-            <header class="cabecalho">
-                <p class="etiqueta">MINIGAMES</p>
-                <h1>Paddock</h1>
-                <p class="subtitulo">Escolha um desafio, dispute e acompanhe o seu desempenho no dashboard.</p>
-            </header>
-
-            <div class="minigames">
-
-                <article class="minigame">
-                    <div class="banner banner-quiz">QUIZ</div>
-                    <div class="info">
-                        <span class="chip">DISPONÍVEL</span>
-                        <h2>Quiz F1 &amp; Senna</h2>
-                        <p>Perguntas sobre a Fórmula 1, o Senna e a minha história. No fim, o seu resultado vai direto para o dashboard.</p>
-                        <div class="temas">
-                            <span class="chip">F1</span>
-                            <span class="chip">SENNA</span>
-                            <span class="chip">MINHA HISTÓRIA</span>
-                        </div>
-                        <a href="quiz.html" class="btn-jogar">Jogar o quiz</a>
-                    </div>
-                </article>
-
-                <article class="minigame">
-                    <div class="banner banner-sim">SIM</div>
-                    <div class="info">
-                        <span class="chip">EM BREVE</span>
-                        <h2>Simulador de corrida</h2>
-                        <p>Dispute uma corrida simulada e veja como você se sai. O resultado também vai para o dashboard.</p>
-                        <div class="temas">
-                            <span class="chip">CORRIDA</span>
-                            <span class="chip">EM BREVE</span>
-                        </div>
-                        <a class="btn-breve">Em breve</a>
-                    </div>
-                </article>
-
+        <div class="minigames">
+          <article class="minigame">
+            <div class="banner banner-quiz">QUIZ</div>
+            <div class="info">
+              <span class="chip chip-suave">DISPONÍVEL</span>
+              <h2>Quiz F1 &amp; Senna</h2>
+              <p>Perguntas sobre a Fórmula 1, o Senna e a minha história. No fim, o seu resultado vai direto para o dashboard.</p>
+              <div class="temas">
+                <span class="chip chip-suave">F1</span>
+                <span class="chip chip-suave">SENNA</span>
+                <span class="chip chip-suave">MINHA HISTÓRIA</span>
+              </div>
+              <a href="quiz.html" class="botao-principal">Jogar o quiz</a>
             </div>
-        </section>
+          </article>
 
-        <div class="botoes">
-            <a href="dashboard.html" class="btn-borda">Ver meu dashboard</a>
-            <a href="index.html" class="btn-borda">Voltar ao site</a>
+          <article class="minigame">
+            <div class="banner banner-sim">SIM</div>
+            <div class="info">
+              <span class="chip chip-suave">EM BREVE</span>
+              <h2>Simulador de corrida</h2>
+              <p>Dispute uma corrida simulada e veja como você se sai. O resultado também vai para o dashboard.</p>
+              <div class="temas">
+                <span class="chip chip-suave">CORRIDA</span>
+                <span class="chip chip-suave">EM BREVE</span>
+              </div>
+              <span class="botao-secundario botao-desativado">Em breve</span>
+            </div>
+          </article>
         </div>
+      </section>
+
+      <section class="cta">
+        <a href="dashboard.html" class="botao-secundario">Ver meu dashboard</a>
+        <a href="index.html" class="botao-secundario">Voltar ao site</a>
+      </section>
     </main>
 
-<footer class="rodape">
-  <div class="logo">
-    <span class="logo-texto">APEX</span>
-    <span class="logo-badge">F1</span>
-  </div>
-  <p>Projeto individual · SPTech · Feito com paixão pela Fórmula 1</p>
-</footer>
+    <footer class="rodape">
+      <div class="logo">
+        <span class="logo-texto">APEX</span>
+        <span class="logo-badge">F1</span>
+      </div>
+      <p>Projeto individual · SPTech · Feito com paixão pela Fórmula 1</p>
+    </footer>
 
     <script src="js/paddock.js"></script>
-</body>
+  </body>
 </html>

@@ -1,115 +1,118 @@
-
 <!doctype html>
 <html lang="pt-BR">
-
-<head>
-    <link rel="icon" href="./css/imagens/apex-f1.png">
+  <head>
+    <link rel="icon" href="./css/imagens/apex-f1.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Criar conta | APEX F1</title>
 
+    <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/autenticacao.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet" />
-</head>
-
-<body>
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <aside class="painel-marca">
-        <div class="logo">
-            <span class="logo-texto">APEX</span>
-            <span class="logo-badge">F1</span>
-        </div>
+      <div class="logo logo-claro">
+        <span class="logo-texto">APEX</span>
+        <span class="logo-badge">F1</span>
+      </div>
 
-        <div class="headline">
-            <h2>Entre no grid do APEX F1.</h2>
-            <p>
-                Time, pilotos, lendas e um quiz para testar o que você sabe sobre a F1 e sobre o Ayrton Senna.
-            </p>
-        </div>
+      <div class="headline">
+        <h2>Entre no grid do APEX F1.</h2>
+        <p>
+          Time, pilotos, lendas e um quiz para testar o que você sabe sobre a a
+          F1 e sobre o Ayrton Senna.
+        </p>
+      </div>
 
-        <div class="citacao">
-            <div class="checker"></div>
-            <blockquote>"Ou você faz uma coisa bem-feita ou não faz."</blockquote>
-            <cite>Ayrton Senna</cite>
-        </div>
+      <div class="citacao">
+        <div class="checker checker-pequeno"></div>
+        <blockquote>"Ou você faz uma coisa bem-feita ou não faz."</blockquote>
+        <cite>Ayrton Senna</cite>
+      </div>
     </aside>
-
     <main class="painel-formulario">
-        <form class="formulario" id="form_cadastro">
+      <form
+        class="formulario"
+        id="form_cadastro"
+        onsubmit="cadastrar(event)"
+        novalidate
+      >
+        <header class="cabecalho">
+          <h1>Criar conta</h1>
+          <p>Cadastre-se para acessar o conteúdo do APEX F1.</p>
+        </header>
+        <div class="campo">
+          <label for="ipt_nome">Nome completo</label>
+          <input type="text" id="ipt_nome" placeholder="Seu nome" />
+        </div>
+        <div class="campo">
+          <label for="ipt_email">E-mail</label>
+          <input type="email" id="ipt_email" placeholder="apexf1@gmail.com" />
+        </div>
+        <div class="campo">
+          <label for="ipt_senha">Senha</label>
+          <input
+            type="password"
+            id="ipt_senha"
+            placeholder="Digite sua senha"
+          />
+        </div>
+        <div class="campo">
+          <label for="ipt_confirmar">Confirmar senha</label>
+          <input
+            type="password"
+            id="ipt_confirmar"
+            placeholder="Digite novamente a senha"
+          />
+        </div>
+        <div id="div_mensagem"></div>
 
-            <header class="cabecalho">
-                <h1>Criar conta</h1>
-                <p>Cadastre-se para acessar o conteúdo do APEX F1.</p>
-            </header>
+        <button type="button" class="botao" onclick="cadastrar()">
+          Criar conta
+        </button>
 
-            <div class="campo">
-                <label for="ipt_nome">Nome completo</label>
-                <input type="text" id="ipt_nome" placeholder="Seu nome" />
-            </div>
-
-            <div class="campo">
-                <label for="ipt_email">E-mail</label>
-                <input type="email" id="ipt_email" placeholder="apexf1@gmail.com" />
-            </div>
-
-            <div class="campo">
-                <label for="ipt_senha">Senha</label>
-                <input type="password" id="ipt_senha" placeholder="Digite sua senha" />
-            </div>
-
-            <div class="campo">
-                <label for="ipt_confirmar">Confirmar senha</label>
-                <input type="password" id="ipt_confirmar" placeholder="Digite novamente a senha" />
-            </div>
-
-            <button type="button" class="botao" onclick="cadastrar()">Criar conta</button>
-
-            <div id="div_mensagem"></div>
-
-            <p class="troca">Já tem conta? <a href="login.html">Entrar</a></p>
-
-            <p class="aviso">
-                O conteúdo do APEX F1 fica disponível após o login.
-            </p>
-
-        </form>
+        <p class="troca">Já tem conta? <a href="login.html">Entrar</a></p>
+        <p class="aviso">O conteúdo do APEX F1 fica disponível após o login.</p>
+      </form>
     </main>
 
-    <script>
-        function cadastrar() {
-
-            let nome = ipt_nome.value.trim();
-            let email = ipt_email.value.trim();
-            let senha = ipt_senha.value;
-            let confirmar = ipt_confirmar.value;
-
-            let mensagem = "";
-
-            if (nome == "" || email == "" || senha == "" || confirmar == "") {
-                mensagem = "Preencha todos os campos!";
-            }
-            else if (nome.length < 3) {
-                mensagem = "O nome deve ter pelo menos 3 caracteres.";
-            }
-            else if (!email.includes("@") || !email.includes(".")) {
-                mensagem = "Digite um e-mail válido.";
-            }
-            else if (senha.length < 8) {
-                mensagem = "A senha deve ter pelo menos 8 caracteres.";
-            }
-            else if (senha != confirmar) {
-                mensagem = "As senhas não coincidem.";
-            }
-            else {
-                mensagem = "Cadastro realizado com sucesso!";
-            }
-
-            div_mensagem.innerHTML = mensagem;
-        }
-    </script>
-
-</body>
+    <script src="js/cadastro.js"></script>
+  </body>
 </html>
+<script>
+  function cadastrar() {
+    let nome = ipt_nome.value.trim();
+    let email = ipt_email.value.trim();
+    let senha = ipt_senha.value;
+    let confirmar = ipt_confirmar.value;
+
+    let mensagem = "";
+
+    if (nome == "" || email == "" || senha == "" || confirmar == "") {
+      mensagem = "Preencha todos os campos!";
+    } else if (nome.length < 3) {
+      mensagem = "O nome deve ter pelo menos 3 caracteres.";
+    } else if (!email.includes("@") || !email.includes(".")) {
+      mensagem = "Digite um e-mail válido.";
+    } else if (senha.length < 8) {
+      mensagem = "A senha deve ter pelo menos 8 caracteres.";
+    } else if (senha != confirmar) {
+      mensagem = "As senhas não coincidem.";
+    } else {
+      mensagem = "Cadastro realizado com sucesso!";
+    }
+
+    div_mensagem.innerHTML = mensagem;
+  }
+</script>
+<!-- 'aside': tag semântica para um bloco lateral, que complementa o conteúdo principal; 
+ cada bloco, vira uma div!;
+ 'checker' é a bandeira quadriculada. Fica vazio no HTML, porque vai ser desenhado só com CSS;
+ 'blockquote' é para citações;
+ 'cite' é para o nome do autor;-->

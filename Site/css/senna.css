@@ -1,69 +1,31 @@
-/* senna.css: só o que é exclusivo da página do Senna (o resto vem do base.css) */
-
-/* O logo é um link: tira o sublinhado e a cor roxa de link visitado */
-.logo {
-    color: var(--texto);
-    text-decoration: none;
-}
+/* senna.css: só o que é exclusivo da página do Senna */
 
 /* Foto do hero. position: relative permite posicionar a faixa dentro dela */
 .hero-foto {
-    position: relative;
-    flex-shrink: 0;
-    width: 480px;
-    height: 540px;
+  position: relative;
+  flex-shrink: 0;
+  width: 480px;
+  height: 540px;
 }
 
-/* object-fit: cover preenche a caixa sem esticar a foto */
 .hero-foto img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                 /* preenche a caixa sem esticar a foto */
 }
 
-/* ::after cria a faixa verde, amarela e azul na base da foto, sem precisar de HTML */
+/* ::after cria a faixa amarela, verde e azul na base da foto, sem precisar de HTML */
 .hero-foto::after {
-    content: "";
-    position: absolute;
-    inset: auto 36px 36px;
-    height: 10px;
-    background: linear-gradient(90deg, #ffdf00 33%, #009c3b 33% 66%, #002776 66%);
+  content: "";
+  position: absolute;
+  inset: auto 36px 36px;
+  height: 10px;
+  background: linear-gradient(90deg, #ffdf00 33%, #009c3b 33% 66%, #002776 66%);
 }
 
-/* Espaçamento lateral da faixa de números e do botão final */
-.numeros {
-    padding: 24px 96px;
-}
-
-.cta {
-    padding: 24px 96px 80px;
-}
-
-/* Grades de cards: 3 colunas no legado, 4 nos feitos */
-.grade-3,
-.grade-4 {
-    display: grid;
-    gap: 20px;
-}
-
-.grade-3 {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.grade-4 {
-    grid-template-columns: repeat(4, 1fr);
-}
-
-/* Rótulos em caixa alta pelo CSS */
+/* Rótulos em caixa alta pelo CSS (alguns estão em minúsculas no HTML) */
 .secao-rotulo,
 .card-rotulo,
 .lenda-rotulo {
-    text-transform: uppercase;
-}
-
-/* Citação: barra amarela na esquerda. O font aqui é atalho: peso / tamanho / altura da linha / fonte */
-.citacao {
-    padding-left: 16px;
-    border-left: 4px solid var(--amarelo);
-    font: 600 28px/36px "Barlow Condensed", sans-serif;
+  text-transform: uppercase;
 }

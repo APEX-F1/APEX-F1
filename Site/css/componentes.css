@@ -1,0 +1,387 @@
+/* =====================================================
+   APEX F1 | componentes.css
+   Blocos que se repetem nas páginas de conteúdo
+   (inicial, Senna, McLaren, Minha história, Paddock, Dedicações).
+   Não é usado no login e no cadastro.
+
+   Carregue DEPOIS do base.css e ANTES do CSS da página.
+
+   ÍNDICE
+   1. Navbar
+   2. Rodapé
+   3. Seção e cabeçalho de seção
+   4. Hero
+   5. Cards
+   6. Grades
+   7. Números
+   8. Frases e botões do final
+   ===================================================== */
+
+
+/* =====================================================
+   1. NAVBAR
+   <a class="logo"> | <nav class="navbar-links"> | botão Sair
+   A página atual leva class="ativo" no link.
+   ===================================================== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;    /* logo | links | botão */
+  padding: 22px var(--margem-pagina);
+  border-bottom: 1px solid var(--campo-borda);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.navbar-links a {
+  color: var(--texto-suave);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.navbar-links a:hover,
+.navbar-links a.ativo {
+  color: var(--texto);
+}
+
+/* Funciona como <button> ou como <a href="login.html"> */
+.botao-sair {
+  padding: 10px 22px;
+  border: 1.5px solid var(--campo-borda);
+  border-radius: 8px;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   2. RODAPÉ
+   ===================================================== */
+.rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;    /* logo na esquerda, frase na direita */
+  padding: 44px var(--margem-pagina);
+  border-top: 1px solid var(--campo-borda);
+}
+
+.rodape p {
+  color: var(--placeholder);
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   3. SEÇÃO E CABEÇALHO DE SEÇÃO
+   <section class="secao"> + <header class="secao-cabecalho">
+   O título pode ser <h1> (título da página) ou <h2> (seções).
+   ===================================================== */
+.secao {
+  display: flex;
+  flex-direction: column;            /* cabeçalho em cima, conteúdo embaixo */
+  gap: 48px;
+  padding: 80px var(--margem-pagina);
+}
+
+.secao-cabecalho {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.secao-cabecalho h1,
+.secao-cabecalho h2 {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 68px;
+  line-height: 68px;
+}
+
+.secao-cabecalho p {
+  color: var(--texto-suave);
+  font-size: 17px;
+  line-height: 26px;
+}
+
+/* Texto laranja pequeno em cima do título. Pode ser <span> ou <p>:
+   o seletor mais específico e o line-height impedem que o
+   ".secao-cabecalho p" acima deixe o rótulo cinza e grande. */
+.secao-cabecalho .secao-rotulo {
+  color: var(--laranja);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 1.82px;
+}
+
+
+/* =====================================================
+   4. HERO
+   Texto à esquerda, card laranja (ou foto) à direita.
+   ===================================================== */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  padding: 88px var(--margem-pagina);
+}
+
+.hero-texto {
+  flex: 1;                           /* ocupa o espaço que sobra ao lado do card */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;           /* evita o chip esticar até a largura toda */
+  gap: 28px;
+}
+
+.hero-texto h1 {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 104px;
+  line-height: 98px;                 /* menor que a fonte: linhas coladas */
+}
+
+.hero-texto p {
+  color: var(--texto-suave);
+  font-size: 19px;
+  line-height: 30px;
+}
+
+.hero-botoes {
+  display: flex;
+  gap: 14px;
+}
+
+.hero-card {
+  width: 480px;
+  height: 540px;
+  flex-shrink: 0;                    /* o card não encolhe quando o espaço aperta */
+  display: flex;
+  flex-direction: column;            /* chip em cima, sigla no meio, rodapé embaixo */
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 32px;
+  border-radius: 28px;
+  background-image: linear-gradient(131.63deg, var(--laranja) 0%, #1a0100 71.4%);
+}
+
+.f1-gigante {                        /* sigla grande e "fantasma" no meio do card */
+  color: var(--texto);
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 330px;
+  line-height: 300px;
+  letter-spacing: -6.6px;            /* valor negativo aproxima as letras */
+  opacity: 0.22;
+}
+
+.card-rodape {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-rodape p {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 34px;
+}
+
+
+/* =====================================================
+   5. CARDS
+   Os três compartilham a "caixa"; cada um só define o que muda.
+   .card-info  texto (rótulo + título + parágrafo)
+   .lenda      número grande + rótulo + título + parágrafo
+   .marco      ano + título + parágrafo (linha do tempo)
+   ===================================================== */
+.card-info,
+.lenda,
+.marco {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--campo-borda);
+  border-radius: 16px;
+  background-color: var(--card-fundo);
+}
+
+.card-info h3,
+.lenda h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+}
+
+.card-info p,
+.lenda p,
+.marco p {
+  color: var(--texto-suave);
+}
+
+/* --- card-info --- */
+.card-info {
+  flex: 1;                           /* numa linha flex, divide a largura igual */
+  gap: 12px;
+  padding: 28px;
+}
+
+.card-rotulo {
+  color: var(--laranja);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.68px;
+}
+
+.card-info h3 {
+  font-size: 34px;
+  line-height: 36px;
+}
+
+.card-info p {
+  font-size: 15px;
+  line-height: 23px;
+}
+
+/* --- lenda --- */
+.lenda {
+  flex: 1;
+  min-width: 0;                      /* deixa o card encolher em vez de estourar */
+  gap: 8px;
+  padding: 24px;
+}
+
+.lenda-numero {
+  color: var(--laranja);
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 70px;
+}
+
+.lenda-rotulo {
+  color: var(--placeholder);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+}
+
+.lenda h3 {
+  font-size: 30px;
+  line-height: 32px;
+}
+
+.lenda p {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+/* --- marco (o título pode ser h3 ou h4) --- */
+.marco {
+  gap: 10px;
+  padding: 24px;
+}
+
+.marco-ano {
+  color: var(--laranja);
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 60px;
+}
+
+.marco h3,
+.marco h4 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.marco p {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+
+/* =====================================================
+   6. GRADES
+   <div class="grade grade-4"> ou <div class="grade grade-3">
+   ===================================================== */
+.grade {
+  display: grid;
+  gap: 20px;
+}
+
+.grade-3 {
+  grid-template-columns: repeat(3, 1fr);   /* 1fr = uma fração do espaço */
+}
+
+.grade-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+
+/* =====================================================
+   7. NÚMEROS
+   .numeros sozinho: números dentro de outro card (página inicial).
+   .numeros numeros-faixa: faixa de números no topo da página (Senna, McLaren).
+   ===================================================== */
+.numeros {
+  display: flex;
+  gap: 16px;
+}
+
+.numeros-faixa {
+  padding: 24px var(--margem-pagina);
+}
+
+.stat {
+  flex: 1;                           /* cada um ocupa a mesma largura */
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 20px;
+  border-radius: 14px;
+  background-color: var(--campo-fundo);
+}
+
+.stat-numero {
+  color: var(--amarelo);
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 60px;
+}
+
+.stat-rotulo {
+  color: var(--texto-suave);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+
+/* =====================================================
+   8. FRASES E BOTÕES DO FINAL
+   ===================================================== */
+.citacoes {                          /* caixa que empilha várias frases */
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.frase {                             /* <blockquote class="frase"> */
+  padding-left: 16px;
+  border-left: 4px solid var(--amarelo);
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.cta {                               /* botões no fim da página */
+  display: flex;
+  gap: 14px;
+  padding: 24px var(--margem-pagina) 80px;
+}

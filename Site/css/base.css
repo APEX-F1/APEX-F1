@@ -1,245 +1,203 @@
 /* =====================================================
    APEX F1 | base.css
-   Estilos COMPARTILHADOS por todas as páginas do site.
-   Carregue este arquivo ANTES do CSS da página:
+   Fundação do site. Vale para TODAS as páginas.
 
-   <link rel="stylesheet" href="css/base.css" />
-   <link rel="stylesheet" href="css/index.css" />
+   ORDEM DE CARREGAMENTO
+   Páginas de conteúdo:  base.css > componentes.css > <pagina>.css
+   Login e cadastro:     base.css > autenticacao.css > login.css
+
+   REGRAS DA CASA
+   - Cor, fonte e margem lateral só existem em :root.
+     Nas páginas, escreva var(--laranja), nunca #ff8000.
+   - Usado por 2 ou mais páginas: vai para base.css ou componentes.css.
+   - Usado por 1 página só: fica no CSS dessa página.
+   - Variação de algo que já existe = classe extra no HTML
+     (ex.: class="chip chip-suave"), nunca uma regra repetida.
 
    ÍNDICE
-   1. Variáveis e base
-   2. Navbar
-   3. Chip e botões
-   4. Hero
-   5. Seções e cabeçalho de seção
-   6. Cards e linha do tempo
-   7. Números (stats)
-   8. Rodapé
+   1. Variáveis
+   2. Reset e elementos
+   3. Logo
+   4. Chip
+   5. Botões
+   6. Bandeira quadriculada
    ===================================================== */
 
 
 /* =====================================================
-   1. VARIÁVEIS E BASE
+   1. VARIÁVEIS
    ===================================================== */
 :root {
-  /* variáveis: guardam as cores num lugar só; usa-se com var(--nome) */
-  --fundo: #0b0b10;          /* fundo da página */
-  --card-fundo: #14141c;     /* fundo dos cards */
-  --campo-fundo: #1d1d28;    /* chips e blocos internos */
-  --campo-borda: #2e2e3d;    /* bordas sutis */
-  --texto: #f4f4f6;          /* texto principal */
-  --texto-suave: #a0a0b2;    /* texto secundário */
-  --placeholder: #6b6b7d;    /* rótulos apagados */
+  /* fundos e bordas */
+  --fundo: #0b0b10;
+  --card-fundo: #14141c;
+  --campo-fundo: #1d1d28;            /* chips, campos e blocos internos */
+  --campo-borda: #2e2e3d;
+
+  /* textos */
+  --texto: #f4f4f6;
+  --texto-suave: #a0a0b2;
+  --placeholder: #6b6b7d;            /* rótulos e textos apagados */
+
+  /* cores de destaque */
   --laranja: #ff8000;
   --vermelho: #e10600;
   --amarelo: #ffd60a;
+  --verde: #009440;
+
+  /* laranja e marrom com transparência (botões e links de ação) */
+  --laranja-suave: rgba(255, 128, 0, 0.85);
+  --marrom-suave: rgba(153, 77, 0, 0.85);
+
+  /* textos que ficam sobre o fundo laranja */
+  --marca-texto: #ffd9d6;
+  --marca-autor: #ffc9c5;
+
+  /* fontes */
+  --fonte-titulo: "Barlow Condensed", sans-serif;
+  --fonte-texto: "Inter", sans-serif;
+
+  /* espaço lateral padrão de todas as páginas */
+  --margem-pagina: 96px;
+}
+
+
+/* =====================================================
+   2. RESET E ELEMENTOS
+   ===================================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;            /* padding e borda ficam DENTRO da largura definida */
 }
 
 html {
-  scroll-behavior: smooth;   /* clicar num link #id rola a página suavemente */
-}
-
-/* Reset: zera o espaço que o navegador coloca sozinho */
-* {
-  margin: 0;                 /* tira as margens externas */
-  padding: 0;                /* tira os espaços internos */
-  box-sizing: border-box;    /* padding e borda ficam DENTRO da largura definida */
+  scroll-behavior: smooth;           /* clicar num link #id rola a página suavemente */
 }
 
 body {
-  background-color: var(--fundo);    /* fundo escuro da página */
-  font-family: "Inter", sans-serif;  /* fonte padrão; sans-serif é a reserva */
-  color: var(--texto);               /* cor padrão do texto */
+  background-color: var(--fundo);
+  color: var(--texto);
+  font-family: var(--fonte-texto);
+}
+
+/* Links e botões parecem texto comum; cada componente decide como quer aparecer.
+   Por isso nenhum componente precisa repetir "text-decoration: none". */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;                     /* por padrão eles NÃO herdam a fonte do body */
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
 }
 
 
 /* =====================================================
-   2. NAVBAR
+   3. LOGO
+   Funciona como <a class="logo"> (navbar) ou <div class="logo"> (rodapé).
+   Sobre fundo laranja, use class="logo logo-claro".
    ===================================================== */
-.navbar {
-  display: flex;                     /* coloca os filhos lado a lado */
-  align-items: center;               /* centraliza na vertical */
-  justify-content: space-between;    /* logo | links | botão: espaço entre eles */
-  padding: 22px 96px;                /* 22px em cima/embaixo, 96px nas laterais */
-  border-bottom: 1px solid var(--campo-borda);  /* linha fina embaixo (largura, estilo, cor) */
-}
-
-/* Logo: APEX + caixinha vermelha do F1 */
 .logo {
-  display: flex;                     /* APEX e F1 lado a lado */
-  align-items: center;               /* alinhados no centro da vertical */
-  gap: 8px;                          /* espaço entre os dois */
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .logo-texto {
-  font-family: "Barlow Condensed", sans-serif;  /* fonte dos títulos */
-  font-weight: 800;                  /* extra-negrito */
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
   font-size: 44px;
-  letter-spacing: 0.88px;            /* abre um pouco o espaço entre as letras */
+  letter-spacing: 0.88px;
 }
 
 .logo-badge {
-  background-color: var(--vermelho); /* caixinha vermelha */
-  color: var(--texto);               /* letras claras */
-  font-family: "Barlow Condensed", sans-serif;
+  padding: 0 10px;
+  border-radius: 6px;
+  background-color: var(--vermelho);
+  color: var(--texto);
+  font-family: var(--fonte-titulo);
   font-weight: 800;
   font-size: 36px;
-  padding: 0 10px;                   /* 0 em cima/embaixo, 10px nas laterais */
-  border-radius: 6px;                /* cantos arredondados */
 }
 
-/* Links (no HTML o <nav> usa class="link") */
-.link {
-  display: flex;                     /* links lado a lado */
-  align-items: center;
-  gap: 36px;                         /* espaço entre os links */
-}
-
-.link a {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--texto-suave);         /* cinza: links inativos */
-  text-decoration: none;             /* tira o sublinhado padrão dos links */
-}
-
-.link a.ativo {                      /* <a> que também tem a classe "ativo" */
-  color: var(--texto);               /* página atual: mais clara */
-}
-
-/* Botão Sair */
-.botao-sair {
-  background-color: transparent;     /* sem fundo */
-  border: 1.5px solid var(--campo-borda);
-  border-radius: 8px;
-  padding: 10px 22px;
-  font-family: "Inter", sans-serif;  /* botão NÃO herda a fonte do body */
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--texto);
-  cursor: pointer;                   /* mãozinha ao passar o mouse */
+.logo-claro .logo-badge {
+  background-color: var(--texto);
+  color: var(--vermelho);
 }
 
 
 /* =====================================================
-   3. CHIP E BOTÕES
+   4. CHIP
+   Padrão: texto laranja. Variações entram junto: "chip chip-suave".
    ===================================================== */
 .chip {
-  background-color: var(--campo-fundo);
+  padding: 6px 12px;
   border: 1px solid var(--campo-borda);
   border-radius: 100px;              /* valor alto = formato de pílula */
-  padding: 6px 12px;
+  background-color: var(--campo-fundo);
+  color: var(--laranja);
   font-size: 12px;
   font-weight: 600;
-  color: var(--laranja);
   letter-spacing: 0.72px;
 }
 
-.chip-claro {                        /* usado junto com .chip: só troca a cor */
+.chip-claro {
   color: var(--texto);
 }
 
-.botao-principal {
+.chip-suave {
+  color: var(--texto-suave);
+}
+
+
+/* =====================================================
+   5. BOTÕES
+   ===================================================== */
+.botao-principal,
+.botao-secundario {
   padding: 16px 28px;
   border-radius: 8px;
+  color: var(--texto);
   font-size: 15px;
   font-weight: 600;
-  color: var(--texto);
-  text-decoration: none;             /* é um <a>, então tira o sublinhado */
-  background-image: linear-gradient( /* degradê laranja: ângulo, cor e posição */
+}
+
+.botao-principal {
+  background-image: linear-gradient(
     98.43deg,
-    rgba(255, 128, 0, 0.85) 0.68%,
-    rgba(153, 77, 0, 0.85) 97.9%
+    var(--laranja-suave) 0.68%,
+    var(--marrom-suave) 97.9%
   );
 }
 
 .botao-secundario {                  /* só com borda, sem fundo */
-  padding: 16px 28px;
   border: 1.5px solid var(--campo-borda);
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--texto);
-  text-decoration: none;
+}
+
+.botao-desativado {                  /* junto com .botao-secundario: "Em breve" */
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 
 /* =====================================================
-   4. HERO
+   6. BANDEIRA QUADRICULADA
+   Desenhada só com CSS: no HTML é <div class="checker"></div>.
+   Tamanho padrão: 16 x 2 quadrados de 20px.
+   Menor (painéis laranja): class="checker checker-pequeno".
    ===================================================== */
-.hero {
-  display: flex;                     /* texto de um lado, card do outro */
-  align-items: center;
-  gap: 64px;
-  padding: 88px 96px;
-}
-
-/* Coluna de texto (esquerda) */
-.hero-texto {
-  flex: 1;                           /* ocupa o espaço que sobra ao lado do card */
-  display: flex;
-  flex-direction: column;            /* empilha os itens (um embaixo do outro) */
-  align-items: flex-start;           /* evita o chip esticar até a largura toda */
-  gap: 28px;
-}
-
-.hero-texto h1 {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 800;
-  font-size: 104px;
-  line-height: 98px;                 /* menor que a fonte: linhas coladas */
-}
-
-.hero-texto p {
-  font-size: 19px;
-  line-height: 30px;                 /* altura de cada linha do parágrafo */
-  color: var(--texto-suave);
-}
-
-.hero-botoes {
-  display: flex;                     /* botões lado a lado */
-  gap: 14px;
-}
-
-/* Card laranja (direita) */
-.hero-card {
-  width: 480px;
-  height: 540px;
-  flex-shrink: 0;                    /* o card não encolhe quando o espaço aperta */
-  padding: 32px;
-  border-radius: 28px;
-  display: flex;
-  flex-direction: column;            /* chip em cima, F1 no meio, rodapé embaixo */
-  align-items: flex-start;
-  justify-content: space-between;    /* distribui os 3 itens na vertical */
-  background-image: linear-gradient(131.63deg, var(--laranja) 0%, #1a0100 71.4%);
-}
-
-.f1-gigante {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 800;
-  font-size: 330px;
-  line-height: 300px;
-  letter-spacing: -6.6px;            /* valor negativo aproxima as letras */
-  color: var(--texto);
-  opacity: 0.22;                     /* transparência: efeito "fantasma" */
-}
-
-.card-rodape {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.card-rodape p {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 600;
-  font-size: 34px;
-}
-
-/* Bandeira quadriculada: 16 x 2 quadrados de 20px, desenhada só com CSS */
 .checker {
-  width: 320px;                      /* 16 quadrados x 20px */
-  height: 40px;                      /* 2 linhas x 20px */
+  width: 320px;
+  height: 40px;
   background-size: 40px 40px;        /* bloco de 2x2 quadrados que se repete */
   background-image: conic-gradient(  /* degradê em "fatias", como uma pizza */
     rgba(0, 0, 0, 0.35) 0% 25%,
@@ -249,208 +207,8 @@ body {
   );
 }
 
-
-/* =====================================================
-   5. SEÇÕES E CABEÇALHO DE SEÇÃO
-   ===================================================== */
-
-/* A vírgula faz as mesmas regras valerem para as 3 classes.
-   Nas páginas novas, use class="secao" no <section>. */
-.secao,
-.lendas,
-.secao-f1 {
-  display: flex;
-  flex-direction: column;            /* cabeçalho em cima, conteúdo embaixo */
-  gap: 48px;                         /* espaço entre os blocos da seção */
-  padding: 80px 96px;
-}
-
-.secao-cabecalho {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.secao-rotulo {                      /* texto laranja pequeno em cima do título */
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--laranja);
-  letter-spacing: 1.82px;
-}
-
-.secao-cabecalho h2 {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 800;
-  font-size: 68px;
-  line-height: 68px;
-}
-
-.secao-cabecalho p {
-  font-size: 17px;
-  line-height: 26px;
-  color: var(--texto-suave);
-}
-
-
-/* =====================================================
-   6. CARDS E LINHA DO TEMPO
-   ===================================================== */
-
-/* Card de texto (Sobre o projeto, Legado etc.) */
-.card-info {
-  flex: 1;                           /* se estiver numa linha, divide a largura igual */
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 28px;
-  background-color: var(--card-fundo);
-  border: 1px solid var(--campo-borda);
-  border-radius: 16px;
-}
-
-.card-rotulo {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--laranja);
-  letter-spacing: 1.68px;
-}
-
-.card-info h3 {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 700;
-  font-size: 34px;
-  line-height: 36px;
-}
-
-.card-info p {
-  font-size: 15px;
-  line-height: 23px;
-  color: var(--texto-suave);
-}
-
-/* Card com número grande (outras lendas, maiores feitos) */
-.lenda {
-  flex: 1;
-  min-width: 0;                      /* deixa o card encolher em vez de estourar */
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 24px;
-  background-color: var(--card-fundo);
-  border: 1px solid var(--campo-borda);
-  border-radius: 16px;
-}
-
-.lenda-numero {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 800;
-  font-size: 72px;
-  line-height: 70px;
-  color: var(--laranja);
-}
-
-.lenda-rotulo {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.1px;
-  color: var(--placeholder);
-}
-
-.lenda h3 {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 32px;
-}
-
-.lenda p {
-  font-size: 14px;
-  line-height: 21px;
-  color: var(--texto-suave);
-}
-
-/* Linha do tempo (grid de 4 colunas) */
-.linha-tempo {
-  display: grid;                             /* divide o espaço em linhas e colunas */
-  grid-template-columns: repeat(4, 1fr);     /* 4 colunas iguais; 1fr = uma fração do espaço */
-  gap: 20px;                                 /* espaço entre os cards */
-}
-
-.marco {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 24px;
-  background-color: var(--card-fundo);
-  border: 1px solid var(--campo-borda);
-  border-radius: 16px;
-}
-
-.marco-ano {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 800;
-  font-size: 60px;
-  line-height: 60px;
-  color: var(--laranja);
-}
-
-.marco h4 {
-  font-size: 17px;
-  font-weight: 600;
-}
-
-.marco p {
-  font-size: 14px;
-  line-height: 21px;
-  color: var(--texto-suave);
-}
-
-
-/* =====================================================
-   7. NÚMEROS (3, 41, 65...)
-   ===================================================== */
-.numeros {
-  display: flex;                     /* os números lado a lado */
-  gap: 16px;
-}
-
-.stat {
-  flex: 1;                           /* cada um ocupa a mesma largura */
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 20px;
-  background-color: var(--campo-fundo);
-  border-radius: 14px;
-}
-
-.stat-numero {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 800;
-  font-size: 60px;
-  line-height: 60px;
-  color: var(--amarelo);
-}
-
-.stat-rotulo {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--texto-suave);
-}
-
-
-/* =====================================================
-   8. RODAPÉ
-   ===================================================== */
-.rodape {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;    /* logo na esquerda, frase na direita */
-  padding: 44px 96px;
-  border-top: 1px solid var(--campo-borda);  /* linha em cima (a da navbar fica embaixo) */
-}
-
-.rodape p {
-  font-size: 13px;
-  color: var(--placeholder);
+.checker-pequeno {
+  width: 252px;
+  height: 36px;
+  background-size: 36px 36px;
 }
