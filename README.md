@@ -81,7 +81,7 @@ As fontes de dados, referências históricas, imagens e demais recursos de terce
 
 ## ⚖️ Aviso
 
-O APEX F1 é um projeto independente, sem afiliação oficial com a Formula One Management, a FIA, as equipes ou os pilotos mencionados.
+O APEX F1 é um projeto independente, sem afiliação oficial com a Fórmula One Management, a FIA, as equipes ou os pilotos mencionados.
 
 As marcas e os nomes de terceiros pertencem aos respectivos titulares.
 

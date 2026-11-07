@@ -4,9 +4,7 @@ function autenticar(email, senha) {
   console.log("ACESSEI O USUARIO MODEL: ", email, senha);
 
   var instrucaoSql = `
-        SELECT id, nome, email
-        FROM usuario
-        WHERE email = '${email}' AND senha = '${senha}';
+        SELECT idUsuario AS id, nome, email FROM usuario WHERE email = '${email}' AND senha = '${senha}';
     `;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);

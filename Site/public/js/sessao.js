@@ -1,36 +1,52 @@
-// sessão
-function validarSessao() {
-    var email = sessionStorage.EMAIL_USUARIO;
-    var nome = sessionStorage.NOME_USUARIO;
+// SESSÃO
 
-    var b_usuario = document.getElementById("b_usuario");
+function validarSessao(caminhoLogin) {
+  var id = sessionStorage.ID_USUARIO;
+  var email = sessionStorage.EMAIL_USUARIO;
+  var nome = sessionStorage.NOME_USUARIO;
 
-    if (email != null && nome != null) {
-        b_usuario.innerHTML = nome;
-    } else {
-        window.location = "../login.html";
+  var b_usuario = document.getElementById("b_usuario");
+
+  if (id != null && email != null && nome != null) {
+    if (b_usuario != null) {
+      b_usuario.innerHTML = nome;
     }
+  } else {
+    window.location.href = caminhoLogin || "../login.html";
+  }
 }
 
-function limparSessao() {
-    sessionStorage.clear();
-    window.location = "../login.html";
+// ENCERRAR SESSÃO
+
+function limparSessao(caminhoLogin) {
+  sessionStorage.removeItem("ID_USUARIO");
+  sessionStorage.removeItem("NOME_USUARIO");
+  sessionStorage.removeItem("EMAIL_USUARIO");
+
+  window.location.href = caminhoLogin || "../login.html";
 }
 
-// carregamento (loading)
+// CARREGAMENTO (LOADING)
+
 function aguardar() {
-    var divAguardar = document.getElementById("div_aguardar");
+  var divAguardar = document.getElementById("div_aguardar");
+
+  if (divAguardar != null) {
     divAguardar.style.display = "flex";
+  }
 }
 
 function finalizarAguardar(texto) {
-    var divAguardar = document.getElementById("div_aguardar");
+  var divAguardar = document.getElementById("div_aguardar");
+
+  if (divAguardar != null) {
     divAguardar.style.display = "none";
+  }
 
-    var divErrosLogin = document.getElementById("div_erros_login");
-    if (texto) {
-        divErrosLogin.style.display = "flex";
-        divErrosLogin.innerHTML = texto;
-    }
+  var divErrosLogin = document.getElementById("div_erros_login");
+
+  if (divErrosLogin != null && texto) {
+    divErrosLogin.style.display = "flex";
+    divErrosLogin.innerHTML = texto;
+  }
 }
-

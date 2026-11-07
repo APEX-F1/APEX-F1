@@ -1,84 +1,36 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <link rel="icon" href="assets/icon/apex-f1.png"/>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="assets/icon/apex-f1.png" />
+
     <title>Entrar | APEX F1</title>
 
-    <script src="./js/sessao.js"></script>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/autenticacao.css" />
     <link rel="stylesheet" href="css/login.css" />
   </head>
 
-<body>
-
-    <!--Header-->
-
-    <!-- <div class="header">
-        <div class="container">
-            <h1 class="titulo">AquaTech</h1>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="simulador.html">Simulador</a>
-                </li>
-                <li>|</li>
-                <li class="agora">
-                    <a href="#">Login</a>
-                </li>
-                <li>
-                    <a href="cadastro.html">Cadastro</a>
-                </li>
-            </ul>
-        </div>
-    </div> -->
-
-
-    <!-- <div class="login">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
-        </div>
-        <div class="container">
-            <div class="card card-login">
-                <h2>Olá de volta!</h2>
-                <div class="formulario">
-                    <div class="campo">
-                        <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="Login">
-                    </div>
-                    <div class="campo">
-                        <span>Senha:</span>
-                        <input id="senha_input" type="password" placeholder="******">
-                    </div>
-                    <button class="botao" onclick="entrar()">Entrar</button>
-                </div>
-
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
-                </div>
-
-                <div id="div_erros_login"></div>
-            </div>
-        </div>
-    </div> -->
-        <main class="painel-formulario">
-      <form class="formulario">
+  <body>
+    <!-- Painel de formulário -->
+    <main class="painel-formulario">
+      <form
+        class="formulario"
+        onsubmit="
+          entrar();
+          return false;
+        "
+      >
         <header class="cabecalho">
           <h1>Entrar</h1>
           <p>Acesse o conteúdo do APEX F1.</p>
@@ -86,24 +38,39 @@
 
         <div class="campo">
           <label for="ipt_email">E-mail</label>
-          <input type="email" id="ipt_email" placeholder="voce@email.com" />
+          <input
+            type="email"
+            id="ipt_email"
+            placeholder="voce@email.com"
+            required
+          />
         </div>
 
         <div class="campo">
           <label for="ipt_senha">Senha</label>
-          <input type="password" id="ipt_senha" placeholder="••••••••" />
+          <input
+            type="password"
+            id="ipt_senha"
+            placeholder="••••••••"
+            required
+          />
         </div>
+
+        <div id="div_exibir"></div>
 
         <button type="submit" class="botao">Entrar</button>
 
         <p class="troca">
-          Ainda não tem conta? <a href="cadastro.html">Criar conta</a>
+          Ainda não tem conta?
+          <a href="cadastro.html">Criar conta</a>
         </p>
+
         <p class="aviso">O conteúdo do APEX F1 fica disponível após o login.</p>
       </form>
     </main>
 
-        <aside class="painel-marca">
+    <!-- Painel de identidade visual -->
+    <aside class="painel-marca">
       <a href="index.html" class="logo">
         <span class="logo-texto">APEX</span>
         <span class="logo-badge">F1</span>
@@ -111,6 +78,7 @@
 
       <div class="headline">
         <h2>Acelere pela história da Fórmula 1.</h2>
+
         <p>
           Times, pilotos, lendas e um quiz para testar o que você sabe sobre a
           F1 e sobre o Ayrton Senna.
@@ -119,95 +87,68 @@
 
       <div class="citacao">
         <div class="checker checker-pequeno"></div>
+
         <blockquote>
           “Tenha sempre como meta muita força, muita determinação e sempre faça
           tudo com muito amor e com muita fé em Deus, que um dia você chega lá.”
         </blockquote>
+
         <cite>Ayrton Senna</cite>
       </div>
     </aside>
-    <!--footer inicio-->
-    <!-- <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023-2026</h4>
-        </div>
-    </div> -->
-    <!--footer fim-->
 
-</body>
+    <script src="./js/sessao.js"></script>
 
-</html>
-
-<script>
-
-
-    function entrar() {
-        aguardar();
-
+    <script>
+      function entrar() {
         var emailVar = ipt_email.value;
         var senhaVar = ipt_senha.value;
 
-        if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+        div_exibir.innerHTML = "";
+        div_exibir.style.color = "#ff6b6b";
 
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
+        if (emailVar == "" || senhaVar == "") {
+          div_exibir.innerHTML = "Preencha todos os campos!";
+
+          return false;
+        }
 
         fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+          method: "POST",
 
-            if (resposta.ok) {
-                console.log(resposta);
+          headers: {
+            "Content-Type": "application/json",
+          },
 
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
-
-                    setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
+          body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar,
+          }),
         })
+          .then(function (resposta) {
+            if (resposta.ok) {
+              return resposta.json();
+            } else {
+              return resposta.text().then(function (texto) {
+                throw new Error(texto);
+              });
+            }
+          })
+
+          .then(function (json) {
+            sessionStorage.ID_USUARIO = json.id;
+            sessionStorage.NOME_USUARIO = json.nome;
+            sessionStorage.EMAIL_USUARIO = json.email;
+
+            window.location = "./index.html";
+          })
+
+          .catch(function (erro) {
+            div_exibir.innerHTML = erro.message;
+          });
 
         return false;
-    }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
-
-</script>
+      }
+    </script>
+  </body>
+</html>
