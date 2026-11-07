@@ -1,11 +1,10 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <link rel="icon" href="assets/icon/apex-f1.png"/>
+    <link rel="icon" href="assets/icon/apex-f1.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <script src="js/cadastro.js"></script>
+    <title>Criar conta | APEX F1</title>
 
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/autenticacao.css" />
@@ -17,30 +16,8 @@
     />
   </head>
 
-<body onload="listar()">
-  <!--header inicio-->
-  <!-- <div class="header">
-    <div class="container">
-      <h1 class="titulo">AquaTech</h1>
-      <ul class="navbar">
-        <li>
-          <a href="index.html">Inicial</a>
-        </li>
-        <li>
-          <a href="simulador.html">Simulador</a>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-        <li class="agora">
-          <a href="#">Cadastro</a>
-        </li>
-      </ul>
-    </div>
-  </div> -->
-  <!--header fim-->
-      <aside class="painel-marca">
+  <body>
+    <aside class="painel-marca">
       <a href="index.html" class="logo">
         <span class="logo-texto">APEX</span>
         <span class="logo-badge">F1</span>
@@ -49,7 +26,7 @@
       <div class="headline">
         <h2>Entre no grid do APEX F1.</h2>
         <p>
-          Time, pilotos, lendas e um quiz para testar o que você sabe sobre a a
+          Time, pilotos, lendas e um quiz para testar o que você sabe sobre a
           F1 e sobre o Ayrton Senna.
         </p>
       </div>
@@ -60,37 +37,30 @@
         <cite>Ayrton Senna</cite>
       </div>
     </aside>
+
     <main class="painel-formulario">
       <form
         class="formulario"
         id="form_cadastro"
-        onsubmit="cadastrar(event)"
+        onsubmit="cadastrar(); return false;"
         novalidate
       >
         <header class="cabecalho">
           <h1>Criar conta</h1>
           <p>Cadastre-se para acessar o conteúdo do APEX F1.</p>
-          <!-- <p>Cadastar</p> -->
-          </  header>
-  <div class="login">
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
-      </div>
-    </div>
-    <div class="container">
-      <div class="card card-cadastro">
-        <!-- <h2>Bem-vindo!</h2> -->
-        <div class="formulario">
-<!-- Para inserir mais um campo, copie uma das inputs abaixo.
-Assim que inserir vá para o script abaixo. -->
-           <div class="campo">
+        </header>
+
+        <div class="campo">
           <label for="ipt_nome">Nome completo</label>
           <input type="text" id="ipt_nome" placeholder="Seu nome" />
         </div>
         <div class="campo">
           <label for="ipt_email">E-mail</label>
           <input type="email" id="ipt_email" placeholder="apexf1@gmail.com" />
+        </div>
+        <div class="campo">
+          <label for="ipt_nascimento">Data de nascimento</label>
+          <input type="date" id="ipt_nascimento" placeholder="21/03/1960" />
         </div>
         <div class="campo">
           <label for="ipt_senha">Senha</label>
@@ -108,154 +78,97 @@ Assim que inserir vá para o script abaixo. -->
             placeholder="Digite novamente a senha"
           />
         </div>
-        <!-- <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
-        </div> -->
 
+        <!-- mensagens de erro e de sucesso aparecem aqui -->
         <div id="div_exibir"></div>
-        
-        <button type="button" class="botao" onclick="cadastrar()">
-          Criar conta
-        </button>
-       
+
+        <button type="submit" class="botao">Criar conta</button>
+
         <p class="troca">Já tem conta? <a href="login.html">Entrar</a></p>
         <p class="aviso">O conteúdo do APEX F1 fica disponível após o login.</p>
-      </div>
-    </div>
-  </div>
+      </form>
+    </main>
 
-  <!--footer inicio-->
-  <div class="footer">
-    <!-- <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023-2026</h4>
-    </div>
-  </div> -->
-  <!--footer fim-->
-</body>
+    <script>
+      function exibirMensagem(texto, sucesso) {
+        div_exibir.style.color = sucesso ? "#4caf50" : "#ff6b6b";
+        div_exibir.innerHTML = texto;
+      }
 
-</html>
+      function cadastrar() {
+        var nomeVar = ipt_nome.value;
+        var nascimentoVar = ipt_nascimento.value;
+        var emailVar = ipt_email.value;
+        var senhaVar = ipt_senha.value;
+        var confirmarVar = ipt_confirmar.value;
 
-<script>
+        var mensagem = "";
 
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  // let listaEmpresasCadastradas = [];
-
-  function cadastrar() {
-    // aguardar();
-
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = ipt_nome.value;
-    var emailVar = ipt_email.value;
-    var senhaVar = ipt_senha.value;
-    var confirmacaoSenhaVar = ipt_confirmar.value;
-    // var codigoVar = codigo_input.value;
-    // var idEmpresaVincular
-
-    // Verificando se há algum campo em branco
-    // if (
-    //   nomeVar == "" ||
-    //   emailVar == "" ||
-    //   senhaVar == "" ||
-    //   confirmacaoSenhaVar == "" ||
-    //   codigoVar == ""
-    // ) {
-        if (nome == "" || email == "" || senha == "" || confirmar == "") {
-      mensagem = "Preencha todos os campos!";
-    } else if (nome.length < 3) {
-      mensagem = "O nome deve ter pelo menos 3 caracteres.";
-    } else if (!email.includes("@") || !email.includes(".")) {
-      mensagem = "Digite um e-mail válido.";
-    } else if (senha.length < 8) {
-      mensagem = "A senha deve ter pelo menos 8 caracteres.";
-    } else if (senha != confirmar) {
-      mensagem = "As senhas não coincidem.";
-      cardErro.style.display = "block";
-      // mensagem_erro.innerHTML =
-      //   "(Mensagem de erro para todos os campos em branco)";
-
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
-
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    // for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-    //   if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-    //     idEmpresaVincular = listaEmpresasCadastradas[i].id
-    //     console.log("Código de ativação válido.");
-    //     break;
-    //   } else {
-    //     cardErro.style.display = "block";
-    //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-    //     finalizarAguardar();
-    //   }
-    // }
-
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        // idEmpresaVincularServer: idEmpresaVincular
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+        if (
+          nomeVar == "" ||
+          nascimentoVar == "" ||
+          emailVar == "" ||
+          senhaVar == "" ||
+          confirmarVar == ""
+        ) {
+          mensagem = "Preencha todos os campos!";
+        } else if (nomeVar.length < 3) {
+          mensagem = "O nome deve ter pelo menos 3 caracteres.";
+        } else if (!emailVar.includes("@") || !emailVar.includes(".")) {
+          mensagem = "Digite um e-mail válido.";
+        } else if (senhaVar.length < 8) {
+          mensagem = "A senha deve ter pelo menos 8 caracteres.";
+        } else if (senhaVar != confirmarVar) {
+          mensagem = "As senhas não coincidem.";
         }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
 
-    return false;
-  }
+        // se alguma validação falhou, mostra o erro e NÃO envia para a API
+        if (mensagem != "") {
+          exibirMensagem(mensagem, false);
+          return false;
+        }
 
-  // Listando empresas cadastradas 
-  // function listar() {
-  //   fetch("/empresas/listar", {
-  //     method: "GET",
-  //   })
-  //     .then(function (resposta) {
-  //       resposta.json().then((empresas) => {
-  //         empresas.forEach((empresa) => {
-  //           listaEmpresasCadastradas.push(empresa);
+        fetch("/usuarios/cadastrar", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nomeServer: nomeVar,
+            nascimentoServer: nascimentoVar,
+            emailServer: emailVar,
+            senhaServer: senhaVar,
+          }),
+        })
+          .then(function (resposta) {
+            if (resposta.ok) {
+              exibirMensagem(
+                "Cadastro realizado com sucesso! Redirecionando para o login...",
+                true,
+              );
 
-  //           console.log("listaEmpresasCadastradas")
-  //           console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-  //         });
-  //       });
-  //     })
-  //     .catch(function (resposta) {
-  //       console.log(`#ERRO: ${resposta}`);
-  //     });
-  // }
+              setTimeout(function () {
+                window.location = "login.html";
+              }, 2000);
+            } else {
+              resposta.text().then(function (texto) {
+                exibirMensagem(
+                  texto || "Não foi possível realizar o cadastro.",
+                  false,
+                );
+              });
+            }
+          })
+          .catch(function (erro) {
+            console.log("#ERRO: " + erro);
+            exibirMensagem(
+              "Não foi possível realizar o cadastro. Tente novamente.",
+              false,
+            );
+          });
 
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
-</script>
+        return false;
+      }
+    </script>
+  </body>
+</html>
