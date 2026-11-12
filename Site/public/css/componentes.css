@@ -58,6 +58,24 @@
   font-weight: 600;
 }
 
+/* Área da sessão na navbar: "Olá, nome" + Sair ou Fazer Login */
+.area-usuario {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.area-usuario .saudacao {
+  color: var(--texto-suave);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.area-usuario .saudacao strong {
+  color: var(--texto);
+  font-weight: 600;
+}
+
 
 /* =====================================================
    2. RODAPÉ

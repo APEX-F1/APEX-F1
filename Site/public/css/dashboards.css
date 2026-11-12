@@ -1,427 +1,428 @@
-/* pagina mural */
+/* ================================================
+   APEX F1 | DASHBOARD
+   Mesmo estilo do Figma (tela Paddock):
+   fundo #0b0b10 | cards #14141c | bordas #2e2e3d
+   chips #1d1d28 | texto #f4f4f6 | texto suave #a0a0b2
+   vermelho #e10600 | laranja #ff8000
+   Fontes: Barlow Condensed (títulos) e Inter (textos)
+================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0b0b10;
+    color: #f4f4f6;
+    font-family: 'Inter', sans-serif;
 }
 
-.label-captura {
-  display: flex;
-  justify-content: center;
+a {
+    text-decoration: none;
+    color: inherit;
 }
-
-.dash-right .avisos {
-  width: 100%;
-  color: rgb(216, 216, 216);
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.dash-right .avisos .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.dash-right .avisos .container .div-form {
-  width: 95%;
-}
-
-.dash-right .avisos .container .div-form #form_postagem {
-  width: 95%;
-}
-
-.dash-right .avisos .div-form label {
-  width: 95%;
-}
-
-.dash-right .avisos .div-form input {
-  width: 95%;
-  border-radius: 5px;
-}
-
-.dash-right .avisos .div-form textarea {
-  width: 95%;
-  border: 3px solid #e6005a;
-  background-color: white;
-  border-radius: 5px;
-}
-
-.dash-right .avisos .div-form button {
-  cursor: pointer;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 10px 15px;
-  color: white;
-  background-color: #e6005a;
-  width: 120px;
-}
-
-.publicacao-btn-editar {
-  cursor: pointer;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 5px 8px;
-  color: white;
-  background-color: #e6005a;
-  width: 80px;
-}
-
-.publicacao {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: stretch;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  border-bottom: 3px solid #e6005a;
-  padding: 20px;
-}
-
-.publicacao>*:not(:last-child) {
-  padding: 0 0 10px 0;
-}
-
-.div-results {
-  width: 100%;
-}
-
-.div-results .feed-container {
-  background-color: #212124;
-  border-radius: 5px;
-  margin-bottom: 80px;
-}
-
-.div-buttons {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.div-buttons>* {
-  margin-left: 30px;
-}
-
-/* pagina graficos */
-
-.dash-header {
-  background-color: #212124;
-}
-
-.dash {
-  width: 80%;
-  position: relative;
-  top: 0;
-  left: 20%;
-  background-color: #161618;
-  height: 100vh;
-  overflow: auto;
-}
-
-.area-parametros-alerta {
-  /* border: 2px solid pink; */
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  margin: auto;
-  margin-top: 10px;
-  background-color: #212124;
-}
-
-.area-parametros-alerta .titulo-legenda {
-  color: white;
-  font-weight: 600;
-  width: fit-content;
-  margin: 10px 20px;
-}
-
-.parametros-alerta {
-  display: flex;
-  width: 100%;
-}
-
-.item-regua {
-  width: 20%;
-  text-align: center;
-  height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-self: center;
-}
-
-.item-regua p {
-  margin: 0;
-  font-weight: 500;
-}
-
-.item-regua p:nth-child(2) {
-  font-weight: 800;
-}
-
-.perigo-frio {
-  background-color: #5c6bc0;
-}
-
-.perigo-quente {
-  background-color: #ff7043;
-}
-
-.alerta-frio {
-  background-color: #42a5f5;
-}
-
-.alerta-quente {
-  background-color: #ffee58;
-}
-
-.ideal {
-  background-color: #9ccc65;
-}
-
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: 450px;
-  width: 100%;
-  align-items: center;
-  color: white;
-}
-
-.card-aquario {
-  margin: 2%;
-  min-width: 40%;
-  max-width: 50%;
-  width: fit-content;
-  flex-wrap: wrap;
-  display: flex;
-  /* text-align: center; */
-  height: 180px;
-  /* justify-content: right; */
-  background-color: #212124;
-  font-size: 20px;
-}
-
-.card-aquario h1 {
-  width: fit-content;
-}
-
-.card-aquario p {
-  margin: 0;
-  font-size: 50px;
-  font-weight: lighter;
-  text-align: left;
-}
-
-.desc-aquario {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-}
-
-.desc-aquario .cor-alerta {
-  width: 30px;
-}
-
-.title-aquario {
-  width: 100%;
-}
-
-
-.cards h1 {
-  font-size: 22px;
-  border-bottom: solid white 1px;
-  text-align: left;
-  font-weight: lighter;
-  margin: 20px;
-}
-
-.temperatura {
-  margin: 5px;
-  margin-left: 20px;
-  width: 75%;
-}
-
-.cor-alerta {
-  width: 13%;
-  height: 30%;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.btns-dash {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-  flex-wrap: wrap;
-  padding: 0 30% 0 30%;
-}
-
-.graph {
-  width: 70%;
-  margin: auto;
-  padding-top: 10px;
-}
-
-.tituloGraficos {
-  color: rgb(216, 216, 216);
-  display: flex;
-  justify-content: center;
-}
-
-.btn-chart {
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border: 0;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 10px 15px;
-  color: #e6005a;
-  background-color: white;
-  margin: 5px;
-  border-radius: 3px;
-  cursor: pointer
-}
-
-.btn-pink {
-  color: white;
-  background-color: #e6005a;
-}
-
-.btn-white {
-  color: #e6005a;
-  background-color: white;
-
-}
-
-.label-captura {
-  height: 80px;
-}
-
-.display-none {
-  display: none;
-}
-
-.display-flex {
-  display: flex;
-}
-
-.display-block {
-  display: block;
-}
-
-canvas {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-/* PAGINA DOS GRÁFICOS 2023-2026 */
 
 .janela {
-  display: flex;
-  /* width: 100vw; */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.header-left a {
-  text-decoration: none;
-  color: white;
-}
+
+/* ================================================
+   MENU (mesmo do quiz.css)
+================================================ */
 
 .header-left {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  height: 100vh;
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  border-right: 3px solid #32b9cd;
-  background-color: #212124;
-}
-
-.dash-right {
-  display: flex;
-  width: 70%;
-  height: fit-content;
-  background-color: #161618;
-  position: relative;
-  top: 0;
-  left: 25%;
-  height: 100vh;
-  overflow: auto;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    padding: 22px 96px;
+    background-color: #0b0b10;
+    border-bottom: 1px solid #2e2e3d;
 }
 
 .header-left h1 {
-  color: #32b9cd;
+    margin-right: auto;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 44px;
+    letter-spacing: 0.88px;
+    color: #f4f4f6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.hello {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.header-left h1 span {
+    background-color: #e10600;
+    padding: 0 10px;
+    border-radius: 6px;
+    font-size: 36px;
 }
 
 .hello h3 {
-  color: #e3b062;
-  font-weight: 300;
-  font-size: 1.2rem;
-}
-
-.hello h3 span {
-  font-weight: 800;
-}
-
-.btn-nav {
-  width: 40%;
-  color: white;
-  background-color: #e6005a;
-  border-radius: 5px;
-  text-align: center;
-  padding: 2% 5%;
-}
-
-.btn-nav-white {
-  width: 40%;
-  background-color: white;
-  border: 3px solid #e6005a;
-  border-radius: 5px;
-  text-align: center;
-  padding: 2% 5%;
-}
-
-.btn-nav-white h3 {
-  color: #e6005a;
-  padding: 0;
-  margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #a0a0b2;
 }
 
 .btn-nav h3,
-.btn-logout h3 {
-  margin: 0;
-  padding: 0;
+.btn-nav-white h3 {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.btn-nav h3 {
+    color: #f4f4f6;
+}
+
+.btn-nav-white h3 {
+    color: #a0a0b2;
+}
+
+.btn-nav-white h3:hover {
+    color: #f4f4f6;
 }
 
 .btn-logout {
-  margin: 0;
-  padding: 0;
-  width: 20%;
-  background-color: #32b9cd;
-  color: white;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px 15px;
-  margin-bottom: 100px;
-  cursor: pointer;
+    border: 1.5px solid #2e2e3d;
+    border-radius: 8px;
+    padding: 10px 22px;
+    cursor: pointer;
+}
+
+.btn-logout h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #f4f4f6;
+}
+
+.btn-logout:hover {
+    background-color: #14141c;
+}
+
+
+/* ================================================
+   CONTEÚDO
+================================================ */
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    padding: 64px 96px 80px 96px;
+}
+
+
+/* ---------- Cabeçalho ---------- */
+
+.cabecalho {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rotulo {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.82px;
+    color: #ff8000;
+}
+
+.cabecalho h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 68px;
+    line-height: 68px;
+    color: #f4f4f6;
+}
+
+.subtitulo {
+    font-size: 17px;
+    line-height: 26px;
+    color: #a0a0b2;
+}
+
+.aviso-exemplo {
+    align-self: flex-start;
+    background-color: #1d1d28;
+    border: 1px solid #ff8000;
+    border-radius: 100px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.72px;
+    color: #ff8000;
+}
+
+
+/* ---------- Blocos (Quiz, Erradas, Simulador) ---------- */
+
+.bloco {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.bloco h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 46px;
+    color: #f4f4f6;
+}
+
+
+/* ---------- Indicadores (KPIs) ---------- */
+
+.kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.kpi {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #14141c;
+    border: 1px solid #2e2e3d;
+    border-radius: 24px;
+    padding: 24px 28px;
+}
+
+.kpi-valor {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 56px;
+    color: #f4f4f6;
+}
+
+/* para textos como "Campeão Mundial" */
+.kpi-texto {
+    font-size: 36px;
+    line-height: 56px;
+}
+
+.kpi-nome {
+    font-size: 14px;
+    font-weight: 500;
+    color: #a0a0b2;
+}
+
+
+/* ---------- Gráficos ---------- */
+
+.graficos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.grafico-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #14141c;
+    border: 1px solid #2e2e3d;
+    border-radius: 24px;
+    padding: 28px 32px;
+}
+
+.grafico-card h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: #f4f4f6;
+}
+
+.canvas-box {
+    position: relative;
+    height: 280px;
+}
+
+
+/* ---------- Lista de perguntas mais erradas ---------- */
+
+.erro-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #2e2e3d;
+}
+
+.erro-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.erro-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.erro-tema {
+    background-color: #1d1d28;
+    border: 1px solid #2e2e3d;
+    border-radius: 100px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.72px;
+    color: #a0a0b2;
+}
+
+.erro-qtd {
+    font-size: 15px;
+    font-weight: 600;
+    color: #e10600;
+}
+
+.erro-item p {
+    font-size: 16px;
+    line-height: 25px;
+    color: #f4f4f6;
+}
+
+.erro-barra {
+    width: 100%;
+    height: 8px;
+    background-color: #1d1d28;
+    border: 1px solid #2e2e3d;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.erro-barra-preenchida {
+    height: 100%;
+    background-color: #e10600;
+}
+
+
+/* ---------- Mensagem quando não há dados ---------- */
+
+.vazio {
+    background-color: #1d1d28;
+    border-left: 3px solid #ff8000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 16px;
+    line-height: 25px;
+    color: #a0a0b2;
+}
+
+
+/* ---------- Botões ---------- */
+
+.botoes {
+    display: flex;
+    gap: 14px;
+}
+
+.btn-laranja {
+    background-image: linear-gradient(98deg, rgba(255, 128, 0, 0.85) 0.7%, rgba(153, 77, 0, 0.85) 98%);
+    border-radius: 8px;
+    padding: 16px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #f4f4f6;
+}
+
+.btn-borda {
+    border: 1.5px solid #2e2e3d;
+    border-radius: 8px;
+    padding: 16px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #f4f4f6;
+}
+
+.btn-laranja:hover {
+    opacity: 0.9;
+}
+
+.btn-borda:hover {
+    background-color: #14141c;
+}
+
+
+/* ---------- Classe usada pelo JavaScript ---------- */
+
+.display-none {
+    display: none;
+}
+
+
+/* ================================================
+   TELAS MENORES
+================================================ */
+
+@media (max-width: 1000px) {
+    .kpis {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .graficos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+    .header-left {
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 16px 24px;
+    }
+
+    .header-left h1 {
+        font-size: 32px;
+        width: 100%;
+    }
+
+    .header-left h1 span {
+        font-size: 26px;
+    }
+
+    .dashboard {
+        padding: 32px 16px 56px 16px;
+        gap: 40px;
+    }
+
+    .cabecalho h2 {
+        font-size: 48px;
+        line-height: 48px;
+    }
+
+    .bloco h3 {
+        font-size: 34px;
+        line-height: 38px;
+    }
+
+    .kpi-valor {
+        font-size: 44px;
+        line-height: 44px;
+    }
+
+    .kpi-texto {
+        font-size: 28px;
+    }
+
+    .grafico-card {
+        padding: 24px 20px;
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    .btn-laranja,
+    .btn-borda {
+        text-align: center;
+    }
 }

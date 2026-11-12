@@ -7,6 +7,29 @@
 #pista {
   background: #333;             /* cor de asfalto */
   border: 3px solid #fff;       /* borda branca em volta da pista */
+  border-radius: 16px;          /* acompanha o arredondamento do site */
+  overflow: hidden;             /* mantém os carros dentro da pista */
+}
+
+.simulador-acoes {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.simulador-aviso {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#btnLargar {
+  border: none;
+}
+
+#btnLargar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .faixa {

@@ -1,110 +1,233 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/Site/css/V2_simulador.css">
-</head>
-<body>
-    <h2>Simulador de Corrida</h2> <!-- título da seção -->
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <link rel="icon" href="assets/icon/apex-f1.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APEX F1 · Simulador de corrida</title>
 
-<div id="semaforo">⚫⚫⚫⚫⚫</div> <!-- luzes de largada, o JS troca por 🔴 e depois 🟢 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/componentes.css" />
+    <link rel="stylesheet" href="css/Simulador/V2_simulador.css" />
 
-<div id="pista"></div> <!-- começa vazia: o JS cria uma faixa para cada piloto -->
+    <script src="js/sessao.js"></script>
+    <script>
+      validarSessao("login.html");
+    </script>
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-texto">APEX</span>
+        <span class="logo-badge">F1</span>
+      </a>
+      <nav class="navbar-links">
+        <a href="index.html">Início</a>
+        <a href="minha-historia.html">Minha história</a>
+        <a href="index.html#f1">F1</a>
+        <a href="index.html#lendas">Lendas</a>
+        <a href="paddock.html" class="ativo">Paddock</a>
+        <a href="dedicacoes.html">Dedicações</a>
+        <a href="dashboard/dashboard.html">Dashboard</a>
+      </nav>
+      <div class="area-usuario" id="area-usuario"></div>
+    </header>
 
-<button id="btnLargar" onclick="largar()">Largar</button> <!-- ao clicar, chama a função largar() -->
+    <main>
+      <section class="secao simulador">
+        <header class="secao-cabecalho">
+          <span class="secao-rotulo">MINIGAME</span>
+          <h1 id="titulo">Simulador de corrida</h1>
+          <p>
+            Dispute uma corrida simulada e veja como você se sai. A sua posição
+            final e os pontos vão direto para o dashboard.
+          </p>
+        </header>
 
-<div id="resultado"></div> <!-- aqui aparece o pódio no fim -->
+        <div id="semaforo">⚫⚫⚫⚫⚫</div>
 
-<script src="corrida.js"></script> <!-- carrega o JS; fica no fim para o HTML já existir -->
-</body>
+        <div id="pista"></div>
+
+        <div class="simulador-acoes">
+          <button id="btnLargar" type="button" class="botao-principal" onclick="largar()">
+            Largar corrida
+          </button>
+          <span id="aviso" class="simulador-aviso"></span>
+        </div>
+
+        <div id="resultado"></div>
+      </section>
+
+      <section class="cta">
+        <a href="paddock.html" class="botao-secundario">Voltar ao Paddock</a>
+        <a href="dashboard/dashboard.html" class="botao-secundario">Ver meu dashboard</a>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="logo">
+        <span class="logo-texto">APEX</span>
+        <span class="logo-badge">F1</span>
+      </div>
+      <p>Projeto individual · SPTech · Feito com paixão pela Fórmula 1</p>
+    </footer>
+
+    <script>
+      var NOME_USUARIO_PISTA = sessionStorage.NOME_USUARIO || "Você";
+
+      var pilotos = [
+        { nome: NOME_USUARIO_PISTA, cor: "#ffffff", posicao: 0 },
+        { nome: "Senna", cor: "#f5c400", posicao: 0 },
+        { nome: "Prost", cor: "#ff4d4d", posicao: 0 },
+        { nome: "Piloto C", cor: "#4dd2ff", posicao: 0 }
+      ];
+
+      var pistas = [
+        "Interlagos",
+        "Mônaco",
+        "Silverstone",
+        "Monza",
+        "Suzuka",
+        "Spa-Francorchamps"
+      ];
+
+      var tabelaPontos = [25, 18, 15, 12];
+      var pistaAtual;
+
+      var linhaChegada = 92;
+      var relogio;
+      var ordemChegada = [];
+
+      function criarPista() {
+        var pista = document.getElementById("pista");
+        pista.innerHTML = "";
+
+        for (var i = 0; i < pilotos.length; i++) {
+          pista.innerHTML +=
+            '<div class="faixa">' +
+            '<span class="nome" style="color:' + pilotos[i].cor + '">' +
+            pilotos[i].nome + "</span>" +
+            '<span class="carro" id="carro' + i + '">🏎️</span>' +
+            "</div>";
+        }
+      }
+
+      criarPista();
+
+      function largar() {
+        document.getElementById("btnLargar").disabled = true;
+        document.getElementById("resultado").innerHTML = "";
+        document.getElementById("aviso").innerHTML = "";
+        document.getElementById("semaforo").innerHTML = "⚫⚫⚫⚫⚫";
+        ordemChegada = [];
+
+        pistaAtual = pistas[Math.floor(Math.random() * pistas.length)];
+        document.getElementById("titulo").innerHTML =
+          "Simulador de corrida — " + pistaAtual;
+
+        for (var i = 0; i < pilotos.length; i++) {
+          pilotos[i].posicao = 0;
+          document.getElementById("carro" + i).style.left = "0%";
+        }
+
+        var luzes = 0;
+        var contagem = setInterval(function () {
+          luzes++;
+          document.getElementById("semaforo").innerHTML = "🔴".repeat(luzes);
+
+          if (luzes == 5) {
+            clearInterval(contagem);
+            document.getElementById("semaforo").innerHTML = "🟢🟢🟢🟢🟢";
+            relogio = setInterval(avancar, 100);
+          }
+        }, 800);
+      }
+
+      function avancar() {
+        for (var i = 0; i < pilotos.length; i++) {
+          if (pilotos[i].posicao >= linhaChegada) {
+            continue;
+          }
+
+          var passo = Math.random() * 2 + 0.3;
+
+          if (Math.random() < 0.03) {
+            passo = 0;
+          }
+
+          pilotos[i].posicao += passo;
+
+          if (pilotos[i].posicao >= linhaChegada) {
+            pilotos[i].posicao = linhaChegada;
+            ordemChegada.push(pilotos[i].nome);
+          }
+
+          document.getElementById("carro" + i).style.left = pilotos[i].posicao + "%";
+        }
+
+        if (ordemChegada.length == pilotos.length) {
+          clearInterval(relogio);
+          mostrarPodio();
+        }
+      }
+
+      function mostrarPodio() {
+        var medalhas = ["🥇", "🥈", "🥉", "4º"];
+        var texto = "<b>Resultado final:</b><br>";
+
+        for (var i = 0; i < ordemChegada.length; i++) {
+          texto += medalhas[i] + " " + ordemChegada[i] + "<br>";
+        }
+
+        document.getElementById("resultado").innerHTML = texto;
+        document.getElementById("btnLargar").disabled = false;
+
+        salvarCorrida();
+      }
+
+      function salvarCorrida() {
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        if (idUsuario == undefined) {
+          return;
+        }
+
+        var posicao = ordemChegada.indexOf(NOME_USUARIO_PISTA) + 1;
+        var pontos = posicao <= tabelaPontos.length ? tabelaPontos[posicao - 1] : 0;
+
+        fetch("/simulador/salvar", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            idUsuario: idUsuario,
+            pista: pistaAtual,
+            posicao: posicao,
+            pontos: pontos
+          })
+        })
+          .then(function (resposta) {
+            var aviso = document.getElementById("aviso");
+
+            if (resposta.ok) {
+              aviso.innerHTML = "Resultado salvo no dashboard!";
+              aviso.style.color = "var(--verde)";
+            } else {
+              aviso.innerHTML = "Não foi possível salvar o resultado.";
+              aviso.style.color = "var(--vermelho)";
+            }
+          })
+          .catch(function (erro) {
+            var aviso = document.getElementById("aviso");
+            aviso.innerHTML = "Erro ao salvar o resultado: " + erro.message;
+            aviso.style.color = "var(--vermelho)";
+          });
+      }
+    </script>
+  </body>
 </html>
-<script>
-    var pilotos = [                                   // vetor com um objeto por piloto
-  { nome: "Senna",    cor: "#f5c400", posicao: 0 }, // nome, cor do texto e posição inicial (0%)
-  { nome: "Prost",    cor: "#ff4d4d", posicao: 0 }, // posicao vai de 0 a 100 (% da largura)
-  { nome: "Piloto C", cor: "#4dd2ff", posicao: 0 }, // dá para trocar nomes e cores à vontade
-  { nome: "Piloto D", cor: "#7dff7d", posicao: 0 }
-];
-
-var linhaChegada = 92;   // posição (em %) em que o piloto "cruza a linha"
-var relogio;             // guardará o setInterval da corrida, para podermos pará-lo
-var ordemChegada = [];   // vetor que guarda os nomes na ordem em que chegaram
-
-function criarPista() {                                       // monta as faixas na tela
-  var pista = document.getElementById("pista");               // pega a div da pista
-  for (var i = 0; i < pilotos.length; i++) {                  // repete uma vez para cada piloto
-    pista.innerHTML +=                                        // acrescenta HTML dentro da pista
-      '<div class="faixa">' +                                 // abre a faixa do piloto
-      '<span class="nome" style="color:' + pilotos[i].cor + '">' + // abre o nome com a cor dele
-      pilotos[i].nome + '</span>' +                           // escreve o nome e fecha
-      '<span class="carro" id="carro' + i + '">🏎️</span>' +   // carro com id único: carro0, carro1...
-      '</div>';                                               // fecha a faixa
-  }
-}
-criarPista();            // executa a função assim que a página carrega
-
-function largar() {                                           // chamada pelo botão
-  document.getElementById("btnLargar").disabled = true;       // desativa o botão durante a corrida
-  document.getElementById("resultado").innerHTML = "";        // limpa o pódio da corrida anterior
-  ordemChegada = [];                                          // zera a ordem de chegada
-
-  for (var i = 0; i < pilotos.length; i++) {                  // volta cada piloto à largada
-    pilotos[i].posicao = 0;                                   // zera a posição no vetor
-    document.getElementById("carro" + i).style.left = "0%";   // zera a posição na tela
-  }
-
-  var luzes = 0;                                              // quantas luzes já acenderam
-  var contagem = setInterval(function () {                    // roda esta função a cada 800 ms
-    luzes++;                                                  // acende mais uma luz
-    document.getElementById("semaforo").innerHTML = "🔴".repeat(luzes); // repete 🔴 "luzes" vezes
-
-    if (luzes == 5) {                                         // quando as 5 acenderem...
-      clearInterval(contagem);                                // ...para a contagem
-      document.getElementById("semaforo").innerHTML = "🟢🟢🟢🟢🟢"; // luz verde: largou!
-      relogio = setInterval(avancar, 100);                    // inicia a corrida: avancar() a cada 100 ms
-    }
-  }, 800);                                                    // intervalo da contagem: 800 ms
-}
-
-function avancar() {                                          // um "tique" da corrida
-  for (var i = 0; i < pilotos.length; i++) {                  // passa por todos os pilotos
-    if (pilotos[i].posicao >= linhaChegada) {                 // se este já chegou...
-      continue;                                               // ...pula para o próximo piloto
-    }
-
-    var passo = Math.random() * 2 + 0.3;                      // sorteia entre 0,3 e 2,3 (% neste tique)
-
-    if (Math.random() < 0.03) {                               // 3% de chance de problema na pista
-      passo = 0;                                              // o piloto não anda neste tique
-    }
-
-    pilotos[i].posicao += passo;                              // soma o passo à posição atual
-
-    if (pilotos[i].posicao >= linhaChegada) {                 // se passou da linha de chegada...
-      pilotos[i].posicao = linhaChegada;                      // ...trava exatamente na linha
-      ordemChegada.push(pilotos[i].nome);                     // ...e registra no fim do vetor de chegada
-    }
-
-    document.getElementById("carro" + i).style.left = pilotos[i].posicao + "%"; // move o carro na tela
-  }
-
-  if (ordemChegada.length == pilotos.length) {                // se todos já chegaram...
-    clearInterval(relogio);                                   // ...para o relógio da corrida
-    mostrarPodio();                                           // ...e mostra o resultado
-  }
-}
-
-function mostrarPodio() {                                     // monta o resultado final
-  var medalhas = ["🥇", "🥈", "🥉", "4º"];                    // um item para cada posição
-  var texto = "<b>Resultado final:</b><br>";                  // começa o texto do pódio
-
-  for (var i = 0; i < ordemChegada.length; i++) {             // percorre a ordem de chegada
-    texto += medalhas[i] + " " + ordemChegada[i] + "<br>";    // ex.: "🥇 Senna" + quebra de linha
-  }
-
-  document.getElementById("resultado").innerHTML = texto;     // escreve o pódio na tela
-  document.getElementById("btnLargar").disabled = false;      // reativa o botão para outra corrida
-}
-</script>

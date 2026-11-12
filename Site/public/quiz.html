@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="icon" href="assets/icon/apex-f1.png" />
+    <link rel="shortcut icon" href="assets/icon/apex-f1.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APEX F1 | Quiz</title>
+
+    <!-- CSS: o quiz.css já tem tudo da página (menu, quiz e resultado) no estilo do APEX F1 -->
+    <link rel="stylesheet" href="/css/quiz.css" />
+
+    <!-- Scripts originais da API (sessão do usuário e alertas) -->
+    <script src="js/sessao.js"></script>
+    <script>
+        validarSessao("login.html");
+    </script>
+    <script src="js/alerta.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!--FONT AWESOME-->
+    <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="janela">
+
+        <!-- MENU LATERAL (mesma estrutura do original) -->
+        <div class="header-left">
+            <h1><a href="index.html">APEX <span>F1</span></a></h1>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <!-- Página atual usa btn-nav; as outras usam btn-nav-white com link -->
+            <div class="btn-nav">
+                <h3>Quiz</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="dashboard/dashboard.html">
+                    <h3>Dashboard</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao('login.html')">
+                <h3>Sair</h3>
+            </div>
+        </div>
+
+        <!-- ÁREA PRINCIPAL DO QUIZ -->
+        <div class="quiz">
+
+            <div id="alerta">
+            </div>
+
+            <!-- 1. PROGRESSO -->
+            <div class="quiz-progresso">
+                <p id="textoProgresso">Pergunta 1 de 16</p>
+                <p><span id="pontosAtuais">0</span> pts</p>
+                <div class="barra">
+                    <div class="barra-preenchida" id="barraProgresso"></div>
+                </div>
+            </div>
+
+            <!-- 2. CARD DA PERGUNTA -->
+            <section class="card-pergunta" id="cardPergunta">
+
+                <div class="tags">
+                    <span class="tag-tema" id="temaPergunta">Fórmula 1</span>
+                    <span class="tag-pontos" id="pontosPergunta">5 pts</span>
+                </div>
+
+                <h2 id="enunciado">Qual entidade organiza o Campeonato Mundial de Fórmula 1?</h2>
+
+                <!-- 3. ALTERNATIVAS (4 botões com a mesma classe) -->
+                <div class="alternativas" id="alternativas">
+                    <button class="alternativa" id="alt0" onclick="responder(0)">FIFA</button>
+                    <button class="alternativa" id="alt1" onclick="responder(1)">FIA</button>
+                    <button class="alternativa" id="alt2" onclick="responder(2)">COI</button>
+                    <button class="alternativa" id="alt3" onclick="responder(3)">FIM</button>
+                </div>
+
+                <!-- 4. COMENTÁRIO (escondido até responder; usa a classe display-none do original) -->
+                <p class="comentario display-none" id="comentario"></p>
+
+                <!-- 5. BOTÃO PRÓXIMA (escondido até responder) -->
+                <button class="btn-proxima display-none" id="btnProxima" onclick="proximaPergunta()">Próxima</button>
+
+            </section>
+
+            <!-- 6. RESULTADO FINAL (escondido até a última pergunta) -->
+            <section class="resultado display-none" id="resultado">
+                <h2>Resultado final</h2>
+
+                <h3 id="classificacao">Estreante</h3>
+                <p><span id="pontuacaoFinal">0</span> de 144 pontos (<span id="percentualFinal">0</span>%)</p>
+
+                <div class="resultado-temas">
+                    <p>Senna: <span id="acertosSenna">0</span> de 6</p>
+                    <p>Fórmula 1: <span id="acertosF1">0</span> de 6</p>
+                    <p>Minha História: <span id="acertosHistoria">0</span> de 4</p>
+                </div>
+
+                <div class="btn-nav-white">
+                    <a href="dashboard/dashboard.html">
+                        <h3>Ver dashboard</h3>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    // ================================================================
+    // PERGUNTAS DO QUIZ (16 no total = 144 pontos)
+    // Fórmula 1: 6 perguntas (60 pts) | Senna: 6 (60 pts) | Minha História: 4 (24 pts)
+    // Em cada pergunta, "correta" é a posição da resposta certa em "alternativas" (começa em 0)
+    // ================================================================
+    var perguntas = [
+
+        // ---------- FÓRMULA 1 ----------
+        {
+            id: 1,
+            tema: "Fórmula 1",
+            pontos: 5,
+            enunciado: "Qual entidade organiza o Campeonato Mundial de Fórmula 1?",
+            alternativas: ["FIFA", "FIA", "COI", "FIM"],
+            correta: 1,
+            comentario: "A FIA (Federação Internacional do Automóvel) organiza o Mundial, que existe desde 1950."
+        },
+        {
+            id: 2,
+            tema: "Fórmula 1",
+            pontos: 5,
+            enunciado: "O que define a ordem do grid de largada da corrida de domingo?",
+            alternativas: ["O sorteio", "O treino livre de sexta", "A classificação de sábado", "A pontuação no campeonato"],
+            correta: 2,
+            comentario: "A classificação de sábado define o grid. Os treinos livres de sexta servem para acertar o carro."
+        },
+        {
+            id: 3,
+            tema: "Fórmula 1",
+            pontos: 10,
+            enunciado: "Qual equipe é a única que disputou todas as temporadas do Mundial desde 1950?",
+            alternativas: ["McLaren", "Ferrari", "Williams", "Mercedes"],
+            correta: 1,
+            comentario: "A Ferrari está no Mundial desde a primeira temporada, em 1950."
+        },
+        {
+            id: 4,
+            tema: "Fórmula 1",
+            pontos: 10,
+            enunciado: "Quantos pilotos brasileiros já foram campeões mundiais de Fórmula 1?",
+            alternativas: ["2", "3", "4", "5"],
+            correta: 1,
+            comentario: "Emerson Fittipaldi, Nelson Piquet e Ayrton Senna são os três campeões brasileiros."
+        },
+        {
+            id: 5,
+            tema: "Fórmula 1",
+            pontos: 15,
+            enunciado: "Em qual circuito aconteceu a primeira corrida do Campeonato Mundial de Fórmula 1, em 1950?",
+            alternativas: ["Mônaco", "Monza", "Silverstone", "Spa-Francorchamps"],
+            correta: 2,
+            comentario: "O GP da Grã-Bretanha, em Silverstone, abriu o Mundial em 1950."
+        },
+        {
+            id: 6,
+            tema: "Fórmula 1",
+            pontos: 5,
+            enunciado: "Quem fundou a McLaren?",
+            alternativas: ["Enzo Ferrari", "Colin Chapman", "Bruce McLaren", "Frank Williams"],
+            correta: 2,
+            comentario: "O neozelandês Bruce McLaren fundou a equipe em 1963. Foi por ela que o Senna conquistou seus três títulos."
+        },
+
+        // ---------- SENNA ----------
+        {
+            id: 7,
+            tema: "Senna",
+            pontos: 5,
+            enunciado: "Quantos títulos mundiais de Fórmula 1 o Ayrton Senna conquistou?",
+            alternativas: ["1", "2", "3", "4"],
+            correta: 2,
+            comentario: "Senna foi tricampeão mundial, em 1988, 1990 e 1991."
+        },
+        {
+            id: 8,
+            tema: "Senna",
+            pontos: 5,
+            enunciado: "Qual é a cor predominante do capacete do Senna?",
+            alternativas: ["Vermelho", "Amarelo", "Azul", "Branco"],
+            correta: 1,
+            comentario: "O capacete amarelo, com faixas verde e azul, virou uma das marcas mais famosas do piloto."
+        },
+        {
+            id: 9,
+            tema: "Senna",
+            pontos: 10,
+            enunciado: "Por qual equipe o Senna conquistou seus três títulos mundiais?",
+            alternativas: ["Lotus", "Williams", "Toleman", "McLaren"],
+            correta: 3,
+            comentario: "Os três títulos vieram pela McLaren. A Lotus, a Toleman e a Williams também fizeram parte da carreira dele."
+        },
+        {
+            id: 10,
+            tema: "Senna",
+            pontos: 10,
+            enunciado: "Em qual circuito o Senna venceu seis vezes, a maior sequência de vitórias dele em uma mesma pista?",
+            alternativas: ["Mônaco", "Ímola", "Suzuka", "Interlagos"],
+            correta: 0,
+            comentario: "Senna venceu em Mônaco em 1987, 1988, 1989, 1990, 1991 e 1993."
+        },
+        {
+            id: 11,
+            tema: "Senna",
+            pontos: 15,
+            enunciado: "Na vitória do Senna no GP do Brasil de 1991, a primeira dele em casa, ele terminou a corrida com problema no câmbio. Qual era a única marcha que ainda funcionava?",
+            alternativas: ["2ª", "4ª", "5ª", "6ª"],
+            correta: 3,
+            comentario: "Em Interlagos, Senna terminou a prova só com a sexta marcha e venceu diante do público brasileiro."
+        },
+        {
+            id: 12,
+            tema: "Senna",
+            pontos: 15,
+            enunciado: "Quantas vitórias o Senna conquistou na Fórmula 1?",
+            alternativas: ["31", "41", "51", "65"],
+            correta: 1,
+            comentario: "Foram 41 vitórias. O número 65 é o de pole positions dele."
+        },
+
+        // ---------- MINHA HISTÓRIA ----------
+        {
+            id: 13,
+            tema: "Minha História",
+            pontos: 6,
+            enunciado: "O que o Manoel comia nos domingos em que assistia à corrida com o pai?",
+            alternativas: ["Pizza", "Pastel", "Coxinha", "Pipoca"],
+            correta: 1,
+            comentario: "Os domingos de pastel da feira e corrida ao lado do pai são a lembrança que deu origem a esta paixão."
+        },
+        {
+            id: 14,
+            tema: "Minha História",
+            pontos: 6,
+            enunciado: "Em que data a Netflix lançou a minissérie sobre o Senna?",
+            alternativas: ["21 de março de 2025", "1º de maio de 2024", "29 de novembro de 2024", "15 de dezembro de 2023"],
+            correta: 2,
+            comentario: "A minissérie saiu em 29 de novembro de 2024 e transformou o Senna de piloto favorito em ídolo."
+        },
+        {
+            id: 15,
+            tema: "Minha História",
+            pontos: 6,
+            enunciado: "Que item do dia a dia do Manoel lembra o Senna?",
+            alternativas: ["A capinha de celular", "Um boné", "Uma caneca", "Um funko pop"],
+            correta: 0,
+            comentario: "A capinha do celular é do capacete do Senna, e o papel de parede também é ele."
+        },
+        {
+            id: 16,
+            tema: "Minha História",
+            pontos: 6,
+            enunciado: "Complete a frase do Senna que mais marcou o Manoel: “No que diz respeito ao empenho, ao compromisso, ao esforço, à dedicação, não existe ___.”",
+            alternativas: ["tempo livre", "meio-termo", "segunda chance", "desculpa"],
+            correta: 1,
+            comentario: "A frase faz parte do jeito de ver a vida do Manoel: ou se faz uma coisa bem-feita ou não se faz."
+        }
+    ];
+
+    // ================================================================
+    // VARIÁVEIS DE CONTROLE
+    // ================================================================
+    var indiceAtual = 0;      // posição da pergunta atual no vetor
+    var pontuacao = 0;        // pontos acumulados
+    var respondida = false;   // impede responder duas vezes a mesma pergunta
+    var respostas = [];       // guarda o resultado de cada pergunta (vai para o banco)
+    var totalPontos = 0;      // soma de todos os pontos possíveis (144)
+
+    for (var i = 0; i < perguntas.length; i++) {
+        totalPontos += perguntas[i].pontos;
+    }
+
+    // ================================================================
+    // FUNÇÕES
+    // ================================================================
+
+    // Mostra a pergunta atual na tela
+    function carregarPergunta() {
+        var p = perguntas[indiceAtual];
+        respondida = false;
+
+        textoProgresso.innerHTML = `Pergunta ${indiceAtual + 1} de ${perguntas.length}`;
+        barraProgresso.style.width = `${(indiceAtual / perguntas.length) * 100}%`;
+        pontosAtuais.innerHTML = pontuacao;
+
+        temaPergunta.innerHTML = p.tema;
+        pontosPergunta.innerHTML = `${p.pontos} pts`;
+        enunciado.innerHTML = p.enunciado;
+
+        for (var i = 0; i < 4; i++) {
+            var botao = document.getElementById(`alt${i}`);
+            botao.innerHTML = p.alternativas[i];
+            botao.disabled = false;
+            botao.classList.remove("correta");
+            botao.classList.remove("errada");
+        }
+
+        comentario.classList.remove("display-block");
+        comentario.classList.add("display-none");
+        btnProxima.classList.remove("display-block");
+        btnProxima.classList.add("display-none");
+        btnProxima.innerHTML = "Próxima";
+    }
+
+    // Chamada pelos botões das alternativas: responder(0) até responder(3)
+    function responder(escolhida) {
+        if (respondida) {
+            return;
+        }
+        respondida = true;
+
+        var p = perguntas[indiceAtual];
+        var acertou = escolhida == p.correta;
+
+        if (acertou) {
+            pontuacao += p.pontos;
+        }
+
+        respostas.push({
+            idPergunta: p.id,
+            tema: p.tema,
+            acertou: acertou,
+            pontos: acertou ? p.pontos : 0
+        });
+
+        // Marca as alternativas e trava os botões
+        for (var i = 0; i < 4; i++) {
+            document.getElementById(`alt${i}`).disabled = true;
+        }
+        document.getElementById(`alt${p.correta}`).classList.add("correta");
+        if (!acertou) {
+            document.getElementById(`alt${escolhida}`).classList.add("errada");
+        }
+
+        // Comentário depois da resposta
+        if (acertou) {
+            comentario.innerHTML = `Correto! +${p.pontos} pts. ${p.comentario}`;
+        } else {
+            comentario.innerHTML = `Não foi dessa vez. A resposta certa é: ${p.alternativas[p.correta]}. ${p.comentario}`;
+        }
+
+        comentario.classList.remove("display-none");
+        comentario.classList.add("display-block");
+
+        // Atualiza pontos e barra
+        pontosAtuais.innerHTML = pontuacao;
+        barraProgresso.style.width = `${((indiceAtual + 1) / perguntas.length) * 100}%`;
+
+        // Botão da última pergunta muda de texto
+        if (indiceAtual == perguntas.length - 1) {
+            btnProxima.innerHTML = "Ver resultado";
+        }
+        btnProxima.classList.remove("display-none");
+        btnProxima.classList.add("display-block");
+    }
+
+    // Chamada pelo botão Próxima
+    function proximaPergunta() {
+        indiceAtual++;
+
+        if (indiceAtual >= perguntas.length) {
+            finalizarQuiz();
+        } else {
+            carregarPergunta();
+        }
+    }
+
+    // Conta os acertos de um tema
+    function contarAcertos(tema) {
+        var total = 0;
+        for (var i = 0; i < respostas.length; i++) {
+            if (respostas[i].tema == tema && respostas[i].acertou) {
+                total++;
+            }
+        }
+        return total;
+    }
+
+    // Define o título conforme o percentual de pontos
+    function classificar(percentual) {
+        if (percentual >= 85) {
+            return "Campeão Mundial";
+        } else if (percentual >= 60) {
+            return "Pole Position";
+        } else if (percentual >= 30) {
+            return "Piloto de Grid";
+        } else {
+            return "Estreante";
+        }
+    }
+
+    // Mostra o resultado final
+    function finalizarQuiz() {
+        var percentual = Math.round((pontuacao / totalPontos) * 100);
+
+        cardPergunta.classList.add("display-none");
+        resultado.classList.remove("display-none");
+        resultado.classList.add("display-block");
+
+        classificacao.innerHTML = classificar(percentual);
+        pontuacaoFinal.innerHTML = pontuacao;
+        percentualFinal.innerHTML = percentual;
+        acertosSenna.innerHTML = contarAcertos("Senna");
+        acertosF1.innerHTML = contarAcertos("Fórmula 1");
+        acertosHistoria.innerHTML = contarAcertos("Minha História");
+
+        textoProgresso.innerHTML = "Quiz concluído";
+        barraProgresso.style.width = "100%";
+
+        salvarResultado(percentual);
+    }
+
+    // Envia o resultado para a API (precisa da rota criada no back-end)
+    function salvarResultado(percentual) {
+        fetch("/quiz/salvar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuario: sessionStorage.ID_USUARIO,
+                pontuacao: pontuacao,
+                percentual: percentual,
+                classificacao: classificar(percentual),
+                respostas: respostas
+            })
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                console.log("Resultado do quiz salvo com sucesso!");
+            } else {
+                console.error("Não foi possível salvar o resultado do quiz.");
+            }
+        }).catch(function (erro) {
+            console.error(`Erro ao salvar o resultado do quiz: ${erro.message}`);
+        });
+    }
+
+    // Começa o quiz pela primeira pergunta
+    carregarPergunta();
+</script>

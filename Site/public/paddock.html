@@ -16,10 +16,7 @@
     <link rel="stylesheet" href="css/componentes.css" />
     <link rel="stylesheet" href="css/paddock.css" />
     
-    <script src="js/sessao.js"></script>  
-    <script>
-    validarSessao("login.html");
-    </script>
+    <script src="js/sessao.js"></script>
   </head>
   <body>
     <header class="navbar">
@@ -34,9 +31,9 @@
         <a href="index.html#lendas">Lendas</a>
         <a href="paddock.html" class="ativo">Paddock</a>
         <a href="dedicacoes.html">Dedicações</a>
-        <a href="dashboard.html">Dashboard</a>
+        <a href="dashboard/dashboard.html">Dashboard</a>
       </nav>
-      <a href="login.html" class="botao-sair">Sair</a>
+      <div class="area-usuario" id="area-usuario"></div>
     </header>
 
     <main>
@@ -66,21 +63,21 @@
           <article class="minigame">
             <div class="banner banner-sim">SIM</div>
             <div class="info">
-              <span class="chip chip-suave">EM BREVE</span>
-              <h2>Simulador de corrida</h2>
-              <p>Dispute uma corrida simulada e veja como você se sai. O resultado também vai para o dashboard.</p>
+              <span class="chip chip-suave">DISPONÍVEL</span>
+              <h2>Mini Campeonato Mundial</h2>
+              <p>Dispute as 6 etapas do campeonato, escolha o seu piloto e veja como você se sai. O resultado de cada corrida vai para o dashboard.</p>
               <div class="temas">
                 <span class="chip chip-suave">CORRIDA</span>
-                <span class="chip chip-suave">EM BREVE</span>
+                <span class="chip chip-suave">SIMULADOR</span>
               </div>
-              <span class="botao-secundario botao-desativado">Em breve</span>
+              <a href="campeonato.html" class="botao-principal">Ir para o simulador</a>
             </div>
           </article>
         </div>
       </section>
 
       <section class="cta">
-        <a href="dashboard.html" class="botao-secundario">Ver meu dashboard</a>
+        <a href="dashboard/dashboard.html" class="botao-secundario">Ver meu dashboard</a>
         <a href="index.html" class="botao-secundario">Voltar ao site</a>
       </section>
     </main>
@@ -93,6 +90,5 @@
       <p>Projeto individual · SPTech · Feito com paixão pela Fórmula 1</p>
     </footer>
 
-    <script src="js/paddock.js"></script>
   </body>
 </html>

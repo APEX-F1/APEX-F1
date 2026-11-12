@@ -16,6 +16,61 @@ function validarSessao(caminhoLogin) {
   }
 }
 
+// EXIBIR SESSÃO NA NAVBAR (todas as páginas)
+
+function exibirSessao(caminhoLogin) {
+  var area = document.getElementById("area-usuario");
+
+  if (area == null) {
+    return;
+  }
+
+  var id = sessionStorage.ID_USUARIO;
+  var nome = sessionStorage.NOME_USUARIO;
+  var login = caminhoLogin || "login.html";
+
+  area.innerHTML = "";
+
+  if (id != null && nome != null && nome !== "") {
+    var saudacao = document.createElement("span");
+    saudacao.className = "saudacao";
+    saudacao.appendChild(document.createTextNode("Olá, "));
+
+    var nomeUsuario = document.createElement("strong");
+    nomeUsuario.textContent = nome;
+    saudacao.appendChild(nomeUsuario);
+    saudacao.appendChild(document.createTextNode("!"));
+
+    var sair = document.createElement("button");
+    sair.type = "button";
+    sair.className = "botao-sair";
+    sair.textContent = "Sair";
+    sair.onclick = function () {
+      limparSessao(login);
+    };
+
+    area.appendChild(saudacao);
+    area.appendChild(sair);
+  } else {
+    var entrar = document.createElement("a");
+    entrar.href = login;
+    entrar.className = "botao-sair";
+    entrar.textContent = "Fazer Login";
+
+    area.appendChild(entrar);
+  }
+}
+
+function caminhoLoginPadrao() {
+  return window.location.pathname.indexOf("/dashboard/") !== -1
+    ? "../login.html"
+    : "login.html";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  exibirSessao(caminhoLoginPadrao());
+});
+
 // ENCERRAR SESSÃO
 
 function limparSessao(caminhoLogin) {
