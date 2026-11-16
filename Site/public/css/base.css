@@ -1,80 +1,40 @@
-/* =====================================================
-   APEX F1 | base.css
-   Fundação do site. Vale para TODAS as páginas.
-
-   ORDEM DE CARREGAMENTO
-   Páginas de conteúdo:  base.css > componentes.css > <pagina>.css
-   Login e cadastro:     base.css > autenticacao.css > login.css
-
-   REGRAS DA CASA
-   - Cor, fonte e margem lateral só existem em :root.
-     Nas páginas, escreva var(--laranja), nunca #ff8000.
-   - Usado por 2 ou mais páginas: vai para base.css ou componentes.css.
-   - Usado por 1 página só: fica no CSS dessa página.
-   - Variação de algo que já existe = classe extra no HTML
-     (ex.: class="chip chip-suave"), nunca uma regra repetida.
-
-   ÍNDICE
-   1. Variáveis
-   2. Reset e elementos
-   3. Logo
-   4. Chip
-   5. Botões
-   6. Bandeira quadriculada
-   ===================================================== */
-
-
-/* =====================================================
-   1. VARIÁVEIS
-   ===================================================== */
 :root {
-  /* fundos e bordas */
   --fundo: #0b0b10;
   --card-fundo: #14141c;
-  --campo-fundo: #1d1d28;            /* chips, campos e blocos internos */
+  --campo-fundo: #1d1d28;         
   --campo-borda: #2e2e3d;
 
-  /* textos */
   --texto: #f4f4f6;
   --texto-suave: #a0a0b2;
-  --placeholder: #6b6b7d;            /* rótulos e textos apagados */
+  --placeholder: #6b6b7d;           
 
-  /* cores de destaque */
   --laranja: #ff8000;
   --vermelho: #e10600;
   --amarelo: #ffd60a;
   --verde: #009440;
 
-  /* laranja e marrom com transparência (botões e links de ação) */
   --laranja-suave: rgba(255, 128, 0, 0.85);
   --marrom-suave: rgba(153, 77, 0, 0.85);
 
-  /* textos que ficam sobre o fundo laranja */
   --marca-texto: #ffd9d6;
   --marca-autor: #ffc9c5;
 
-  /* fontes */
   --fonte-titulo: "Barlow Condensed", sans-serif;
   --fonte-texto: "Inter", sans-serif;
 
-  /* espaço lateral padrão de todas as páginas */
   --margem-pagina: 96px;
 }
 
-
-/* =====================================================
-   2. RESET E ELEMENTOS
-   ===================================================== */
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;            /* padding e borda ficam DENTRO da largura definida */
+  box-sizing: border-box;            
 }
 
 html {
-  scroll-behavior: smooth;           /* clicar num link #id rola a página suavemente */
+  scroll-behavior: smooth;         
 }
 
 body {
@@ -83,8 +43,6 @@ body {
   font-family: var(--fonte-texto);
 }
 
-/* Links e botões parecem texto comum; cada componente decide como quer aparecer.
-   Por isso nenhum componente precisa repetir "text-decoration: none". */
 a {
   color: inherit;
   text-decoration: none;
@@ -92,7 +50,7 @@ a {
 
 button,
 input {
-  font: inherit;                     /* por padrão eles NÃO herdam a fonte do body */
+  font: inherit;                    
   color: inherit;
 }
 
@@ -100,12 +58,6 @@ button {
   cursor: pointer;
 }
 
-
-/* =====================================================
-   3. LOGO
-   Funciona como <a class="logo"> (navbar) ou <div class="logo"> (rodapé).
-   Sobre fundo laranja, use class="logo logo-claro".
-   ===================================================== */
 .logo {
   display: flex;
   align-items: center;
@@ -134,15 +86,10 @@ button {
   color: var(--vermelho);
 }
 
-
-/* =====================================================
-   4. CHIP
-   Padrão: texto laranja. Variações entram junto: "chip chip-suave".
-   ===================================================== */
 .chip {
   padding: 6px 12px;
   border: 1px solid var(--campo-borda);
-  border-radius: 100px;              /* valor alto = formato de pílula */
+  border-radius: 100px;             
   background-color: var(--campo-fundo);
   color: var(--laranja);
   font-size: 12px;
@@ -158,10 +105,6 @@ button {
   color: var(--texto-suave);
 }
 
-
-/* =====================================================
-   5. BOTÕES
-   ===================================================== */
 .botao-principal,
 .botao-secundario {
   padding: 16px 28px;
@@ -179,27 +122,20 @@ button {
   );
 }
 
-.botao-secundario {                  /* só com borda, sem fundo */
+.botao-secundario {                 
   border: 1.5px solid var(--campo-borda);
 }
 
-.botao-desativado {                  /* junto com .botao-secundario: "Em breve" */
+.botao-desativado {                  
   opacity: 0.5;
   pointer-events: none;
 }
 
-
-/* =====================================================
-   6. BANDEIRA QUADRICULADA
-   Desenhada só com CSS: no HTML é <div class="checker"></div>.
-   Tamanho padrão: 16 x 2 quadrados de 20px.
-   Menor (painéis laranja): class="checker checker-pequeno".
-   ===================================================== */
 .checker {
   width: 320px;
   height: 40px;
-  background-size: 40px 40px;        /* bloco de 2x2 quadrados que se repete */
-  background-image: conic-gradient(  /* degradê em "fatias", como uma pizza */
+  background-size: 40px 40px;        
+  background-image: conic-gradient( 
     rgba(0, 0, 0, 0.35) 0% 25%,
     rgba(255, 255, 255, 0.9) 25% 50%,
     rgba(0, 0, 0, 0.35) 50% 75%,

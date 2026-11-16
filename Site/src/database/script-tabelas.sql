@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS apexf1;
+CREATE DATABASE apexf1;
 USE apexf1;
 
 -- ========== NÚCLEO ==========

@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="./../css/componentes.css" />
     <link rel="stylesheet" href="./../css/dashboards.css" />
 
-    <!-- Sessão do usuário (mesmo script das outras páginas) -->
     <script src="/js/sessao.js"></script>
     <script>
         validarSessao("../login.html");
@@ -56,7 +55,7 @@
             <div class="cabecalho">
                 <p class="rotulo">DASHBOARD</p>
                 <h2>Meu desempenho</h2>
-                <p class="subtitulo">Acompanhe os seus resultados no quiz e no simulador de corrida.</p>
+                <p class="subtitulo">Acompanhe os seus resultados no quiz.</p>
                 <p class="aviso-exemplo display-none" id="avisoExemplo">DADOS DE EXEMPLO</p>
             </div>
 
@@ -112,46 +111,7 @@
                 </div>
             </section>
 
-            <!-- ========== SIMULADOR ========== -->
-            <section class="bloco">
-                <h3>Simulador de corrida</h3>
-
-                <div class="kpis">
-                    <div class="kpi">
-                        <p class="kpi-valor" id="kpiCorridas">0</p>
-                        <p class="kpi-nome">Corridas disputadas</p>
-                    </div>
-                    <div class="kpi">
-                        <p class="kpi-valor" id="kpiVitorias">0</p>
-                        <p class="kpi-nome">Vitórias</p>
-                    </div>
-                    <div class="kpi">
-                        <p class="kpi-valor" id="kpiPodios">0</p>
-                        <p class="kpi-nome">Pódios</p>
-                    </div>
-                    <div class="kpi">
-                        <p class="kpi-valor" id="kpiPontos">0</p>
-                        <p class="kpi-nome">Pontos no campeonato</p>
-                    </div>
-                </div>
-
-                <p class="vazio display-none" id="vazioSimulador">Você ainda não disputou nenhuma corrida no simulador.</p>
-
-                <div class="graficos">
-                    <div class="grafico-card">
-                        <h4>Posição final por corrida</h4>
-                        <div class="canvas-box">
-                            <canvas id="graficoPosicoes"></canvas>
-                        </div>
-                    </div>
-                    <div class="grafico-card">
-                        <h4>Pontos por corrida</h4>
-                        <div class="canvas-box">
-                            <canvas id="graficoPontos"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <!-- Simulador removido: seção arquivada -->
 
             <!-- BOTÕES -->
             <div class="botoes">

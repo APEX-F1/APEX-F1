@@ -1,46 +1,25 @@
-/* =====================================================
-   APEX F1 | autenticacao.css
-   Layout de duas colunas do Login e do Cadastro:
-   painel laranja da marca + painel do formulário.
-   Carregue depois do base.css.
-
-   ÍNDICE
-   1. Estrutura
-   2. Painel da marca
-   3. Formulário
-   ===================================================== */
-
-
-/* =====================================================
-   1. ESTRUTURA
-   ===================================================== */
 body {
-  display: flex;                     /* os dois painéis lado a lado */
-  min-height: 100vh;                 /* ocupa a altura da tela */
+  display: flex;                    
+  min-height: 100vh;
 }
 
 .painel-marca {
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;    /* logo | headline | citação */
+  justify-content: space-between;    
   padding: 64px;
   background-image: linear-gradient(128.66deg, var(--laranja) 0%, #240100 71.4%);
 }
 
 .painel-formulario {
-  flex: 1;                           /* ocupa o espaço que sobra ao lado dos 50% do painel da marca */
+  flex: 1;                          
   display: flex;
   align-items: center;
-  justify-content: center;           /* centraliza o formulário */
+  justify-content: center;           
   padding: 64px;
 }
 
-
-/* =====================================================
-   2. PAINEL DA MARCA
-   (logo e bandeira vêm do base.css: "logo logo-claro" e "checker checker-pequeno")
-   ===================================================== */
 .headline {
   display: flex;
   flex-direction: column;
@@ -51,7 +30,7 @@ body {
   font-family: var(--fonte-titulo);
   font-weight: 800;
   font-size: 88px;
-  line-height: 84px;                 /* menor que a fonte: linhas mais próximas */
+  line-height: 84px;                
 }
 
 .headline p {
@@ -62,7 +41,7 @@ body {
 
 .citacao {
   display: flex;
-  flex-direction: column;            /* bandeira, frase e autor */
+  flex-direction: column;         
   gap: 14px;
 }
 
@@ -75,15 +54,11 @@ body {
 
 .citacao cite {
   color: var(--marca-autor);
-  font-style: normal;                /* desliga o itálico padrão do <cite> */
+  font-style: normal;               
   font-size: 14px;
   font-weight: 500;
 }
 
-
-/* =====================================================
-   3. FORMULÁRIO
-   ===================================================== */
 .formulario {
   width: 400px;
   max-width: 100%;

@@ -1,56 +1,35 @@
-/* =====================================================
-   APEX F1 | index.css
-   Só o que é exclusivo da página inicial.
-   Hero, seções, cards, grades e números vêm do componentes.css.
-
-   ÍNDICE
-   1. Sobre o projeto
-   2. Lendas: card do Senna
-   3. Fórmula 1: blocos, equipes e pilotos
-   ===================================================== */
-
-
-/* =====================================================
-   1. SOBRE O PROJETO (3 .card-info lado a lado)
-   ===================================================== */
 .sobre {
   display: flex;
   gap: 20px;
   padding: 24px var(--margem-pagina);
 }
 
-
-/* =====================================================
-   2. LENDAS: CARD DO SENNA
-   ===================================================== */
 .destaque {
-  display: flex;                     /* foto de um lado, texto do outro */
+  display: flex;                     
   border: 1px solid var(--campo-borda);
   border-radius: 24px;
   background-color: var(--card-fundo);
-  overflow: hidden;                  /* corta o que passar dos cantos arredondados */
+  overflow: hidden;                 
 }
 
-/* No HTML tem só uma <img> dentro do .destaque-foto */
 .destaque-foto {
-  flex: 0 0 41.67%;                  /* não cresce nem encolhe: 520px de 1248px no Figma */
+  flex: 0 0 41.67%;                 
   min-width: 0;
-  position: relative;                /* referência para a imagem posicionada dentro */
-  overflow: hidden;
+  position: relative;               
 }
 
 .destaque-foto img {
   position: absolute;
-  inset: 0;                          /* encosta nas 4 bordas */
+  inset: 0;                         
   width: 100%;
   height: 100%;
-  object-fit: cover;                 /* preenche cortando as sobras, sem distorcer */
+  object-fit: cover;                 
   object-position: center;
 }
 
 .destaque-info {
   flex: 1;
-  min-width: 0;                      /* deixa o texto quebrar linha em vez de empurrar o card */
+  min-width: 0;                     
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,7 +38,7 @@
 }
 
 .chip-destaque {
-  align-self: flex-start;            /* o chip não estica até a largura toda */
+  align-self: flex-start;           
   padding: 6px 12px;
   border-radius: 100px;
   background-color: var(--amarelo);
@@ -89,7 +68,6 @@
   line-height: 27px;
 }
 
-/* Parágrafo pessoal com barra laranja */
 .senna-pessoal {
   display: flex;
   gap: 16px;
@@ -98,14 +76,13 @@
 .barra-laranja {
   width: 3px;
   flex-shrink: 0;
-  background-color: var(--laranja);  /* estica sozinha até a altura do texto */
+  background-color: var(--laranja); 
 }
 
 .senna-pessoal p {
   flex: 1;
 }
 
-/* Citação com barra amarela */
 .senna-citacao {
   display: flex;
   gap: 16px;
@@ -126,14 +103,10 @@
 }
 
 .destaque-info .botao-secundario {
-  align-self: flex-start;            /* não estica na largura toda */
+  align-self: flex-start;           
 }
 
-
-/* =====================================================
-   3. FÓRMULA 1
-   ===================================================== */
-.bloco {                             /* cada bloco: título + conteúdo */
+.bloco {                          
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -145,14 +118,13 @@
   font-size: 36px;
 }
 
-/* ----- Equipes do grid ----- */
 .grid-equipes {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 
-.equipe {                            /* é <article> ou <a> (card da McLaren) */
+.equipe {                            
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -168,12 +140,12 @@
   gap: 14px;
 }
 
-.equipe-cor {                        /* barrinha colorida de cada equipe */
-  width: 6px;                        /* precisa de largura e altura: o span está vazio */
+.equipe-cor {                      
+  width: 6px;                       
   height: 28px;
   flex-shrink: 0;
   border-radius: 3px;
-  background-color: var(--cor);      /* --cor vem do style="--cor: ..." de cada card no HTML */
+  background-color: var(--cor);      
 }
 
 .equipe-cabecalho h4 {
@@ -186,40 +158,38 @@
   line-height: 21px;
 }
 
-.equipe-especulacao {                /* 12º card, vaga em aberto: junto com .equipe */
+.equipe-especulacao {              
   border-style: dashed;
 }
 
-.destaque-br {                       /* trechos em verde (Brasil) */
+.destaque-br {                     
   color: var(--verde);
 }
 
 .chip-time {
-  align-self: flex-start;            /* o chip não estica na largura do card */
+  align-self: flex-start;            
 }
 
-/* ----- Pilotos (a grade vem do .grade grade-4) ----- */
 .piloto {
   display: flex;
-  flex-direction: column;            /* foto em cima, informações embaixo */
+  flex-direction: column;           
   border: 1px solid var(--campo-borda);
   border-radius: 16px;
   background-color: var(--card-fundo);
-  overflow: hidden;                  /* corta os cantos de cima da foto no formato do card */
+  overflow: hidden;                  
 }
 
 .piloto-foto {
   width: 100%;
-  aspect-ratio: 3 / 2;               /* a altura é calculada a partir da largura */
+  aspect-ratio: 3 / 2;               
   object-fit: cover;
-  object-position: 50% var(--foco, 25%);  /* qual parte da foto aparece: 0% = topo, 100% = base;
-                                             mude com style="--foco: 40%" na <img> */
+  object-position: 50% var(--foco, 25%);                                    
 }
 
 .piloto-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;           /* o chip não estica */
+  align-items: flex-start;          
   gap: 6px;
   padding: 20px;
 }

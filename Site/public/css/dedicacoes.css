@@ -1,6 +1,4 @@
-/* dedicacoes.css: só o que é exclusivo da página Dedicações */
-
-.dedicacoes {                        /* <main class="dedicacoes"> */
+.dedicacoes {                       
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +6,6 @@
   padding: 64px var(--margem-pagina) 80px;
 }
 
-/* ---------- CARTÃO ---------- */
 .cartao {
   display: flex;
   width: 1120px;
@@ -17,7 +14,6 @@
   overflow: hidden;
 }
 
-/* ---------- PAINEL ESQUERDO: PESSOAS ---------- */
 .painel-pessoas {
   flex: 1;
   display: flex;
@@ -26,7 +22,6 @@
   padding: 48px;
 }
 
-/* Aqui o cabeçalho é menor que o das outras páginas */
 .painel-pessoas .secao-cabecalho h1 {
   font-size: 44px;
   line-height: 46px;
@@ -49,7 +44,6 @@
   gap: 16px;
 }
 
-/* Círculo com as iniciais (depois pode virar <img> dentro da mesma div) */
 .foto {
   width: 64px;
   height: 64px;
@@ -90,7 +84,6 @@
   line-height: 20px;
 }
 
-/* ---------- PAINEL DIREITO: MARCA ---------- */
 .painel-marca {
   width: 440px;
   display: flex;

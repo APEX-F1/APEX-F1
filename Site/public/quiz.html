@@ -9,10 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APEX F1 | Quiz</title>
 
-    <!-- CSS: o quiz.css já tem tudo da página (menu, quiz e resultado) no estilo do APEX F1 -->
-    <link rel="stylesheet" href="/css/quiz.css" />
+    <link rel="stylesheet" href="Site\public\css\quiz.css" />
 
-    <!-- Scripts originais da API (sessão do usuário e alertas) -->
     <script src="js/sessao.js"></script>
     <script>
         validarSessao("login.html");
@@ -33,7 +31,6 @@
 
     <div class="janela">
 
-        <!-- MENU LATERAL (mesma estrutura do original) -->
         <div class="header-left">
             <h1><a href="index.html">APEX <span>F1</span></a></h1>
 
@@ -41,7 +38,6 @@
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
 
-            <!-- Página atual usa btn-nav; as outras usam btn-nav-white com link -->
             <div class="btn-nav">
                 <h3>Quiz</h3>
             </div>
@@ -57,13 +53,11 @@
             </div>
         </div>
 
-        <!-- ÁREA PRINCIPAL DO QUIZ -->
         <div class="quiz">
 
             <div id="alerta">
             </div>
 
-            <!-- 1. PROGRESSO -->
             <div class="quiz-progresso">
                 <p id="textoProgresso">Pergunta 1 de 16</p>
                 <p><span id="pontosAtuais">0</span> pts</p>
@@ -72,7 +66,6 @@
                 </div>
             </div>
 
-            <!-- 2. CARD DA PERGUNTA -->
             <section class="card-pergunta" id="cardPergunta">
 
                 <div class="tags">
@@ -82,7 +75,6 @@
 
                 <h2 id="enunciado">Qual entidade organiza o Campeonato Mundial de Fórmula 1?</h2>
 
-                <!-- 3. ALTERNATIVAS (4 botões com a mesma classe) -->
                 <div class="alternativas" id="alternativas">
                     <button class="alternativa" id="alt0" onclick="responder(0)">FIFA</button>
                     <button class="alternativa" id="alt1" onclick="responder(1)">FIA</button>
@@ -90,15 +82,12 @@
                     <button class="alternativa" id="alt3" onclick="responder(3)">FIM</button>
                 </div>
 
-                <!-- 4. COMENTÁRIO (escondido até responder; usa a classe display-none do original) -->
                 <p class="comentario display-none" id="comentario"></p>
 
-                <!-- 5. BOTÃO PRÓXIMA (escondido até responder) -->
                 <button class="btn-proxima display-none" id="btnProxima" onclick="proximaPergunta()">Próxima</button>
 
             </section>
 
-            <!-- 6. RESULTADO FINAL (escondido até a última pergunta) -->
             <section class="resultado display-none" id="resultado">
                 <h2>Resultado final</h2>
 
@@ -127,15 +116,7 @@
 
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-
-    // ================================================================
-    // PERGUNTAS DO QUIZ (16 no total = 144 pontos)
-    // Fórmula 1: 6 perguntas (60 pts) | Senna: 6 (60 pts) | Minha História: 4 (24 pts)
-    // Em cada pergunta, "correta" é a posição da resposta certa em "alternativas" (começa em 0)
-    // ================================================================
     var perguntas = [
-
-        // ---------- FÓRMULA 1 ----------
         {
             id: 1,
             tema: "Fórmula 1",
@@ -190,8 +171,6 @@
             correta: 2,
             comentario: "O neozelandês Bruce McLaren fundou a equipe em 1963. Foi por ela que o Senna conquistou seus três títulos."
         },
-
-        // ---------- SENNA ----------
         {
             id: 7,
             tema: "Senna",
@@ -246,8 +225,6 @@
             correta: 1,
             comentario: "Foram 41 vitórias. O número 65 é o de pole positions dele."
         },
-
-        // ---------- MINHA HISTÓRIA ----------
         {
             id: 13,
             tema: "Minha História",
@@ -286,24 +263,16 @@
         }
     ];
 
-    // ================================================================
-    // VARIÁVEIS DE CONTROLE
-    // ================================================================
-    var indiceAtual = 0;      // posição da pergunta atual no vetor
-    var pontuacao = 0;        // pontos acumulados
-    var respondida = false;   // impede responder duas vezes a mesma pergunta
-    var respostas = [];       // guarda o resultado de cada pergunta (vai para o banco)
-    var totalPontos = 0;      // soma de todos os pontos possíveis (144)
+    var indiceAtual = 0;      
+    var pontuacao = 0;        
+    var respondida = false;  
+    var respostas = [];      
+    var totalPontos = 0;   
 
     for (var i = 0; i < perguntas.length; i++) {
         totalPontos += perguntas[i].pontos;
     }
 
-    // ================================================================
-    // FUNÇÕES
-    // ================================================================
-
-    // Mostra a pergunta atual na tela
     function carregarPergunta() {
         var p = perguntas[indiceAtual];
         respondida = false;
@@ -331,7 +300,6 @@
         btnProxima.innerHTML = "Próxima";
     }
 
-    // Chamada pelos botões das alternativas: responder(0) até responder(3)
     function responder(escolhida) {
         if (respondida) {
             return;
@@ -352,7 +320,6 @@
             pontos: acertou ? p.pontos : 0
         });
 
-        // Marca as alternativas e trava os botões
         for (var i = 0; i < 4; i++) {
             document.getElementById(`alt${i}`).disabled = true;
         }
@@ -361,7 +328,6 @@
             document.getElementById(`alt${escolhida}`).classList.add("errada");
         }
 
-        // Comentário depois da resposta
         if (acertou) {
             comentario.innerHTML = `Correto! +${p.pontos} pts. ${p.comentario}`;
         } else {
@@ -371,11 +337,9 @@
         comentario.classList.remove("display-none");
         comentario.classList.add("display-block");
 
-        // Atualiza pontos e barra
         pontosAtuais.innerHTML = pontuacao;
         barraProgresso.style.width = `${((indiceAtual + 1) / perguntas.length) * 100}%`;
 
-        // Botão da última pergunta muda de texto
         if (indiceAtual == perguntas.length - 1) {
             btnProxima.innerHTML = "Ver resultado";
         }
@@ -383,7 +347,6 @@
         btnProxima.classList.add("display-block");
     }
 
-    // Chamada pelo botão Próxima
     function proximaPergunta() {
         indiceAtual++;
 
@@ -394,7 +357,6 @@
         }
     }
 
-    // Conta os acertos de um tema
     function contarAcertos(tema) {
         var total = 0;
         for (var i = 0; i < respostas.length; i++) {
@@ -405,7 +367,6 @@
         return total;
     }
 
-    // Define o título conforme o percentual de pontos
     function classificar(percentual) {
         if (percentual >= 85) {
             return "Campeão Mundial";
@@ -418,7 +379,6 @@
         }
     }
 
-    // Mostra o resultado final
     function finalizarQuiz() {
         var percentual = Math.round((pontuacao / totalPontos) * 100);
 
@@ -439,7 +399,6 @@
         salvarResultado(percentual);
     }
 
-    // Envia o resultado para a API (precisa da rota criada no back-end)
     function salvarResultado(percentual) {
         fetch("/quiz/salvar", {
             method: "POST",
@@ -464,6 +423,5 @@
         });
     }
 
-    // Começa o quiz pela primeira pergunta
     carregarPergunta();
 </script>

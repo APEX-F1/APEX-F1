@@ -1,5 +1,3 @@
-/* login.css: só o que é exclusivo da página de login */
-
 .esqueci {
   color: var(--laranja-suave);
   font-size: 13px;
@@ -7,7 +5,6 @@
   text-align: right;
 }
 
-/* A frase do login é um pouco menor que a do cadastro */
 .citacao blockquote {
   font-size: 28px;
   line-height: 36px;

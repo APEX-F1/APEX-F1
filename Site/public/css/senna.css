@@ -1,6 +1,3 @@
-/* senna.css: só o que é exclusivo da página do Senna */
-
-/* Foto do hero. position: relative permite posicionar a faixa dentro dela */
 .hero-foto {
   position: relative;
   flex-shrink: 0;
@@ -11,10 +8,9 @@
 .hero-foto img {
   width: 100%;
   height: 100%;
-  object-fit: cover;                 /* preenche a caixa sem esticar a foto */
+  object-fit: cover;                
 }
 
-/* ::after cria a faixa amarela, verde e azul na base da foto, sem precisar de HTML */
 .hero-foto::after {
   content: "";
   position: absolute;
@@ -23,7 +19,6 @@
   background: linear-gradient(90deg, #ffdf00 33%, #009c3b 33% 66%, #002776 66%);
 }
 
-/* Rótulos em caixa alta pelo CSS (alguns estão em minúsculas no HTML) */
 .secao-rotulo,
 .card-rotulo,
 .lenda-rotulo {

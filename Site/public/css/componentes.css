@@ -1,32 +1,7 @@
-/* =====================================================
-   APEX F1 | componentes.css
-   Blocos que se repetem nas páginas de conteúdo
-   (inicial, Senna, McLaren, Minha história, Paddock, Dedicações).
-   Não é usado no login e no cadastro.
-
-   Carregue DEPOIS do base.css e ANTES do CSS da página.
-
-   ÍNDICE
-   1. Navbar
-   2. Rodapé
-   3. Seção e cabeçalho de seção
-   4. Hero
-   5. Cards
-   6. Grades
-   7. Números
-   8. Frases e botões do final
-   ===================================================== */
-
-
-/* =====================================================
-   1. NAVBAR
-   <a class="logo"> | <nav class="navbar-links"> | botão Sair
-   A página atual leva class="ativo" no link.
-   ===================================================== */
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;    /* logo | links | botão */
+  justify-content: space-between;    
   padding: 22px var(--margem-pagina);
   border-bottom: 1px solid var(--campo-borda);
 }
@@ -48,7 +23,6 @@
   color: var(--texto);
 }
 
-/* Funciona como <button> ou como <a href="login.html"> */
 .botao-sair {
   padding: 10px 22px;
   border: 1.5px solid var(--campo-borda);
@@ -58,7 +32,6 @@
   font-weight: 600;
 }
 
-/* Área da sessão na navbar: "Olá, nome" + Sair ou Fazer Login */
 .area-usuario {
   display: flex;
   align-items: center;
@@ -76,14 +49,10 @@
   font-weight: 600;
 }
 
-
-/* =====================================================
-   2. RODAPÉ
-   ===================================================== */
 .rodape {
   display: flex;
   align-items: center;
-  justify-content: space-between;    /* logo na esquerda, frase na direita */
+  justify-content: space-between;   
   padding: 44px var(--margem-pagina);
   border-top: 1px solid var(--campo-borda);
 }
@@ -93,15 +62,9 @@
   font-size: 13px;
 }
 
-
-/* =====================================================
-   3. SEÇÃO E CABEÇALHO DE SEÇÃO
-   <section class="secao"> + <header class="secao-cabecalho">
-   O título pode ser <h1> (título da página) ou <h2> (seções).
-   ===================================================== */
 .secao {
   display: flex;
-  flex-direction: column;            /* cabeçalho em cima, conteúdo embaixo */
+  flex-direction: column;           
   gap: 48px;
   padding: 80px var(--margem-pagina);
 }
@@ -126,9 +89,6 @@
   line-height: 26px;
 }
 
-/* Texto laranja pequeno em cima do título. Pode ser <span> ou <p>:
-   o seletor mais específico e o line-height impedem que o
-   ".secao-cabecalho p" acima deixe o rótulo cinza e grande. */
 .secao-cabecalho .secao-rotulo {
   color: var(--laranja);
   font-size: 13px;
@@ -137,11 +97,6 @@
   letter-spacing: 1.82px;
 }
 
-
-/* =====================================================
-   4. HERO
-   Texto à esquerda, card laranja (ou foto) à direita.
-   ===================================================== */
 .hero {
   display: flex;
   align-items: center;
@@ -150,10 +105,10 @@
 }
 
 .hero-texto {
-  flex: 1;                           /* ocupa o espaço que sobra ao lado do card */
+  flex: 1;                          
   display: flex;
   flex-direction: column;
-  align-items: flex-start;           /* evita o chip esticar até a largura toda */
+  align-items: flex-start;           
   gap: 28px;
 }
 
@@ -161,7 +116,7 @@
   font-family: var(--fonte-titulo);
   font-weight: 800;
   font-size: 104px;
-  line-height: 98px;                 /* menor que a fonte: linhas coladas */
+  line-height: 98px;               
 }
 
 .hero-texto p {
@@ -178,9 +133,9 @@
 .hero-card {
   width: 480px;
   height: 540px;
-  flex-shrink: 0;                    /* o card não encolhe quando o espaço aperta */
+  flex-shrink: 0;                 
   display: flex;
-  flex-direction: column;            /* chip em cima, sigla no meio, rodapé embaixo */
+  flex-direction: column;            
   align-items: flex-start;
   justify-content: space-between;
   padding: 32px;
@@ -188,14 +143,13 @@
   background-image: linear-gradient(131.63deg, var(--laranja) 0%, #1a0100 71.4%);
 }
 
-.f1-gigante {                        /* sigla grande e "fantasma" no meio do card */
+.f1-gigante {                        
   color: var(--texto);
   font-family: var(--fonte-titulo);
   font-weight: 800;
   font-size: 330px;
   line-height: 300px;
-  letter-spacing: -6.6px;            /* valor negativo aproxima as letras */
-  opacity: 0.22;
+  letter-spacing: -6.6px;            
 }
 
 .card-rodape {
@@ -210,14 +164,6 @@
   font-size: 34px;
 }
 
-
-/* =====================================================
-   5. CARDS
-   Os três compartilham a "caixa"; cada um só define o que muda.
-   .card-info  texto (rótulo + título + parágrafo)
-   .lenda      número grande + rótulo + título + parágrafo
-   .marco      ano + título + parágrafo (linha do tempo)
-   ===================================================== */
 .card-info,
 .lenda,
 .marco {
@@ -240,9 +186,8 @@
   color: var(--texto-suave);
 }
 
-/* --- card-info --- */
 .card-info {
-  flex: 1;                           /* numa linha flex, divide a largura igual */
+  flex: 1;                           
   gap: 12px;
   padding: 28px;
 }
@@ -264,10 +209,9 @@
   line-height: 23px;
 }
 
-/* --- lenda --- */
 .lenda {
   flex: 1;
-  min-width: 0;                      /* deixa o card encolher em vez de estourar */
+  min-width: 0;                      
   gap: 8px;
   padding: 24px;
 }
@@ -297,7 +241,6 @@
   line-height: 21px;
 }
 
-/* --- marco (o título pode ser h3 ou h4) --- */
 .marco {
   gap: 10px;
   padding: 24px;
@@ -322,30 +265,19 @@
   line-height: 21px;
 }
 
-
-/* =====================================================
-   6. GRADES
-   <div class="grade grade-4"> ou <div class="grade grade-3">
-   ===================================================== */
 .grade {
   display: grid;
   gap: 20px;
 }
 
 .grade-3 {
-  grid-template-columns: repeat(3, 1fr);   /* 1fr = uma fração do espaço */
+  grid-template-columns: repeat(3, 1fr);   
 }
 
 .grade-4 {
   grid-template-columns: repeat(4, 1fr);
 }
 
-
-/* =====================================================
-   7. NÚMEROS
-   .numeros sozinho: números dentro de outro card (página inicial).
-   .numeros numeros-faixa: faixa de números no topo da página (Senna, McLaren).
-   ===================================================== */
 .numeros {
   display: flex;
   gap: 16px;
@@ -356,7 +288,7 @@
 }
 
 .stat {
-  flex: 1;                           /* cada um ocupa a mesma largura */
+  flex: 1;                          
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -379,17 +311,13 @@
   font-weight: 500;
 }
 
-
-/* =====================================================
-   8. FRASES E BOTÕES DO FINAL
-   ===================================================== */
-.citacoes {                          /* caixa que empilha várias frases */
+.citacoes {                         
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
 
-.frase {                             /* <blockquote class="frase"> */
+.frase {                            
   padding-left: 16px;
   border-left: 4px solid var(--amarelo);
   font-family: var(--fonte-titulo);
@@ -398,7 +326,7 @@
   line-height: 36px;
 }
 
-.cta {                               /* botões no fim da página */
+.cta {                              
   display: flex;
   gap: 14px;
   padding: 24px var(--margem-pagina) 80px;

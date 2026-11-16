@@ -79,7 +79,6 @@
           />
         </div>
 
-        <!-- mensagens de erro e de sucesso aparecem aqui -->
         <div id="div_exibir"></div>
 
         <button type="submit" class="botao">Criar conta</button>
@@ -122,7 +121,6 @@
           mensagem = "As senhas não coincidem.";
         }
 
-        // se alguma validação falhou, mostra o erro e NÃO envia para a API
         if (mensagem != "") {
           exibirMensagem(mensagem, false);
           return false;

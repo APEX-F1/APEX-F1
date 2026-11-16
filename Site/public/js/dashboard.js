@@ -22,10 +22,7 @@
 var USAR_DADOS_DE_EXEMPLO = false;
 
 var PONTUACAO_MAXIMA = 144;   // soma dos pontos do quiz (16 perguntas)
-var TOTAL_PILOTOS = 23;       // grid do simulador (22 fixos + você)
-
 var COR_QUIZ = "#e10600";
-var COR_SIMULADOR = "#ff8000";
 
 // A API guarda a categoria do quiz; aqui ela vira o nome exibido no gráfico.
 var NOMES_TEMAS = {
@@ -64,14 +61,7 @@ var EXEMPLO_ERRADAS = [
     { enunciado: "Em que data a Netflix lançou a minissérie sobre o Senna?", tema: "Minha História", erros: 3 }
 ];
 
-var EXEMPLO_SIMULADOR = [
-    { pista: "Interlagos", posicao: 5, pontos: 10, data: "2026-11-02" },
-    { pista: "Mônaco", posicao: 3, pontos: 15, data: "2026-11-04" },
-    { pista: "Silverstone", posicao: 1, pontos: 25, data: "2026-11-06" },
-    { pista: "Monza", posicao: 2, pontos: 18, data: "2026-11-08" },
-    { pista: "Suzuka", posicao: 4, pontos: 12, data: "2026-11-09" },
-    { pista: "Spa", posicao: 1, pontos: 25, data: "2026-11-10" }
-];
+// Simulador arquivado — dados removidos do dashboard
 
 
 // ================================================================
@@ -260,56 +250,7 @@ function carregarErradas() {
 }
 
 
-// ---------------------------------------------------------------
-// SIMULADOR
-// ---------------------------------------------------------------
-function carregarSimulador() {
-    buscarDados(`/dashboard/simulador/${idUsuario}`, EXEMPLO_SIMULADOR).then(function (corridas) {
-
-        if (corridas.length == 0) {
-            mostrarMensagem("vazioSimulador");
-        }
-
-        // Indicadores
-        var vitorias = 0;
-        var podios = 0;
-        var pontos = 0;
-
-        var pistas = [];
-        var posicoes = [];
-        var pontosPorCorrida = [];
-
-        for (var i = 0; i < corridas.length; i++) {
-            if (corridas[i].posicao == 1) {
-                vitorias++;
-            }
-            if (corridas[i].posicao <= 3) {
-                podios++;
-            }
-            pontos += Number(corridas[i].pontos);
-
-            pistas.push(corridas[i].pista);
-            posicoes.push(corridas[i].posicao);
-            pontosPorCorrida.push(corridas[i].pontos);
-        }
-
-        kpiCorridas.innerHTML = corridas.length;
-        kpiVitorias.innerHTML = vitorias;
-        kpiPodios.innerHTML = podios;
-        kpiPontos.innerHTML = pontos;
-
-        // Gráfico: posição final (1º fica no topo)
-        criarGraficoLinha("graficoPosicoes", pistas, posicoes, COR_SIMULADOR,
-            { reverse: true, min: 1, max: TOTAL_PILOTOS, ticks: { precision: 0 } });
-
-        // Gráfico: pontos por corrida
-        criarGraficoBarras("graficoPontos", pistas, pontosPorCorrida, COR_SIMULADOR);
-
-    }).catch(function (erro) {
-        console.error(`Erro ao carregar o simulador: ${erro.message}`);
-        mostrarMensagem("vazioSimulador", "Não foi possível carregar os dados do simulador.");
-    });
-}
+// carregarSimulador desativado — simulador arquivado
 
 
 // ================================================================
@@ -322,4 +263,3 @@ if (USAR_DADOS_DE_EXEMPLO) {
 
 carregarQuiz();
 carregarErradas();
-carregarSimulador();
