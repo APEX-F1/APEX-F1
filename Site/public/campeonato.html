@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <link rel="icon" href="assets/icon/apex-f1.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APEX F1 | Mini Campeonato Mundial</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/componentes.css" />
+    <link rel="stylesheet" href="css/campeonato.css" />
+
+    <script src="js/sessao.js"></script>
+    <script>
+      validarSessao("login.html");
+    </script>
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-texto">APEX</span>
+        <span class="logo-badge">F1</span>
+      </a>
+      <nav class="navbar-links">
+        <a href="index.html">Início</a>
+        <a href="minha-historia.html">Minha história</a>
+        <a href="index.html#f1">F1</a>
+        <a href="index.html#lendas">Lendas</a>
+        <a href="paddock.html" class="ativo">Paddock</a>
+        <a href="dedicacoes.html">Dedicações</a>
+        <a href="dashboard/dashboard.html">Dashboard</a>
+      </nav>
+      <div class="area-usuario" id="area-usuario"></div>
+    </header>
+
+    <main>
+      <section class="secao simulador">
+        <header class="secao-cabecalho">
+          <span class="secao-rotulo">MINIGAME</span>
+          <h1>Mini Campeonato Mundial</h1>
+          <p>
+            Dispute as 6 etapas do campeonato, escolha o seu piloto e acompanhe
+            a classificação ao vivo. O resultado de cada corrida vai direto para
+            o dashboard.
+          </p>
+        </header>
+
+        <!-- Painel de informações: o JS atualiza a cada tique -->
+        <section class="painel-info">
+          <div class="info">
+            <span class="rotulo">Etapa</span>
+            <span class="valor" id="etapa">1 / 6</span>
+          </div>
+          <div class="info">
+            <span class="rotulo">Volta</span>
+            <span class="valor" id="voltaAtual">0 / 3</span>
+          </div>
+          <div class="info">
+            <span class="rotulo">Tempo</span>
+            <span class="valor" id="tempo">0.0s</span>
+          </div>
+          <div class="info">
+            <span class="rotulo">Líder</span>
+            <span class="valor" id="lider">-</span>
+          </div>
+        </section>
+
+        <!-- Escolha do piloto: as opções são criadas pelo JS -->
+        <section class="escolha">
+          <div class="campo">
+            <label for="selPiloto">Seu piloto</label>
+            <select id="selPiloto" onchange="montarGrid()"></select>
+          </div>
+
+          <div class="campo" id="caixaNome">
+            <!-- só aparece em "Correr com o meu nome" -->
+            <label for="inputNome">Seu nome</label>
+            <input
+              type="text"
+              id="inputNome"
+              maxlength="12"
+              placeholder="Digite seu nome"
+              oninput="montarGrid()"
+            />
+          </div>
+
+          <div class="campo" id="caixaNumero">
+            <!-- número do carro: 1 a 99, sem repetir e sem o 17 -->
+            <label for="inputNumero">Número do carro</label>
+            <input
+              type="number"
+              id="inputNumero"
+              min="1"
+              max="99"
+              placeholder="1 a 99"
+              oninput="montarGrid()"
+            />
+          </div>
+
+          <button id="btnLargar" type="button" class="botao-principal" onclick="largar()">
+            Largar
+          </button>
+        </section>
+
+        <p id="aviso"></p>
+
+        <h3 id="gp"></h3>
+        <!-- nome do GP e da pista da etapa atual -->
+
+        <div id="semaforo">
+          <!-- 5 luzes: o JS troca as classes para vermelha e depois verde -->
+          <span class="luz"></span><span class="luz"></span><span class="luz"></span><span class="luz"></span><span class="luz"></span>
+        </div>
+
+        <div class="corpo">
+          <div id="pista"></div>
+          <!-- o JS cria uma faixa para cada piloto -->
+
+          <aside class="lateral">
+            <h3>Classificação ao vivo</h3>
+            <div id="classificacao"></div>
+
+            <h3>Campeonato</h3>
+            <div id="campeonato"></div>
+            <!-- pontos acumulados -->
+          </aside>
+        </div>
+
+        <div id="resultado"></div>
+        <!-- resultado da etapa -->
+      </section>
+
+      <section class="cta">
+        <a href="paddock.html" class="botao-secundario">Voltar ao Paddock</a>
+        <a href="dashboard/dashboard.html" class="botao-secundario">Ver meu dashboard</a>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="logo">
+        <span class="logo-texto">APEX</span>
+        <span class="logo-badge">F1</span>
+      </div>
+      <p>Projeto individual | SPTech | Feito com paixão pela Fórmula 1</p>
+    </footer>
+
+    <script src="js/campeonato.js"></script>
+  </body>
+</html>

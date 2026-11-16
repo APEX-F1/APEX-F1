@@ -1,0 +1,407 @@
+/* =====================================================
+   APEX F1 | campeonato.css
+   Estilos do Mini Campeonato Mundial (substitui o antigo
+   simulador). Carregue depois de base.css e componentes.css.
+   ===================================================== */
+
+.simulador {
+  gap: 24px;
+}
+
+.simulador h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--texto);
+}
+
+/* ===== PAINEL DE INFORMAÇÕES ===== */
+
+.painel-info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.painel-info .info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid var(--campo-borda);
+  border-radius: 12px;
+  background-color: var(--card-fundo);
+  text-align: center;
+}
+
+.rotulo {
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+
+.valor {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 30px;
+}
+
+/* ===== ESCOLHA DO PILOTO ===== */
+
+.escolha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo label {
+  font-size: 14px;
+  color: var(--texto-suave);
+}
+
+.campo select,
+.campo input {
+  min-width: 220px;
+  padding: 12px 14px;
+  border: 1px solid var(--campo-borda);
+  border-radius: 8px;
+  background-color: var(--campo-fundo);
+  color: var(--texto);
+  font-size: 15px;
+}
+
+.campo select:disabled,
+.campo input:disabled {
+  opacity: 0.5;
+}
+
+.campo select:focus-visible,
+.campo input:focus-visible,
+#btnLargar:focus-visible {
+  outline: 3px solid var(--laranja);
+  outline-offset: 2px;
+}
+
+#caixaNome,
+#caixaNumero {
+  display: none;
+}
+
+#btnLargar {
+  border: none;
+}
+
+#btnLargar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#aviso {
+  min-height: 20px;
+  color: var(--vermelho);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ===== GP E SEMÁFORO ===== */
+
+#gp {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+#gp small {
+  font-family: var(--fonte-texto);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--texto-suave);
+}
+
+#semaforo {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  width: fit-content;
+  margin: 4px auto 8px;
+  padding: 14px 22px;
+  border: 1px solid var(--campo-borda);
+  border-radius: 12px;
+  background-color: var(--card-fundo);
+}
+
+.luz {
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--campo-borda);
+  border-radius: 50%;
+  background-color: var(--campo-fundo);
+}
+
+.luz.vermelha {
+  border-color: #ff7b7b;
+  background-color: #ff1f1f;
+  box-shadow: 0 0 14px #ff1f1f;
+}
+
+.luz.verde {
+  border-color: #7dffa5;
+  background-color: #1fe060;
+  box-shadow: 0 0 14px #1fe060;
+}
+
+/* ===== PISTA ===== */
+
+.corpo {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 16px;
+  align-items: start;
+}
+
+#pista {
+  padding: 12px;
+  border: 1px solid var(--campo-borda);
+  border-radius: 14px;
+  background-color: var(--card-fundo);
+}
+
+.faixa {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+
+.faixa.meu-piloto {
+  background-color: rgba(255, 128, 0, 0.14);
+  box-shadow: inset 0 0 0 2px var(--laranja);
+}
+
+.piloto-nome {
+  width: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trilho {
+  position: relative;
+  flex: 1;
+  height: 26px;
+  margin-right: 56px;
+  border-radius: 4px;
+  background-color: var(--campo-fundo);
+  background-image: linear-gradient(to right, var(--campo-borda) 50%, transparent 50%);
+  background-size: 24px 2px;
+  background-repeat: repeat-x;
+  background-position: 0 50%;
+}
+
+.marca {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--campo-borda);
+}
+
+.linha-chegada {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -56px;
+  width: 12px;
+  background-color: #ffffff;
+  background-image: repeating-conic-gradient(#ffffff 0% 25%, #1a1c21 0% 50%);
+  background-size: 12px 12px;
+}
+
+.carro {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  width: 56px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px 14px 14px 6px;
+  color: #15161a;
+  font-size: 12px;
+  font-weight: 700;
+  transition: left 0.1s linear;
+}
+
+.carro::before,
+.carro::after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  width: 12px;
+  height: 5px;
+  border-radius: 2px;
+  background-color: #000000;
+}
+
+.carro::before {
+  top: -4px;
+}
+
+.carro::after {
+  bottom: -4px;
+}
+
+.volta-piloto {
+  width: 56px;
+  text-align: right;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+
+/* ===== PAINEL LATERAL ===== */
+
+.lateral {
+  padding: 16px;
+  border: 1px solid var(--campo-borda);
+  border-radius: 14px;
+  background-color: var(--card-fundo);
+}
+
+.lateral h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+#classificacao {
+  margin-bottom: 20px;
+}
+
+.linha-class {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.linha-class.meu {
+  background-color: rgba(255, 128, 0, 0.14);
+  outline: 1px solid var(--laranja);
+}
+
+.pos {
+  width: 22px;
+  font-weight: 700;
+  color: var(--laranja);
+}
+
+.cor {
+  width: 4px;
+  height: 18px;
+  border-radius: 2px;
+}
+
+.nome-class {
+  flex: 1;
+}
+
+.pts {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+
+#campeonato {
+  margin-bottom: 0;
+}
+
+/* ===== RESULTADO FINAL ===== */
+
+#resultado {
+  margin-top: 8px;
+  padding: 16px;
+  border: 1px solid var(--campo-borda);
+  border-radius: 14px;
+  background-color: var(--card-fundo);
+}
+
+#resultado:empty {
+  display: none;
+}
+
+#resultado h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.linha-resultado {
+  display: grid;
+  grid-template-columns: 44px 1fr auto 60px;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.mensagem-final {
+  margin-top: 14px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--laranja);
+}
+
+/* ===== TELAS PEQUENAS ===== */
+
+@media (max-width: 900px) {
+  .corpo {
+    grid-template-columns: 1fr;
+  }
+
+  .painel-info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .piloto-nome {
+    width: 64px;
+    font-size: 12px;
+  }
+
+  .volta-piloto {
+    width: 44px;
+    font-size: 11px;
+  }
+
+  .campo {
+    width: 100%;
+  }
+
+  .campo select,
+  .campo input {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carro {
+    transition: none;
+  }
+}
