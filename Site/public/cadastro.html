@@ -94,7 +94,7 @@
         div_exibir.innerHTML = texto;
       }
 
-      function cadastrar() {
+    function cadastrar() {
         var nomeVar = ipt_nome.value;
         var nascimentoVar = ipt_nascimento.value;
         var emailVar = ipt_email.value;
@@ -123,6 +123,35 @@
 
         if (mensagem != "") {
           exibirMensagem(mensagem, false);
+          return false;
+        }
+
+        var temMaiuscula = false;
+        var temMinuscula = false;
+        var temNumero = false;
+        var temSimbolo = false;
+
+        for (var i = 0; i < senhaVar.length; i++) {
+          var caractere = senhaVar.charAt(i);
+          if (caractere !== caractere.toLowerCase()) {
+            temMaiuscula = true;
+          } else if (caractere !== caractere.toUpperCase()) {
+            temMinuscula = true;
+          } else if (caractere >= '0' && caractere <= '9') {
+            temNumero = true;
+          } else {
+            temSimbolo = true;
+          }
+        }
+
+        if (!temMaiuscula || !temMinuscula || !temNumero || !temSimbolo) {
+          var falta = [];
+          if (!temMaiuscula) falta.push('uma letra maiúscula');
+          if (!temMinuscula) falta.push('uma letra minúscula');
+          if (!temNumero) falta.push('um número');
+          if (!temSimbolo) falta.push('um símbolo (por exemplo: @#$)');
+
+          exibirMensagem('A senha precisa ter pelo menos ' + falta.join(', ') + '.', false);
           return false;
         }
 

@@ -93,6 +93,8 @@
 
                 <h3 id="classificacao">Estreante</h3>
                 <p><span id="pontuacaoFinal">0</span> de 144 pontos (<span id="percentualFinal">0</span>%)</p>
+                <!-- Pontuação em binário (adicionada para conteúdo pedagógico) -->
+                <p id="pontuacaoBinaria" class="subtitulo"></p>
 
                 <div class="resultado-temas">
                     <p>Senna: <span id="acertosSenna">0</span> de 6</p>
@@ -389,6 +391,24 @@
         classificacao.innerHTML = classificar(percentual);
         pontuacaoFinal.innerHTML = pontuacao;
         percentualFinal.innerHTML = percentual;
+// .
+        var numero = pontuacao;
+        var binario = "";
+
+        if (numero === 0) {
+          binario = "0";
+        } else {
+          while (numero > 0) {
+            var resto = numero % 2;
+            binario = String(resto) + binario;
+            numero = Math.floor(numero / 2);
+          }
+        }
+
+        var elBin = document.getElementById('pontuacaoBinaria');
+        if (elBin) {
+          elBin.innerHTML = 'Sua pontuação em binário: ' + binario + ' <small>É assim que o computador guarda esse número</small>';
+        }
         acertosSenna.innerHTML = contarAcertos("Senna");
         acertosF1.innerHTML = contarAcertos("Fórmula 1");
         acertosHistoria.innerHTML = contarAcertos("Minha História");
